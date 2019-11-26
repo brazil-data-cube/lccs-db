@@ -13,4 +13,4 @@ include *.py
 include LICENSE
 include pytest.ini
 recursive-include tests *.py
-recursive-include lccs *.json
+recursive-include lccs_db *.py

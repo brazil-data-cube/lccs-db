@@ -68,7 +68,7 @@ setup(
     license='MIT',
     author='INPE',
     author_email='fabi.zioti@gmail.com',
-    url='https://github.com/brazil-data-cube/wlts.py',
+    url='https://github.com/brazil-data-cube/lccs-db',
     packages=packages,
     zip_safe=False,
     include_package_data=True,
