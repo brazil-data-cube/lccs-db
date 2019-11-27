@@ -7,7 +7,3 @@
 #
 
 """Python Client Library for Land Cover Classification System Database Model."""
-
-from .version import __version__
-
-__all__ = ( '__version__', )
