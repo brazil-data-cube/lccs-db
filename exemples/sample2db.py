@@ -14,8 +14,7 @@ import sys
 sys.path.append(os.path.abspath('.'))
 sys.path.append(os.path.abspath('../'))
 
-from lccs_db.model.base import db
-from lccs_db.model.luc_classification_system import LucClassificationSystem
+from lccs_db.models import db, LucClassificationSystem
 
 class_systems = [
     {
@@ -60,8 +59,7 @@ if __name__ == '__main__':
 
     for class_system in class_systems:
         try:
-            luc_system = LucClassificationSystem.get(
-                system_name=class_system['system_name'])
+            luc_system = LucClassificationSystem.get(system_name=class_system['system_name'])
         except BaseException:
             luc_system = LucClassificationSystem()
             luc_system.authority_name = class_system['authority_name']

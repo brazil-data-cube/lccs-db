@@ -8,6 +8,10 @@
 
 """Python Client Library for Land Cover Classification System Database Model."""
 
-from .version import __version__
+from .base import db
+from .class_mapping import ClassMapping
+from .luc_classification_system import LucClassificationSystem
+from .luc_class import LucClass
 
-__all__ = ('__version__',)
+
+__all__ = ('__version__', 'db', 'LucClass', 'LucClassificationSystem', 'ClassMapping', )

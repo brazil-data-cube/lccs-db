@@ -33,7 +33,7 @@ class DatabaseWrapper(object):
         self.Model = declarative_base(metadata=MetaData(schema="bdc"))
 
     def init_model(self, uri):
-        """Init model."""
+        """Init models."""
         self.engine = create_engine(uri)
         self.DBSession.configure(bind=self.engine)
         self.session = self.DBSession()
@@ -43,9 +43,13 @@ db = DatabaseWrapper()
 
 
 class BaseModel(db.Model):
-    """Abstract class for ORM model."""
+    """Abstract class for ORM models."""
 
     __abstract__ = True
+
+    created_at = Column(DateTime, default=datetime.utcnow())
+    updated_at = Column(DateTime, default=datetime.utcnow(),
+                        onupdate=datetime.utcnow())
 
     def save(self, commit=True):
         """Save and persists object in database."""

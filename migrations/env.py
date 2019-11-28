@@ -9,7 +9,7 @@ from alembic import context
 sys.path.append(os.path.abspath('.'))
 sys.path.append(os.path.abspath('../'))
 
-from lccs_db import base
+from lccs_db import models
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -19,10 +19,10 @@ config = context.config
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
+# add your models's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
-target_metadata = base.db.Model.metadata
+target_metadata = models.db.Model.metadata
 # target_metadata = None
 
 # other values from the config, defined by the needs of env.py,
@@ -30,6 +30,13 @@ target_metadata = base.db.Model.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
+exclude_tables = [
+    'spatial_ref_sys'
+]
+
+def include_object(object, name, type_, reflected, compare_to):
+    """Ignores the tables in 'exclude_tables'"""
+    return not (type_ == "table" and name in exclude_tables)
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode.
