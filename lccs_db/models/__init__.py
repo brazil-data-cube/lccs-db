@@ -14,4 +14,4 @@ from .luc_classification_system import LucClassificationSystem
 from .luc_class import LucClass
 
 
-__all__ = ('__version__', 'db', 'LucClass', 'LucClassificationSystem', 'ClassMapping', )
+__all__ = ('db', 'LucClass', 'LucClassificationSystem', 'ClassMapping', )

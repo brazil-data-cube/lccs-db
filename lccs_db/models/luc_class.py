@@ -13,7 +13,7 @@ from sqlalchemy import Column, ForeignKey, Integer, Text
 from sqlalchemy.orm import relationship
 
 class LucClass(BaseModel):
-    """LucClassificationSystem."""
+    """LucClass."""
 
     __tablename__ = 'luc_class'
     __table_args__ = {'schema': 'bdc'}
