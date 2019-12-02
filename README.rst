@@ -42,7 +42,7 @@ See `RUNNING.rst <./RUNNING.rst>`_.
 Developer Documentation
 =======================
 
-See https://lccs_db.readthedocs.io/en/latest.
+See https://lccs-db.readthedocs.io/en/latest/
 
 
 License
