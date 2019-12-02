@@ -19,6 +19,10 @@ Land Cover Classification System Database Model
 .. image:: https://coveralls.io/repos/github/brazil-data-cube/lccs-db/badge.svg?branch=master
         :target: https://coveralls.io/github/brazil-data-cube/lccs-db?branch=master
 
+.. image:: https://readthedocs.org/projects/lccs-db/badge/?version=latest
+        :target: https://lccs-db.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
 .. image:: https://img.shields.io/badge/lifecycle-experimental-orange.svg
         :target: https://www.tidyverse.org/lifecycle/#experimental
 

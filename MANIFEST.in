@@ -6,15 +6,25 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
+exclude doc/sphinx/_build
 include *.in
 include *.rst
 include *.sh
 include *.txt
 include *.py
+include *.yml
 include LICENSE
 include pytest.ini
 include alembic.ini
-recursive-include tests *.py
+include migrations/README
+recursive-exclude doc/sphinx/_build *
+recursive-include doc *.bat
+recursive-include doc *.css
+recursive-include doc *.py
+recursive-include doc *.rst
+recursive-include doc Makefile
 recursive-include exemples *.py
 recursive-include migrations *.mako
 recursive-include migrations *.py
+recursive-include spec *.xml
+recursive-include tests *.py
