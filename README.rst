@@ -16,9 +16,6 @@ Land Cover Classification System Database Model
 .. image:: https://travis-ci.org/brazil-data-cube/lccs-db.svg?branch=master
         :target: https://travis-ci.org/brazil-data-cube/lccs-db
 
-.. image:: https://img.shields.io/badge/tests-0%20passed,%200%20failed-critical
-        :target: https://travis-ci.org/brazil-data-cube/lccs-db
-
 .. image:: https://coveralls.io/repos/github/brazil-data-cube/lccs-db/badge.svg?branch=master
         :target: https://coveralls.io/github/brazil-data-cube/lccs-db?branch=master
 
@@ -29,13 +26,19 @@ Land Cover Classification System Database Model
 Installation
 ============
 
-**Under Development!**
+See `INSTALL.rst <./INSTALL.rst>`_.
+
+
+Running
+=======
+
+See `RUNNING.rst <./RUNNING.rst>`_.
 
 
 Developer Documentation
 =======================
 
-**Under Development!**
+See https://lccs_db.readthedocs.io/en/latest.
 
 
 License

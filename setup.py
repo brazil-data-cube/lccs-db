@@ -42,14 +42,9 @@ setup_requires = [
 ]
 
 install_requires = [
-    'requests>=2.20',
-    'geopandas>=0.5.0',
     'SQLAlchemy[postgresql]>=1.3.4',
     'alembic>=1.0.10',
     'GeoAlchemy2>=0.6.3',
-    'Shapely>=1.6.4',
-    'marshmallow-sqlalchemy>=0.19.0',
-    'bdc-core @ git+git://github.com/brazil-data-cube/bdc-core.git#egg=bdc-core',
 ]
 
 packages = find_packages()
