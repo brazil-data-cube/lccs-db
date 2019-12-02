@@ -1,0 +1,12 @@
+psycopg2>=2.8.3
+SQLAlchemy==1.3.4
+alembic==1.0.10
+GeoAlchemy2==0.6.3
+Werkzeug==0.15.4
+Shapely==1.6.4.post1
+Flask>=1.1.1
+Flask-Script
+flask-cors
+flask-restplus
+flask-bcrypt
+git+https://github.com/brazil-data-cube/bdc-core@master
