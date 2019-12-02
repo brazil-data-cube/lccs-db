@@ -13,7 +13,7 @@ Land Cover Classification System Database Model
 .. image:: https://img.shields.io/badge/license-MIT-green
         :target: https://github.com//brazil-data-cube/lccs-db/blob/master/LICENSE
 
-.. image:: https://img.shields.io/badge/build-todo-success
+.. image:: https://travis-ci.org/brazil-data-cube/lccs-db.svg?branch=master
         :target: https://travis-ci.org/brazil-data-cube/lccs-db
 
 .. image:: https://img.shields.io/badge/tests-0%20passed,%200%20failed-critical
