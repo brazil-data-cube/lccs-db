@@ -6,4 +6,4 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Unit-test for lccs_db model."""
+"""Unit-test for lccs_db models."""

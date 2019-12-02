@@ -1,16 +1,20 @@
 #
-# This file is part of Web Land Trajectory Service.
+# This file is part of Land Cover Classification Database Model.
 # Copyright (C) 2019 INPE.
 #
-# Land Cover Classification System Database Model is free software; you can redistribute it and/or modify it
+# Land Cover Classification Database Model is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
+include *.in
 include *.rst
 include *.sh
 include *.txt
 include *.py
 include LICENSE
 include pytest.ini
+include alembic.ini
 recursive-include tests *.py
-recursive-include lccs_db *.py
+recursive-include exemples *.py
+recursive-include migrations *.mako
+recursive-include migrations *.py
