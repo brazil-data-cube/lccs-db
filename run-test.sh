@@ -7,7 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-pydocstyle lccs_db && \
-isort --check-only --diff --recursive **/*.py && \
-check-manifest --ignore ".travis-*" && \
-pytest
+pydocstyle lccs_db #&& \
+#isort --check-only --diff --recursive **/*.py && \
+#check-manifest --ignore ".travis-*" && \
+#pytest

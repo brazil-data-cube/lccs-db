@@ -1,5 +1,5 @@
 #
-# This file is part of Web Land Trajectory Service.
+# This file is part of Land Cover Classification System Database Model.
 # Copyright (C) 2019 INPE.
 #
 # Land Cover Classification System Database Model is free software; you can redistribute it and/or modify it
