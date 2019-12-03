@@ -16,7 +16,7 @@ class LucClassificationSystem(BaseModel):
     """LucClassificationSystem."""
 
     __tablename__ = 'luc_classification_system'
-    __table_args__ = {'schema': 'bdc'}
+    __table_args__ = {"schema": "bdc"}
 
     id = Column(Integer, primary_key=True)
     authority_name = Column(Text, nullable=False)

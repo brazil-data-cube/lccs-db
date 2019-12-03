@@ -16,12 +16,13 @@ class LucClass(BaseModel):
     """LucClass."""
 
     __tablename__ = 'luc_class'
-    __table_args__ = {'schema': 'bdc'}
+    __table_args__ = {"schema": "bdc"}
 
     id = Column(Integer, primary_key=True)
     codigo = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
     description = Column(Text, nullable=False)
+    style = Column(Text, nullable=False)
     luc_classification_system_id = Column(Integer, ForeignKey('luc_classification_system.id',
                                                               ondelete='NO ACTION'), nullable=False)
     parent_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=True)

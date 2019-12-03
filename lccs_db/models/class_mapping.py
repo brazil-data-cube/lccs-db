@@ -16,19 +16,12 @@ class ClassMapping(BaseModel):
     """ClassMapping."""
 
     __tablename__ = 'class_mapping'
-    __table_args__ = {'schema': 'bdc'}
+    __table_args__ = {"schema": "bdc"}
 
-    id = Column(Integer, primary_key=True)
-    source_classification_sys_id = Column(Integer, ForeignKey('luc_classification_system.id', ondelete='NO ACTION'),
-                                          nullable=False)
-    target_classification_sys_id = Column(Integer,ForeignKey('luc_classification_system.id', ondelete='NO ACTION'),
-                                          nullable=False)
-    source_class_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=False)
-    target_class_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=False)
+    source_class_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
+    target_class_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
     description = Column(Text, nullable=False)
     degree_of_similarity = Column(Numeric, nullable=False)
 
-    source_classification_sys = relationship('LucClassificationSystem', foreign_keys=[source_classification_sys_id])
-    target_classification_sys = relationship('LucClassificationSystem', foreign_keys=[target_classification_sys_id])
     source_class = relationship('LucClass', foreign_keys=[source_class_id])
     target_class = relationship('LucClass', foreign_keys=[target_class_id])
