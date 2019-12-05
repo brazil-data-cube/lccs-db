@@ -16,7 +16,7 @@ class ClassMapping(BaseModel):
     """ClassMapping."""
 
     __tablename__ = 'class_mapping'
-    __table_args__ = {"schema": "bdc"}
+    __table_args__ = {'schema': 'bdc'}
 
     source_class_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
     target_class_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=False, primary_key=True)

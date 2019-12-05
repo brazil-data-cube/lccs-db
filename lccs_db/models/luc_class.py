@@ -16,7 +16,7 @@ class LucClass(BaseModel):
     """LucClass."""
 
     __tablename__ = 'luc_class'
-    __table_args__ = {"schema": "bdc"}
+    __table_args__ = {'schema': 'bdc'}
 
     id = Column(Integer, primary_key=True)
     codigo = Column(Text, nullable=False)
