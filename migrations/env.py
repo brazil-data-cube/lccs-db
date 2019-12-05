@@ -55,7 +55,8 @@ def run_migrations_offline():
         url=url,
         target_metadata=target_metadata,
         literal_binds=True,
-        include_object=include_object
+        include_object=include_object,
+        include_schemas=True
     )
 
     with context.begin_transaction():
@@ -78,7 +79,8 @@ def run_migrations_online():
     with connectable.connect() as connection:
         context.configure(
             connection=connection, target_metadata=target_metadata,
-            include_object=include_object
+            include_object=include_object,
+            include_schemas=True
         )
 
         with context.begin_transaction():
