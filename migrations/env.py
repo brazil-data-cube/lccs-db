@@ -19,6 +19,10 @@ config = context.config
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
 
+config.set_main_option(
+    'sqlalchemy.url', os.environ.get(
+        'SQLALCHEMY_DATABASE_URI').replace('%', '%%'))
+
 # add your models's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
