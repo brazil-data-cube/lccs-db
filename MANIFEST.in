@@ -23,7 +23,8 @@ recursive-include doc *.css
 recursive-include doc *.py
 recursive-include doc *.rst
 recursive-include doc Makefile
-recursive-include exemples *.py
+recursive-include examples *.py
+recursive-include examples *.sql
 recursive-include migrations *.mako
 recursive-include migrations *.py
 recursive-include spec *.xml

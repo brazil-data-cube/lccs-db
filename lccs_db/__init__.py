@@ -6,7 +6,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Python Client Library for Land Cover Classification System Database Model."""
+"""Python Land Cover Classification System Database Model."""
 
 from .version import __version__
 

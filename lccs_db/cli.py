@@ -12,6 +12,7 @@ import subprocess
 
 import click
 
+
 def alembic_migration(url):
     """LCCSDM on command line."""
     env = os.environ.copy()
