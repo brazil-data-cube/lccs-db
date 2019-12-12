@@ -2,9 +2,9 @@ import os
 import sys
 from logging.config import fileConfig
 
+from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from alembic import context
 
 sys.path.append(os.path.abspath('.'))
 sys.path.append(os.path.abspath('../'))
@@ -18,6 +18,10 @@ config = context.config
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
+
+config.set_main_option(
+    'sqlalchemy.url', os.environ.get(
+        'SQLALCHEMY_DATABASE_URI').replace('%', '%%'))
 
 # add your models's MetaData object here
 # for 'autogenerate' support

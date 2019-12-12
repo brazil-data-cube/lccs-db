@@ -45,6 +45,7 @@ install_requires = [
     'SQLAlchemy[postgresql]>=1.3.4',
     'alembic>=1.0.10',
     'GeoAlchemy2>=0.6.3',
+    'Click>=7.0',
 ]
 
 packages = find_packages()
@@ -69,6 +70,9 @@ setup(
     include_package_data=True,
     platforms='any',
     entry_points={
+        'console_scripts': [
+            'lccs_db = lccs_db.cli:cli',
+        ],
     },
     extras_require=extras_require,
     install_requires=install_requires,
