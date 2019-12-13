@@ -11,14 +11,14 @@
 import os.path
 
 def load_data(file_path):
-
+    """Load file."""
     with open(file_path) as f:
         data = f.read()
 
     return data
 
 def load_dbdata():
-
+    """Load data."""
     module_path = os.path.dirname(os.path.abspath(__file__))
 
     sql = load_data(os.path.join(module_path, 'sql_insert.sql'))
