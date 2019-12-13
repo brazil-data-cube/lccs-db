@@ -45,6 +45,7 @@ install_requires = [
     'SQLAlchemy[postgresql]>=1.3.4',
     'alembic>=1.0.10',
     'GeoAlchemy2>=0.6.3',
+    'sqlalchemy-utils>=0.36.0'
     'Click>=7.0',
 ]
 
