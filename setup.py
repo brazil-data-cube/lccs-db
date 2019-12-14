@@ -9,6 +9,7 @@
 """Python for the Land Cover Classification System Database Model."""
 
 import os
+
 from setuptools import find_packages, setup
 
 readme = open('README.rst').read()
