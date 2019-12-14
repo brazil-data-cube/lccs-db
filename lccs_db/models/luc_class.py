@@ -15,16 +15,17 @@ from sqlalchemy.orm import relationship
 class LucClass(BaseModel):
     """LucClass."""
 
-    __tablename__ = 'luc_class'
-    __table_args__ = {'schema': 'bdc'}
+    __tablename__ = 'class'
+    __table_args__ = {'schema': 'luc'}
 
     id = Column(Integer, primary_key=True)
-    codigo = Column(Text, nullable=False)
+    code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
     description = Column(Text, nullable=False)
     style = Column(Text, nullable=False)
-    luc_classification_system_id = Column(Integer, ForeignKey('luc_classification_system.id',
+    classification_system_id = Column(Integer, ForeignKey('luc.classification_system.id',
                                                               ondelete='NO ACTION'), nullable=False)
-    parent_id = Column(Integer, ForeignKey('luc_class.id', ondelete='NO ACTION'), nullable=True)
 
-    luc_classification_system = relationship('LucClassificationSystem')
+    parent_id = Column(Integer, ForeignKey('luc.class.id', ondelete='NO ACTION'), nullable=True)
+
+    classification_system = relationship('LucClassificationSystem')
