@@ -46,7 +46,7 @@ pass_config = click.make_pass_decorator(Config, ensure=True)
 @pass_config
 def cli(config, user, host, password, port, db_name):
     """LCCSDM on command line."""
-    config.uri = "postgresql://postgres:{}@{}:{}/{}".format(password, host, port, db_name)
+    config.uri = "postgresql://{}:{}@{}:{}/{}".format(user, password, host, port, db_name)
 
     config.engine = sqlalchemy.create_engine(config.uri)
 
