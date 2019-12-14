@@ -21,6 +21,6 @@ def load_dbdata():
     """Load data."""
     module_path = os.path.dirname(os.path.abspath(__file__))
 
-    sql = load_data(os.path.join(module_path, 'sql_insert.sql'))
+    sql = load_data(os.path.join(module_path, 'default_class_systems.sql'))
 
     return sql
