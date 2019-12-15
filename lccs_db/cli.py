@@ -16,7 +16,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import text
 
-from lccs_db.db_data import load_dbdata, load_data
+from lccs_db.data import load_dbdata, load_data
 
 class Config:
     """A simple decorator class for command line options."""
