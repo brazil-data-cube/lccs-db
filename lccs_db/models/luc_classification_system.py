@@ -15,11 +15,11 @@ from .base import BaseModel
 class LucClassificationSystem(BaseModel):
     """LucClassificationSystem."""
 
-    __tablename__ = 'luc_classification_system'
-    __table_args__ = {'schema': 'bdc'}
+    __tablename__ = 'classification_system'
+    __table_args__ = {'schema': 'luc'}
 
     id = Column(Integer, primary_key=True)
+    name = Column(Text, nullable=False)
     authority_name = Column(Text, nullable=False)
-    system_name = Column(Text, nullable=False)
     description = Column(Text, nullable=False)
     version = Column(Text, nullable=False)

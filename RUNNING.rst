@@ -26,7 +26,7 @@ If all the commands succeed, for PostgreSQL you can check the created table with
 
 .. code-block:: sql
 
-        \dt bdc.*
+        \dt luc.*
 
 
 You should get a similar output::
@@ -34,12 +34,12 @@ You should get a similar output::
                            List of relations
          Schema |           Name            | Type  |  Owner
         --------+---------------------------+-------+----------
-         bdc    | class_mapping             | table | postgres
-         bdc    | luc_class                 | table | postgres
-         bdc    | luc_classification_system | table | postgres
+         luc    | class_mapping             | table | postgres
+         luc    | class                     | table | postgres
+         luc    | classification_system     | table | postgres
         (3 rows)
 
-Insert defaut data into data base:
+Insert default data into database:
 
 .. code-block:: shell
 
