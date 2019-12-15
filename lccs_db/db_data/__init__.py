@@ -8,10 +8,6 @@
 
 """Python Land Cover Classification System Database Model."""
 
-from .base import db
-from .class_mapping import ClassMapping
-from .luc_classification_system import LucClassificationSystem
-from .luc_class import LucClass
+from .data import load_dbdata, load_data
 
-
-__all__ = ('db', 'LucClass', 'LucClassificationSystem', 'ClassMapping', )
+__all__ = ('load_dbdata', 'load_data',)

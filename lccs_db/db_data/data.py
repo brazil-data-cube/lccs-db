@@ -8,10 +8,19 @@
 
 """Python Land Cover Classification System Database Model."""
 
-from .base import db
-from .class_mapping import ClassMapping
-from .luc_classification_system import LucClassificationSystem
-from .luc_class import LucClass
+import os.path
 
+def load_data(file_path):
+    """Load file."""
+    with open(file_path) as f:
+        data = f.read()
 
-__all__ = ('db', 'LucClass', 'LucClassificationSystem', 'ClassMapping', )
+    return data
+
+def load_dbdata():
+    """Load data."""
+    module_path = os.path.dirname(os.path.abspath(__file__))
+
+    sql = load_data(os.path.join(module_path, 'sql_insert.sql'))
+
+    return sql

@@ -6,30 +6,21 @@
     under the terms of the MIT License; see LICENSE file for more details.
 
 
-Running
-=======
+Running LCCS-DB in the Command Line
+===================================
 
-LCCS-DB utilizes `Alembic <https://alembic.sqlalchemy.org/>`_. For running the migration script you will need to create a database repository first.
+Create a PostgreSQL database:
 
-In PostgreSQL this can be accomplished in the ``psql`` terminal with the following commands:
+.. code-block:: shell
 
-.. code-block:: sql
-
-        CREATE DATABASE lccs_db TEMPLATE template1;
-
-        \c lccs_db
-
-        CREATE EXTENSION postgis;
+        lccs_db --user postgres --host localhost --port 5432 --db_name sampledb init-db
 
 
 After that, run migration command to prepare the LCCS data model:
 
-.. code-block:: bash
+.. code-block:: shell
 
-        alembic upgrade head
-
-
-**Note:** Before running the above command, make sure that the ``alembic.ini`` has a proper value set for the key ``sqlalchemy.url``.
+        lccs_db --user postgres --host localhost --port 5442 --db_name sampledb init-alembic
 
 If all the commands succeed, for PostgreSQL you can check the created table within the ``psql`` terminal as follow:
 
@@ -47,3 +38,15 @@ You should get a similar output::
          bdc    | luc_class                 | table | postgres
          bdc    | luc_classification_system | table | postgres
         (3 rows)
+
+Insert defaut data into data base:
+
+.. code-block:: shell
+
+        lccs_db --user postgres --host localhost --port 5442 --db_name sampledb insert-db
+
+or:
+
+.. code-block:: shell
+
+        lccs_db --user postgres --host localhost --port 5442 --db_name sampledb insert-db --ifile insert.sql
