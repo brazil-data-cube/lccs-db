@@ -27,6 +27,8 @@ tests_require = [
     'pytest-pep8>=1.0',
     'pydocstyle>=4.0',
     'isort>4.3',
+    'sqlalchemy-diff>=0.1.3',
+    'alembic-verify>=0.1.4',
     'check-manifest>=0.40'
 ]
 
