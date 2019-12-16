@@ -7,16 +7,17 @@
 #
 
 """Command line interface for the Land Cover Classification System Database Model ."""
+import os
+import subprocess
+
 import click
 import sqlalchemy
-import subprocess
-import os
-
-from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import text
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy_utils import create_database, database_exists
 
-from lccs_db.data import load_dbdata, load_data
+from lccs_db.data import load_dbdata
+
 
 class Config:
     """A simple decorator class for command line options."""
