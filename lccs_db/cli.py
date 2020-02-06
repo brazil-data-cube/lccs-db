@@ -32,8 +32,17 @@ class Config:
 
     def execute(self, sql_query):
         """Execute query of Config decorator."""
-        with self.engine.connect() as conn:
-            conn.execute(text(sql_query))
+
+        connection = self.engine.connect()
+        trans = connection.begin()
+        try:
+            connection.execute(text(sql_query))
+            trans.commit()
+            click.echo("Execute OK")
+        except:
+            click.echo("Error while execute query")
+            trans.rollback()
+            raise
 
 
 pass_config = click.make_pass_decorator(Config, ensure=True)
@@ -61,8 +70,11 @@ def init_db(config):
     """Initial Database."""
     if not database_exists(config.engine.url):
         create_database(config.engine.url)
+        click.echo("Database Create!")
+    else:
+        click.echo("Database Already Exists!")
 
-    click.echo("DB Create!")
+
 
 @cli.command()
 @pass_config
@@ -92,5 +104,3 @@ def insert_db(config, ifile):
         sql = load_dbdata()
 
     config.execute(sql)
-
-    click.echo("Insert Data ok!")
