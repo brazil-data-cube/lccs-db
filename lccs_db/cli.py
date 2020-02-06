@@ -32,7 +32,6 @@ class Config:
 
     def execute(self, sql_query):
         """Execute query of Config decorator."""
-
         connection = self.engine.connect()
         trans = connection.begin()
         try:
