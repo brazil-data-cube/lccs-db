@@ -8,6 +8,8 @@
 """Configuration file for the Sphinx documentation builder system."""
 import os
 
+import lccs_db
+
 # -- Project information -----------------------------------------------------
 
 project = 'Land Cover Classification System Database Model'

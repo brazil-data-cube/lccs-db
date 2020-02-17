@@ -59,6 +59,12 @@ O diagrama ER abaixo apresenta as tabelas utilizadas neste sistema:
         :width: 90%
         :alt: Database Schema
 
+:raw-html:`<br />`
+Este pacote é a base para os seguintes projetos:
+
+- `LCCS-WS <https://github.com/brazil-data-cube/lccs-ws>`_: Land Cover Classification System Web Service.
+- `LCCS.py <https://github.com/brazil-data-cube/lccs.py>`_: Python Client Library for Land Cover Classification System Web Service.
+- `WLTS <https://github.com/brazil-data-cube/lccs.py>`_: Web Land Trajectory Service.
 
 
 Installation
