@@ -20,7 +20,7 @@ After that, run migration command to prepare the LCCS data model:
 
 .. code-block:: shell
 
-        lccs_db --user postgres --host localhost --port 5432 --db_name sampledb init-alembic
+        lccs_db --user postgres --host localhost --port 5432 --db_name sampledb create-tables
 
 If all the commands succeed, for PostgreSQL you can check the created table within the ``psql`` terminal as follow:
 
@@ -43,10 +43,10 @@ Insert default data into database:
 
 .. code-block:: shell
 
-        lccs_db --user postgres --host localhost --port 5432 --db_name sampledb insert-db
+        lccs_db --user postgres --host localhost --port 5432 --db_name sampledb populate-db
 
 or:
 
 .. code-block:: shell
 
-        lccs_db --user postgres --host localhost --port 5432 --db_name sampledb insert-db --ifile insert.sql
+        lccs_db --user postgres --host localhost --port 5432 --db_name sampledb populate-db --ifile insert.sql

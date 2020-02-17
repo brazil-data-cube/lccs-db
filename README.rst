@@ -12,12 +12,15 @@ Land Cover Classification System Database Model
 
 .. image:: https://img.shields.io/badge/license-MIT-green
         :target: https://github.com//brazil-data-cube/lccs-db/blob/master/LICENSE
+        :alt: License
 
 .. image:: https://travis-ci.org/brazil-data-cube/lccs-db.svg?branch=master
         :target: https://travis-ci.org/brazil-data-cube/lccs-db
+        :alt: Travis CI
 
 .. image:: https://coveralls.io/repos/github/brazil-data-cube/lccs-db/badge.svg?branch=master
         :target: https://coveralls.io/github/brazil-data-cube/lccs-db?branch=master
+        :alt: Information on Test Coverage
 
 .. image:: https://readthedocs.org/projects/lccs-db/badge/?version=latest
         :target: https://lccs-db.readthedocs.io/en/latest/?badge=latest
@@ -25,6 +28,16 @@ Land Cover Classification System Database Model
 
 .. image:: https://img.shields.io/badge/lifecycle-experimental-orange.svg
         :target: https://www.tidyverse.org/lifecycle/#experimental
+        :alt: Package Lifecycle Status: Experimental
+
+.. image:: https://img.shields.io/github/tag/brazil-data-cube/lccs-db.svg
+        :target: https://github.com/brazil-data-cube/lccs-db/releases
+        :alt: Release
+
+.. image:: https://badges.gitter.im/brazil-data-cube/community.png
+        :target: https://gitter.im/brazil-data-cube/community#
+        :alt: Join the chat
+
 
 .. role:: raw-html(raw)
     :format: html
@@ -37,6 +50,15 @@ Neste contexto, o **LCCS-DB** (**L**\ and **C**\ over **C**\ lassification **S**
 
 :raw-html:`<br />`
 Além disto, o LCCS-DB permite realizar o mapeamento entre as classes dos sistemas de classificação de maneira a simplificar análise conjunta dos dados.
+
+:raw-html:`<br />`
+O diagrama ER abaixo apresenta as tabelas utilizadas neste sistema:
+
+.. image:: https://github.com/brazil-data-cube/lccs-db/raw/master/doc/spec/lccs_database.png
+        :target: https://github.com/brazil-data-cube/lccs-db/tree/master/doc/spec
+        :width: 90%
+        :alt: Database Schema
+
 
 
 Installation
