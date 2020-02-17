@@ -10,12 +10,12 @@
 import os
 import subprocess
 
-import click
 import sqlalchemy
 from sqlalchemy import text
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy_utils import create_database, database_exists
 
+import click
 from lccs_db.data import load_dbdata
 
 
