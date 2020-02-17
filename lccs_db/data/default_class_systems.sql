@@ -1,12 +1,14 @@
-INSERT INTO luc.classification_system (created_at, updated_at, id, authority_name, name, description, version)
-VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 'INPE', 'Prodes', 'Annual Deforestation Classification System', '1.0'),
+SET client_encoding = 'UTF8';
+
+INSERT INTO lccs.class_systems (created_at, updated_at, id, authority_name, name, description, version)
+VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 'INPE', 'Prodes', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2, 'INPE', 'Deter-A', 'Sistema de Alertas Diarios de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 3, 'INPE', 'Deter-B', 'Sistema de Alertas Diarios de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4, 'INPE', 'TerraClass', 'Mapa do Uso e Cobertura da Terra', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 'MapBiomas', 'MapBiomas Collection', 'Mapa do Uso e Cobertura da Terra', '3.1'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 6, 'MapBiomas', 'MapBiomas Collection', 'Mapa do Uso e Cobertura da Terra', '4.0');
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1,'DESFLORESTAMENTO', 'Desflorestamento', '', '#bc0000', 1 ),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,2,'FLORESTA', 'Floresta', '', '#325a00', 1 ),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,3,'HIDROGRAFIA', 'Hidrografia', '', '#0000ff', 1 ),
@@ -14,10 +16,10 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1,'DESFLORESTAMENTO', 'Desflorestam
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,5,'NUVEM', 'Nuvem', '', '#00ffff', 1),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,6,'RESIDUO', 'Resíduo', '', '#d3ec95', 1);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 7, 'ALERTA', 'Alerta', '', '#bc0000', 2);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,8,'CICATRIZ_DE_QUEIMADA', 'Cicatriz de Queimada', '', '#d7191c', 3),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,9,'CS_DESORDENADO', 'x', '', '#fdae61', 3),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,10,'CS_GEOMETRICO', 'y', '', '#fed690', 3),
@@ -27,7 +29,7 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,8,'CICATRIZ_DE_QUEIMADA', 'Cicatriz
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,14,'MINERACAO', 'Mineração', '', '#6bb0af', 3),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,15,'CORTE_SELETIVO', 'Corte Seletivo', '','#ea633e', 3);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,16,'AGRICULTURA_ANUAL','Agricultura Anual','Áreas extensas com predomínio de culturas de ciclo anual, sobretudo de grão, com emprego de padrões tecnológicos elevados, tais como uso de sementes certificadas, insumos, defensivos e mecanização, entre outros', '#fff92f', 4),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,17,'AREA_NAO_OBSERVADA','Área Não Observada', 'Areas that could not be interpreted by the presence of clouds at the moment of transit to acquire satellite images, in addition to the recently burned areas',
         '#ffffff', 4),
@@ -58,7 +60,7 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,16,'AGRICULTURA_ANUAL','Agricultura
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 32,'VEGETACAO_SECUNDARIA', 'Vegetação Secundária',
         'Áreas que, após a supressão total da vegetação florestal, encontram-se em processo avançado de regeneração da vegetação arbustiva e/ou da arbórea ou que foram utilizadas para a prática da silvicultura ou agricultura permanente com uso de espécies nativas ou exóticas.', '#71ff92', 4);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,33, 'FLORESTA', 'Floresta', '', '#129912', 5),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,34, 'FORMAÇÃO NATURAL NÃO FLORESTAL', 'Formação Natural não Florestal', '', '#bbfcac', 5),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,35, 'AGROPECUÁRIA', 'Agropecuária', '', '#ffffb2', 5),
@@ -66,37 +68,37 @@ VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,33, 'FLORESTA', 'Floresta', '', '#
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,37, 'CORPO D ÁGUA', 'Corpo D água', '', '#0000ff', 5),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,38, 'NÃO OBSERVADO', 'Não observado', '', '#d5d5e5', 5);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id, parent_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id, parent_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 39,'FLORESTA NATURAL', 'Floresta Natural', '', '#1f4423', 5, 33),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 40,'FLORESTA PLANTADA', 'Floresta Plantada', '', '#935132', 5, 33);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id, parent_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id, parent_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 41,'ÁREA UMIDA NATURAL NÃO FLORESTAL', 'Área Úmida Natural não Florestal', '', '#45c2a5', 5, 34),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 42,'FORMAÇÃO CAMPESTRE', 'Formação Campestre', '', '#b8af4f', 5, 34),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 43,'OUTRA FORMAÇÃO NÃO FLORESTAL', 'Outra Formação não Florestal', '', '#bdb76b', 5, 34),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 44,'APICUM', 'Apicum', '', '#968c465', 5, 34);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id, parent_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id, parent_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 45,'PASTAGEM', 'Pastagem', '', '#ffd966', 5, 35),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 46,'AGRICULTURA', 'Agricultura', '', '#e974ed', 5, 35),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 47,'MOSAICO DE AGRICULTURA OU PASTAGEM', 'Mosaico de Agricultura ou Pastagem', '', '#ffefc3', 5, 35);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id, parent_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id, parent_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 48,'PRAIA E DUNA', 'Praia e Duna', '', '#dd7e6b', 5, 36),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 49,'INFRAESTRUTURA URBANA', 'Infraestrutura Urbana', '', '#af2a2', 5, 36),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 50,'OUTRA ÁREA NÃO VEGETADA', 'Outra área não Vegetada', '', '#ff99ff', 5, 36),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 51,'AFLORAMENTO ROCHOSO', 'Afloramento Rochoso', '', '#ff8c00', 5, 36),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 52,'MINERAÇÃO', 'Mineração', '', '#8a2be2', 5, 36);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id, parent_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id, parent_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 53,'AQUICULTURA', 'Aquicultura', '', '#29eee4', 5, 37),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 54,'RIO, LAGO E OCEANO', 'Rio, Lago e Oceano', '', '#0000ff', 5, 37);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id, parent_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id, parent_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 55,'FORMAÇÃO FLORESTAL', 'Formação Florestal', '', '#006400', 5, 39),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 56,'FORMAÇÃO SAVÂNICA', 'Formação Savânica', '', '#32cd32', 5, 39),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 57,'MANGUE', 'Mangue', '', '#687537', 5, 39);
 
-INSERT INTO luc.class (created_at, updated_at, id, code, name, description, style, classification_system_id, parent_id)
+INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, style, class_system_id, parent_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 58,'CULTIVO ANUAL E PERENE', 'Cultivo Anual e Perene', '', '#d5a6bd', 5, 46),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 59,'CULTIVO SEMI-PERENE', 'Cultivo Semi-Perene', '', '#c27ba0', 5, 46);

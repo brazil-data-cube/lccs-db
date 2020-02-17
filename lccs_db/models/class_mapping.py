@@ -15,11 +15,11 @@ from sqlalchemy.orm import relationship
 class ClassMapping(BaseModel):
     """ClassMapping."""
 
-    __tablename__ = 'class_mapping'
-    __table_args__ = {'schema': 'luc'}
+    __tablename__ = 'class_mappings'
+    __table_args__ = {'schema': 'lccs'}
 
-    source_class_id = Column(Integer, ForeignKey('luc.class.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
-    target_class_id = Column(Integer, ForeignKey('luc.class.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
+    source_class_id = Column(Integer, ForeignKey('lccs.classes.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
+    target_class_id = Column(Integer, ForeignKey('lccs.classes.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
     description = Column(Text, nullable=False)
     degree_of_similarity = Column(Numeric, nullable=False)
 

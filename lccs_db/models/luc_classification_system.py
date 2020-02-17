@@ -15,8 +15,8 @@ from .base import BaseModel
 class LucClassificationSystem(BaseModel):
     """LucClassificationSystem."""
 
-    __tablename__ = 'classification_system'
-    __table_args__ = {'schema': 'luc'}
+    __tablename__ = 'class_systems'
+    __table_args__ = {'schema': 'lccs'}
 
     id = Column(Integer, primary_key=True)
     name = Column(Text, nullable=False)
