@@ -77,7 +77,7 @@ def init_db(config):
 
 @cli.command()
 @pass_config
-def init_alembic(config):
+def create_tables(config):
     """Initial Alembic."""
     env = os.environ.copy()
     env["PYTHONPATH"] = "."
@@ -94,7 +94,7 @@ def init_alembic(config):
               help='A SQL input file for insert.',
               required=False)
 @pass_config
-def insert_db(config, ifile):
+def populate_db(config, ifile):
     """Insert Database."""
     if ifile is not None:
         sql = ifile.read()
