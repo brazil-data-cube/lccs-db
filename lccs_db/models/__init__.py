@@ -12,6 +12,7 @@ from .base import db
 from .class_mapping import ClassMapping
 from .luc_classification_system import LucClassificationSystem
 from .luc_class import LucClass
+from .parent_classes import ParentClasses
 
 
-__all__ = ('db', 'LucClass', 'LucClassificationSystem', 'ClassMapping', )
+__all__ = ('db', 'LucClass', 'LucClassificationSystem', 'ClassMapping', 'ParentClasses',)

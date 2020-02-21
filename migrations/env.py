@@ -58,6 +58,7 @@ def run_migrations_offline():
     context.configure(
         url=url,
         target_metadata=target_metadata,
+        version_table_schema=target_metadata.schema,
         literal_binds=True,
         include_object=include_object,
         include_schemas=True
@@ -82,7 +83,9 @@ def run_migrations_online():
 
     with connectable.connect() as connection:
         context.configure(
-            connection=connection, target_metadata=target_metadata,
+            connection=connection,
+            target_metadata=target_metadata,
+            version_table_schema=target_metadata.schema,
             include_object=include_object,
             include_schemas=True
         )
