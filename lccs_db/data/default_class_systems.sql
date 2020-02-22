@@ -5,8 +5,8 @@ VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 'INPE', 'Prodes', 'Sistema de C
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2, 'INPE', 'Deter-A', 'Sistema de Alertas Diarios de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 3, 'INPE', 'Deter-B', 'Sistema de Alertas Diarios de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4, 'INPE', 'TerraClass', 'Mapa do Uso e Cobertura da Terra', '1.0'),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 'MapBiomas', 'MapBiomas', 'Mapa do Uso e Cobertura da Terra', '3.1'),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 6, 'MapBiomas', 'MapBiomas', 'Mapa do Uso e Cobertura da Terra', '4.0'),
+       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 'MapBiomas', 'MapBiomas3.1', 'Mapa do Uso e Cobertura da Terra', '3.1'),
+       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 6, 'MapBiomas', 'MapBiomas4', 'Mapa do Uso e Cobertura da Terra', '4.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 7, 'INPE', 'Brazil Data Cube', 'Mapa do Uso e Cobertura da Terra', '1.0');
 
 INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, symbology, class_system_id)
@@ -88,17 +88,6 @@ VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 41, 34),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 42, 34),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 43, 34),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 44, 34);
-
-INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, symbology, class_system_id)
-VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 45,'PASTAGEM', 'Pastagem', '', '#ffd966', 5),
-        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 46,'AGRICULTURA', 'Agricultura', '', '#e974ed', 5),
-        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 47,'MOSAICO DE AGRICULTURA OU PASTAGEM', 'Mosaico de Agricultura ou Pastagem', '', '#ffefc3', 5);
-
-
-INSERT INTO lccs.parent_classes (created_at, updated_at, class_id, class_parent_id)
-VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 45, 35),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 46, 35),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 47, 35);
 
 INSERT INTO lccs.classes (created_at, updated_at, id, code, name, description, symbology, class_system_id)
 VALUES  (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 45,'15', 'Pastagem', '', '#ffd966', 5),
