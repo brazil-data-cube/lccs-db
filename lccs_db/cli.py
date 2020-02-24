@@ -73,6 +73,9 @@ def init_db(config):
     else:
         click.echo("Database Already Exists!")
 
+    click.secho('Creating schema lccs...', fg='green')
+
+    config.execute("CREATE SCHEMA IF NOT EXISTS lccs")
 
 
 @cli.command()
