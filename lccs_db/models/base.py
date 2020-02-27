@@ -21,7 +21,7 @@ class DatabaseWrapper(object):
         maker = sessionmaker()
         self.DBSession = scoped_session(maker)
         self.session = None
-        self.Model = declarative_base(metadata=MetaData(schema="lccs"))
+        self.Model = declarative_base(metadata=MetaData())
 
     def init_model(self, uri):
         """Init models."""

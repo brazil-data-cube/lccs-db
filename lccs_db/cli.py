@@ -18,6 +18,8 @@ from sqlalchemy_utils import create_database, database_exists
 import click
 from lccs_db.data import load_dbdata
 
+from .config import Config as config_schema
+
 
 class Config:
     """A simple decorator class for command line options."""
@@ -73,9 +75,9 @@ def init_db(config):
     else:
         click.echo("Database Already Exists!")
 
-    click.secho('Creating schema lccs...', fg='green')
+    click.secho('Creating schema {}...'.format(config_schema.ACTIVITIES_SCHEMA), fg='green')
 
-    config.execute("CREATE SCHEMA IF NOT EXISTS lccs")
+    config.execute("CREATE SCHEMA IF NOT EXISTS {}".format(config_schema.ACTIVITIES_SCHEMA))
 
 
 @cli.command()

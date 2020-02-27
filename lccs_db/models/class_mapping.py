@@ -9,6 +9,8 @@
 """Land Cover Classification System Model ."""
 
 from .base import BaseModel
+from ..config import Config
+
 from sqlalchemy import Column, ForeignKey, Integer, Text, Numeric
 from sqlalchemy.orm import relationship
 
@@ -16,10 +18,10 @@ class ClassMapping(BaseModel):
     """ClassMapping."""
 
     __tablename__ = 'class_mappings'
-    __table_args__ = {'schema': 'lccs'}
+    __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
 
-    source_class_id = Column(Integer, ForeignKey('lccs.classes.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
-    target_class_id = Column(Integer, ForeignKey('lccs.classes.id', ondelete='NO ACTION'), nullable=False, primary_key=True)
+    source_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'), nullable=False, primary_key=True)
+    target_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'), nullable=False, primary_key=True)
     description = Column(Text, nullable=False)
     degree_of_similarity = Column(Numeric, nullable=False)
 

@@ -11,12 +11,14 @@ from sqlalchemy import Column, Integer, Text
 
 from .base import BaseModel
 
+from ..config import Config
+
 
 class LucClassificationSystem(BaseModel):
     """LucClassificationSystem."""
 
     __tablename__ = 'class_systems'
-    __table_args__ = {'schema': 'lccs'}
+    __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
 
     id = Column(Integer, primary_key=True)
     name = Column(Text, nullable=False)

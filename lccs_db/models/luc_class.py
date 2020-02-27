@@ -12,18 +12,20 @@ from .base import BaseModel
 from sqlalchemy import Column, ForeignKey, Integer, Text
 from sqlalchemy.orm import relationship
 
+from ..config import Config
+
 class LucClass(BaseModel):
     """LucClass."""
 
     __tablename__ = 'classes'
-    __table_args__ = {'schema': 'lccs'}
+    __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
 
     id = Column(Integer, primary_key=True)
     code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
     description = Column(Text, nullable=False)
     symbology = Column(Text, nullable=False)
-    class_system_id = Column(Integer, ForeignKey('lccs.class_systems.id',
+    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.ACTIVITIES_SCHEMA),
                                                               ondelete='NO ACTION'), nullable=False)
 
     classification_system = relationship('LucClassificationSystem')
