@@ -59,7 +59,7 @@ def run_migrations_offline():
     context.configure(
         url=url,
         target_metadata=target_metadata,
-        version_table_schema=config.ACTIVITIES_SCHEMA,
+        version_table_schema=Config.ACTIVITIES_SCHEMA,
         literal_binds=True,
         include_object=include_object,
         include_schemas=True
