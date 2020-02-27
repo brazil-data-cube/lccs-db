@@ -1,11 +1,12 @@
 #
-# This file is part of Sample Database Model.
+# This file is part of Land Cover Classification System Database Model.
 # Copyright (C) 2019 INPE.
 #
-# Sample Database Model is free software; you can redistribute it and/or modify it
+# Land Cover Classification System Database Model is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 #
-"""Define config file for Brazil Data Cube Sample Database Model."""
+
+"""Land Cover Classification System Database Model ."""
 
 import os
 
