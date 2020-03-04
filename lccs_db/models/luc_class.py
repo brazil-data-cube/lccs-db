@@ -20,11 +20,10 @@ class LucClass(BaseModel):
     __tablename__ = 'classes'
     __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement= True)
     code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
-    description = Column(Text, nullable=False)
-    symbology = Column(Text, nullable=False)
+    description = Column(Text, nullable=True)
     class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.ACTIVITIES_SCHEMA),
                                                               ondelete='NO ACTION'), nullable=False)
 

@@ -12,7 +12,6 @@ from sqlalchemy import Column, DateTime, MetaData, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from ..config import Config
 
 class DatabaseWrapper(object):
     """DatabaseWrapper."""
@@ -22,7 +21,7 @@ class DatabaseWrapper(object):
         maker = sessionmaker()
         self.DBSession = scoped_session(maker)
         self.session = None
-        self.Model = declarative_base(metadata=MetaData(schema=Config.ACTIVITIES_SCHEMA))
+        self.Model = declarative_base(metadata=MetaData())
 
     def init_model(self, uri):
         """Init models."""

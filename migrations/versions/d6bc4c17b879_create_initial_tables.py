@@ -1,8 +1,8 @@
 """create initial tables
 
-Revision ID: bbf06f918365
+Revision ID: d6bc4c17b879
 Revises: 
-Create Date: 2020-03-02 11:18:50.456950
+Create Date: 2020-03-04 17:32:04.430658
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'bbf06f918365'
+revision = 'd6bc4c17b879'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,22 +21,21 @@ def upgrade():
     op.create_table('class_systems',
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('name', sa.Text(), nullable=False),
     sa.Column('authority_name', sa.Text(), nullable=False),
-    sa.Column('description', sa.Text(), nullable=False),
-    sa.Column('version', sa.Text(), nullable=False),
+    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('version', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     schema='lccs'
     )
     op.create_table('classes',
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('code', sa.Text(), nullable=False),
     sa.Column('name', sa.Text(), nullable=False),
-    sa.Column('description', sa.Text(), nullable=False),
-    sa.Column('symbology', sa.Text(), nullable=False),
+    sa.Column('description', sa.Text(), nullable=True),
     sa.Column('class_system_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['class_system_id'], ['lccs.class_systems.id'], ondelete='NO ACTION'),
     sa.PrimaryKeyConstraint('id'),
@@ -47,8 +46,8 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('source_class_id', sa.Integer(), nullable=False),
     sa.Column('target_class_id', sa.Integer(), nullable=False),
-    sa.Column('description', sa.Text(), nullable=False),
-    sa.Column('degree_of_similarity', sa.Numeric(), nullable=False),
+    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('degree_of_similarity', sa.Numeric(), nullable=True),
     sa.ForeignKeyConstraint(['source_class_id'], ['lccs.classes.id'], ondelete='NO ACTION'),
     sa.ForeignKeyConstraint(['target_class_id'], ['lccs.classes.id'], ondelete='NO ACTION'),
     sa.PrimaryKeyConstraint('source_class_id', 'target_class_id'),
@@ -57,11 +56,11 @@ def upgrade():
     op.create_table('parent_classes',
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.Column('class_parent_id', sa.Integer(), nullable=True),
-    sa.Column('class_id', sa.Integer(), nullable=True),
+    sa.Column('class_parent_id', sa.Integer(), nullable=False),
+    sa.Column('class_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['class_id'], ['lccs.classes.id'], ondelete='NO ACTION'),
     sa.ForeignKeyConstraint(['class_parent_id'], ['lccs.classes.id'], ondelete='NO ACTION'),
-    sa.PrimaryKeyConstraint('class_id'),
+    sa.PrimaryKeyConstraint('class_parent_id', 'class_id'),
     schema='lccs'
     )
     # ### end Alembic commands ###
