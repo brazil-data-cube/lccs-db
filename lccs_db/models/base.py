@@ -8,29 +8,11 @@
 """Model Configuration."""
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, MetaData, String, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import Column, DateTime
+from flask_sqlalchemy import SQLAlchemy
 
 
-class DatabaseWrapper(object):
-    """DatabaseWrapper."""
-
-    def __init__(self):
-        """Construct DatabaseWrapper."""
-        maker = sessionmaker()
-        self.DBSession = scoped_session(maker)
-        self.session = None
-        self.Model = declarative_base(metadata=MetaData())
-
-    def init_model(self, uri):
-        """Init models."""
-        self.engine = create_engine(uri)
-        self.DBSession.configure(bind=self.engine)
-        self.session = self.DBSession()
-
-
-db = DatabaseWrapper()
+db = SQLAlchemy()
 
 
 class BaseModel(db.Model):

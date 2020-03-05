@@ -13,12 +13,13 @@ from sqlalchemy import Column, Integer, Text, JSON
 
 from ..config import Config
 
+
 class ApplicationsStyle(BaseModel):
     """ApplicationsStyle."""
 
     __tablename__ = 'applications_style'
     __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
 
-    id = Column(Integer, primary_key=True, autoincrement= True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Text, nullable=False)
     file = Column(JSON, nullable=True)

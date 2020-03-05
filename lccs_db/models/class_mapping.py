@@ -14,6 +14,7 @@ from ..config import Config
 from sqlalchemy import Column, ForeignKey, Integer, Text, Numeric, PrimaryKeyConstraint
 from sqlalchemy.orm import relationship
 
+
 class ClassMapping(BaseModel):
     """ClassMapping."""
 
@@ -28,5 +29,5 @@ class ClassMapping(BaseModel):
     description = Column(Text, nullable=True)
     degree_of_similarity = Column(Numeric, nullable=True)
 
-    source_class = relationship("LucClass")
-    target_class = relationship("LucClass")
+    source_class = relationship("LucClass", foreign_keys=[source_class_id])
+    target_class = relationship("LucClass", foreign_keys=[target_class_id])

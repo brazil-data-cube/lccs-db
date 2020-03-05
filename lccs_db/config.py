@@ -17,3 +17,5 @@ class Config:
     """Define common config along contexts."""
 
     ACTIVITIES_SCHEMA = os.environ.get('ACTIVITIES_SCHEMA', 'lccs')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI',
+                                                           'postgresql://postgres:mysecretpassword@localhost:5442/geodatabase')

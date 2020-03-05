@@ -25,5 +25,5 @@ class ParentClasses(BaseModel):
     class_parent_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'), nullable=True,  primary_key=True)
     class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'), nullable=True, primary_key=True)
 
-    classe = relationship('LucClass')
-    class_parent = relationship('LucClass')
+    classe = relationship('LucClass', foreign_keys=[class_id])
+    class_parent = relationship('LucClass', foreign_keys=[class_parent_id])
