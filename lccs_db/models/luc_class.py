@@ -8,11 +8,12 @@
 
 """Land Cover Classification System Model ."""
 
-from .base import BaseModel
 from sqlalchemy import Column, ForeignKey, Integer, Text
 from sqlalchemy.orm import relationship
 
 from ..config import Config
+from .base import BaseModel
+
 
 class LucClass(BaseModel):
     """LucClass."""
@@ -23,6 +24,7 @@ class LucClass(BaseModel):
     id = Column(Integer, primary_key=True, autoincrement= True)
     code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
+    name2 = Column(Text, nullable=False)
     description = Column(Text, nullable=True)
     class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.ACTIVITIES_SCHEMA),
                                                               ondelete='NO ACTION'), nullable=False)

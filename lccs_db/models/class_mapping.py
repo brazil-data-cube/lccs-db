@@ -8,11 +8,12 @@
 
 """Land Cover Classification System Model ."""
 
-from .base import BaseModel
-from ..config import Config
-
-from sqlalchemy import Column, ForeignKey, Integer, Text, Numeric, PrimaryKeyConstraint
+from sqlalchemy import (Column, ForeignKey, Integer, Numeric,
+                        PrimaryKeyConstraint, Text)
 from sqlalchemy.orm import relationship
+
+from ..config import Config
+from .base import BaseModel
 
 
 class ClassMapping(BaseModel):

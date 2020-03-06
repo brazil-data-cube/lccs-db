@@ -18,9 +18,8 @@ from .models import db
 
 
 def include_object(object, name, type_, reflected, compare_to):
-    """Ignores the tables in 'exclude_tables'"""
+    """Ignores the tables in 'exclude_tables'."""
     exclude_tables = current_app.config.get('ALEMBIC_EXCLUDE_TABLES', [])
-
     return not (type_ == "table" and name in exclude_tables)
 
 
@@ -79,10 +78,11 @@ class LCCSDatabase:
 
     def init_db(self, app: Flask, entry_point_group: str='lccs_db.models', **kwargs):
         """Initialize Flask-SQLAlchemy extension.
+
         Args:
             app - Flask application
             entry_point_group - Entrypoint definition to load models
-            **kwargs - Optional arguments to Flask-SQLAlchemy
+            **kwargs - Optional arguments to Flask-SQLAlchemy.
         """
         # Setup SQLAlchemy
         app.config.setdefault(

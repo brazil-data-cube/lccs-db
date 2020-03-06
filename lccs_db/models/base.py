@@ -8,9 +8,8 @@
 """Model Configuration."""
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime
 from flask_sqlalchemy import SQLAlchemy
-
+from sqlalchemy import Column, DateTime
 
 db = SQLAlchemy()
 

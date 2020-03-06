@@ -10,16 +10,15 @@
 import os
 import subprocess
 
+import click
+from flask import Flask
+from flask.cli import FlaskGroup, with_appcontext
 from sqlalchemy import text
 from sqlalchemy_utils import create_database, database_exists
 
-import click
 from lccs_db.data import load_dbdata
 
 from .config import Config as config_infos
-
-from flask import Flask
-from flask.cli import FlaskGroup, with_appcontext
 from .ext import LCCSDatabase
 
 
@@ -55,10 +54,7 @@ def create_app():
     """Create internal flask app."""
     app = Flask(__name__)
 
-    # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI',
-    #                                                        'postgresql://postgres:mysecretpassword@localhost:5442/teste')
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = config_infos.SQLALCHEMY_DATABASE_URI
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
@@ -69,8 +65,9 @@ def create_app():
 
 def create_cli(create_app=None):
     """Define a wrapper to create Flask App in order to attach into flask click.
+
     Args:
-         create_app (function) - Create app factory (Flask)
+         create_app (function) - Create app factory (Flask).
     """
     def create_cli_app(info):
         if create_app is None:
@@ -120,14 +117,16 @@ def init_db():
 @pass_config
 def create_tables(config):
     """Initial Alembic."""
-    env = os.environ.copy()
-    env["PYTHONPATH"] = "."
-    env["PATH"] = "{}:{}".format(os.path.expanduser("~/.local/bin"), env["PATH"])
-    env["SQLALCHEMY_DATABASE_URI"] = config.uri
+    # env = os.environ.copy()
+    # env["PYTHONPATH"] = "."
+    # env["PATH"] = "{}:{}".format(os.path.expanduser("~/.local/bin"), env["PATH"])
+    # env["SQLALCHEMY_DATABASE_URI"] = config.uri
 
-    sp = subprocess.Popen(["alembic", "upgrade", "head"], env=env)
+    # sp = subprocess.Popen(["alembic", "upgrade", "head"], env=env)
 
-    if (sp.wait() != 0):
+    sp = subprocess.Popen(["alembic", "upgrade", "head"])
+
+    if sp.wait() != 0:
         raise ValueError("Alembic upgrade head error ")
 
 

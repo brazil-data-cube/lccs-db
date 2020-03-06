@@ -8,11 +8,11 @@
 
 """Land Cover Classification System Model ."""
 
-from .base import BaseModel
 from sqlalchemy import Column, ForeignKey, Integer, PrimaryKeyConstraint
 from sqlalchemy.orm import relationship
 
 from ..config import Config
+from .base import BaseModel
 
 
 class Style(BaseModel):
