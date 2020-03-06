@@ -16,38 +16,10 @@ from flask.cli import FlaskGroup, with_appcontext
 from sqlalchemy import text
 from sqlalchemy_utils import create_database, database_exists
 
-from lccs_db.data import load_dbdata
+from lccs_db.models import db as _db
 
 from .config import Config as config_infos
 from .ext import LCCSDatabase
-
-
-class Config:
-    """A simple decorator class for command line options."""
-
-    def __init__(self):
-        """Initialization of Config decorator."""
-        self.uri = None
-        self.engine = None
-        self.maker = None
-        self.DBSession = None
-        self.session = None
-
-    def execute(self, sql_query):
-        """Execute query of Config decorator."""
-        connection = self.engine.connect()
-        trans = connection.begin()
-        try:
-            connection.execute(text(sql_query))
-            trans.commit()
-            click.echo("Execute OK")
-        except:
-            click.echo("Error while execute query")
-            trans.rollback()
-            raise
-
-
-pass_config = click.make_pass_decorator(Config, ensure=True)
 
 
 def create_app():
@@ -97,9 +69,6 @@ def db():
 @db.command()
 @with_appcontext
 def init_db():
-    """Create Database."""
-    from lccs_db.models import db as _db
-
     """Create database. Make sure the variable SQLALCHEMY_DATABASE_URI is set."""
     click.secho('Creating database {0}'.format(_db.engine.url),
                 fg='green')
@@ -111,36 +80,3 @@ def init_db():
         _db.session.execute("CREATE SCHEMA IF NOT EXISTS {}".format(config_infos.ACTIVITIES_SCHEMA))
 
     _db.session.commit()
-
-
-@db.command()
-@pass_config
-def create_tables(config):
-    """Initial Alembic."""
-    # env = os.environ.copy()
-    # env["PYTHONPATH"] = "."
-    # env["PATH"] = "{}:{}".format(os.path.expanduser("~/.local/bin"), env["PATH"])
-    # env["SQLALCHEMY_DATABASE_URI"] = config.uri
-
-    # sp = subprocess.Popen(["alembic", "upgrade", "head"], env=env)
-
-    sp = subprocess.Popen(["alembic", "upgrade", "head"])
-
-    if sp.wait() != 0:
-        raise ValueError("Alembic upgrade head error ")
-
-
-@db.command()
-@click.option('--ifile', type=click.File('r'),
-              help='A SQL input file for insert.',
-              required=False)
-@pass_config
-def populate_db(config, ifile):
-    """Insert Database."""
-    if ifile is not None:
-        sql = ifile.read()
-
-    else:
-        sql = load_dbdata()
-
-    config.execute(sql)
