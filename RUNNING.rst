@@ -9,7 +9,7 @@
 Running LCCS-DB in the Command Line
 ===================================
 
-Create a PostgreSQL database and ``lccs`` schema if not exist.
+Create a PostgreSQL database and ``lccs`` schema if one doesn't exist.
 
 .. code-block:: shell
 
@@ -36,11 +36,10 @@ You should get a similar output::
                            List of relations
          Schema  |           Name            | Type  |  Owner
         ---------+---------------------------+-------+----------
-         lccs    | applications_style        | table | postgres
          lccs    | class_mapping             | table | postgres
-         lccs    | class                     | table | postgres
-         lccs    | classification_system     | table | postgres
-         lccs    | parent_classes            | table | postgres
+         lccs    | classes                   | table | postgres
+         lccs    | class_systems             | table | postgres
+         lccs    | style_formats             | table | postgres
          lccs    | style                     | table | postgres
         (3 rows)
 
