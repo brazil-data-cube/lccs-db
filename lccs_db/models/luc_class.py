@@ -28,4 +28,8 @@ class LucClass(BaseModel):
     class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.ACTIVITIES_SCHEMA),
                                                               ondelete='NO ACTION'), nullable=False)
 
+    class_parent_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA),
+                                                 ondelete='NO ACTION'), nullable=True)
+
     classification_system = relationship('LucClassificationSystem')
+    class_parent = relationship('LucClass')
