@@ -13,10 +13,10 @@ import subprocess
 import click
 from flask import Flask
 from flask.cli import FlaskGroup, with_appcontext
-from sqlalchemy import text
 from sqlalchemy_utils import create_database, database_exists
 
 from lccs_db.models import db as _db
+from lccs_db.data import load_data, load_dbdata
 
 from .config import Config as config_infos
 from .ext import LCCSDatabase
@@ -63,7 +63,7 @@ cli = create_cli(create_app=create_app)
 @cli.group()
 @with_appcontext
 def db():
-    """Perform database migrations."""
+    """Database operations."""
 
 
 @db.command()
@@ -80,3 +80,22 @@ def init_db():
         _db.session.execute("CREATE SCHEMA IF NOT EXISTS {}".format(config_infos.ACTIVITIES_SCHEMA))
 
     _db.session.commit()
+
+@db.command()
+@with_appcontext
+@click.option('--ifile', type=click.File('r'),
+              help='A SQL input file for insert.',
+              required=False)
+def insert_db(ifile):
+    """Insert Data into Database. """
+    if ifile is not None:
+        sql = ifile.read()
+
+    else:
+        sql = load_dbdata()
+
+    _db.session.execute(sql)
+
+    _db.session.commit()
+
+    click.echo("Data inserted with sucess!")
