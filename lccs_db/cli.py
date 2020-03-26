@@ -15,8 +15,8 @@ from flask import Flask
 from flask.cli import FlaskGroup, with_appcontext
 from sqlalchemy_utils import create_database, database_exists
 
-from lccs_db.models import db as _db
 from lccs_db.data import load_data, load_dbdata
+from lccs_db.models import db as _db
 
 from .config import Config as config_infos
 from .ext import LCCSDatabase
