@@ -37,6 +37,7 @@ You should get a similar output::
          lccs    | class_mapping             | table | postgres
          lccs    | class                     | table | postgres
          lccs    | classification_system     | table | postgres
+         lccs    | parent_classes            | table | postgres
         (3 rows)
 
 Insert default data into database:

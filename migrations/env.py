@@ -10,6 +10,7 @@ sys.path.append(os.path.abspath('.'))
 sys.path.append(os.path.abspath('../'))
 
 from lccs_db import models
+from lccs_db.config import Config
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -58,7 +59,7 @@ def run_migrations_offline():
     context.configure(
         url=url,
         target_metadata=target_metadata,
-        version_table_schema=target_metadata.schema,
+        version_table_schema=Config.ACTIVITIES_SCHEMA,
         literal_binds=True,
         include_object=include_object,
         include_schemas=True
@@ -85,7 +86,7 @@ def run_migrations_online():
         context.configure(
             connection=connection,
             target_metadata=target_metadata,
-            version_table_schema=target_metadata.schema,
+            version_table_schema=Config.ACTIVITIES_SCHEMA,
             include_object=include_object,
             include_schemas=True
         )
