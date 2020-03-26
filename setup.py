@@ -47,7 +47,8 @@ setup_requires = [
 install_requires = [
     'SQLAlchemy[postgresql]>=1.3.4',
     'alembic>=1.0.10',
-    'GeoAlchemy2>=0.6.3',
+    'Flask-Alembic>=2.0,<3',
+    'Flask-SQLAlchemy>=2.4.1',
     'sqlalchemy-utils>=0.36.0'
     'Click>=7.0',
 ]
@@ -77,6 +78,12 @@ setup(
         'console_scripts': [
             'lccs_db = lccs_db.cli:cli',
         ],
+        'lccs_db.alembic': [
+            'lccs_db = lccs_db:alembic'
+        ],
+        'lccs_db.models': [
+            'lccs_db = lccs_db.models'
+        ]
     },
     extras_require=extras_require,
     install_requires=install_requires,

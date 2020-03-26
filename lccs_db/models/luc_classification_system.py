@@ -9,9 +9,8 @@
 
 from sqlalchemy import Column, Integer, Text
 
-from .base import BaseModel
-
 from ..config import Config
+from .base import BaseModel
 
 
 class LucClassificationSystem(BaseModel):

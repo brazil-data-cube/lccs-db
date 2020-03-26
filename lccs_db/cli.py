@@ -10,101 +10,73 @@
 import os
 import subprocess
 
-import sqlalchemy
+import click
+from flask import Flask
+from flask.cli import FlaskGroup, with_appcontext
 from sqlalchemy import text
-from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy_utils import create_database, database_exists
 
-import click
-from lccs_db.data import load_dbdata
+from lccs_db.models import db as _db
 
-from .config import Config as config_schema
-
-
-class Config:
-    """A simple decorator class for command line options."""
-
-    def __init__(self):
-        """Initialization of Config decorator."""
-        self.uri = None
-        self.engine = None
-        self.maker = None
-        self.DBSession = None
-        self.session = None
-
-    def execute(self, sql_query):
-        """Execute query of Config decorator."""
-        connection = self.engine.connect()
-        trans = connection.begin()
-        try:
-            connection.execute(text(sql_query))
-            trans.commit()
-            click.echo("Execute OK")
-        except:
-            click.echo("Error while execute query")
-            trans.rollback()
-            raise
+from .config import Config as config_infos
+from .ext import LCCSDatabase
 
 
-pass_config = click.make_pass_decorator(Config, ensure=True)
+def create_app():
+    """Create internal flask app."""
+    app = Flask(__name__)
 
-@click.group()
-@click.option('--user', type=click.STRING, default=None, help='PostgreSQL user.')
-@click.option('--host', type=click.STRING, default='localhost', help='PostgreSQL host.')
-@click.option('--password', prompt=True, hide_input=True, default=None, help='PostgreSQL password.')
-@click.option('--port', type=click.INT, default=5432, help='PostgreSQL port.')
-@click.option('--db_name', type=click.STRING, default=None, help='PostgreSQL database name.')
-@pass_config
-def cli(config, user, host, password, port, db_name):
-    """LCCSDM on command line."""
-    config.uri = "postgresql://{}:{}@{}:{}/{}".format(user, password, host, port, db_name)
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 
-    config.engine = sqlalchemy.create_engine(config.uri)
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
-    Session = scoped_session(sessionmaker(bind=config.engine))
+    LCCSDatabase(app)
 
-    config.session = Session()
-
-@cli.command()
-@pass_config
-def init_db(config):
-    """Initial Database."""
-    if not database_exists(config.engine.url):
-        create_database(config.engine.url)
-        click.echo("Database Create!")
-    else:
-        click.echo("Database Already Exists!")
-
-    click.secho('Creating schema {}...'.format(config_schema.ACTIVITIES_SCHEMA), fg='green')
-
-    config.execute("CREATE SCHEMA IF NOT EXISTS {}".format(config_schema.ACTIVITIES_SCHEMA))
+    return app
 
 
-@cli.command()
-@pass_config
-def create_tables(config):
-    """Initial Alembic."""
-    env = os.environ.copy()
-    env["PYTHONPATH"] = "."
-    env["PATH"] = "{}:{}".format(os.path.expanduser("~/.local/bin"), env["PATH"])
-    env["SQLALCHEMY_DATABASE_URI"] = config.uri
+def create_cli(create_app=None):
+    """Define a wrapper to create Flask App in order to attach into flask click.
 
-    sp = subprocess.Popen(["alembic", "upgrade", "head"], env=env)
+    Args:
+         create_app (function) - Create app factory (Flask).
+    """
+    def create_cli_app(info):
+        if create_app is None:
+            info.create_app = None
 
-    if (sp.wait() != 0):
-        raise ValueError("Alembic upgrade head error ")
+            app = info.load_app()
+        else:
+            app = create_app()
 
-@cli.command()
-@click.option('--ifile', type=click.File('r'),
-              help='A SQL input file for insert.',
-              required=False)
-@pass_config
-def populate_db(config, ifile):
-    """Insert Database."""
-    if ifile is not None:
-        sql = ifile.read()
+        return app
 
-    else:
-        sql = load_dbdata()
+    @click.group(cls=FlaskGroup, create_app=create_cli_app)
+    def cli(*args, **params):
+        pass
 
-    config.execute(sql)
+    return cli
+
+cli = create_cli(create_app=create_app)
+
+
+@cli.group()
+@with_appcontext
+def db():
+    """Perform database migrations."""
+
+
+@db.command()
+@with_appcontext
+def init_db():
+    """Create database. Make sure the variable SQLALCHEMY_DATABASE_URI is set."""
+    click.secho('Creating database {0}'.format(_db.engine.url),
+                fg='green')
+    if not database_exists(str(_db.engine.url)):
+        create_database(str(_db.engine.url))
+
+    with _db.session.begin_nested():
+        click.secho('Creating schema if not exist {}...'.format(config_infos.ACTIVITIES_SCHEMA), fg='green')
+        _db.session.execute("CREATE SCHEMA IF NOT EXISTS {}".format(config_infos.ACTIVITIES_SCHEMA))
+
+    _db.session.commit()

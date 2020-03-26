@@ -8,10 +8,11 @@
 
 """Land Cover Classification System Model ."""
 
-from .base import BaseModel
-from sqlalchemy import Column, Integer, Text, JSON
+from sqlalchemy import JSON, Column, Integer, Text
 
 from ..config import Config
+from .base import BaseModel
+
 
 class ApplicationsStyle(BaseModel):
     """ApplicationsStyle."""
@@ -19,6 +20,6 @@ class ApplicationsStyle(BaseModel):
     __tablename__ = 'applications_style'
     __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
 
-    id = Column(Integer, primary_key=True, autoincrement= True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Text, nullable=False)
     file = Column(JSON, nullable=True)

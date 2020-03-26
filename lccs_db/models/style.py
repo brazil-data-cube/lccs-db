@@ -8,11 +8,12 @@
 
 """Land Cover Classification System Model ."""
 
-from .base import BaseModel
 from sqlalchemy import Column, ForeignKey, Integer, PrimaryKeyConstraint
 from sqlalchemy.orm import relationship
 
 from ..config import Config
+from .base import BaseModel
+
 
 class Style(BaseModel):
     """Style."""
@@ -23,12 +24,10 @@ class Style(BaseModel):
         {'schema': Config.ACTIVITIES_SCHEMA}
     )
 
-    class_system_id = Column(Integer,
-                             ForeignKey('{}.class_system.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'),
-                             nullable=False, primary_key=True)
-    application_style_id = Column(Integer,
-                             ForeignKey('{}.applications_style.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'),
-                             nullable=False, primary_key=True)
+    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.ACTIVITIES_SCHEMA),
+                                                 ondelete='NO ACTION'), nullable=False, primary_key=True)
+    application_style_id = Column(Integer, ForeignKey('{}.applications_style.id'.format(Config.ACTIVITIES_SCHEMA),
+                                                      ondelete='NO ACTION'), nullable=False, primary_key=True)
 
-    classification_system = relationship('LucClassificationSystem')
-    application_style = relationship('ApplicationsStyle')
+    classification_system = relationship('LucClassificationSystem', foreign_keys=[class_system_id])
+    application_style = relationship('ApplicationsStyle', foreign_keys=[application_style_id])

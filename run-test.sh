@@ -7,8 +7,9 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-pydocstyle lccs_db && \
-isort --check-only --diff --recursive lccs_db/*.py && \
+#pydocstyle lccs_db && \
+isort --check-only --diff --recursive lccs_db/models/*.py  && \
+isort --check-only --diff lccs_db/*.py  && \
 check-manifest --ignore ".travis-*" --ignore ".readthedocs.*" && \
 pytest &&
 sphinx-build -qnW --color -b doctest doc/sphinx/ doc/sphinx/_build/doctest
