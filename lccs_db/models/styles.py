@@ -21,12 +21,12 @@ class Styles(BaseModel):
     __tablename__ = 'styles'
     __table_args__ = (
         PrimaryKeyConstraint('class_system_id', 'style_format_id'),
-        {'schema': Config.ACTIVITIES_SCHEMA}
+        {'schema': Config.LCC_ACTIVE_SCHEMA}
     )
 
-    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.ACTIVITIES_SCHEMA),
+    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.LCC_ACTIVE_SCHEMA),
                                                  ondelete='NO ACTION'), nullable=False, primary_key=True)
-    style_format_id = Column(Integer, ForeignKey('{}.style_formats.id'.format(Config.ACTIVITIES_SCHEMA),
+    style_format_id = Column(Integer, ForeignKey('{}.style_formats.id'.format(Config.LCC_ACTIVE_SCHEMA),
                                                       ondelete='NO ACTION'), nullable=False, primary_key=True)
 
     style = Column(JSON, nullable=True)

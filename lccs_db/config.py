@@ -16,4 +16,4 @@ CURRENT_DIR = os.path.dirname(__file__)
 class Config:
     """Define common config along contexts."""
 
-    ACTIVITIES_SCHEMA = os.environ.get('LCCS_ACTIVITIES_SCHEMA', 'lccs')
+    LCC_ACTIVE_SCHEMA = os.environ.get('LCC_ACTIVE_SCHEMA', 'lccs')

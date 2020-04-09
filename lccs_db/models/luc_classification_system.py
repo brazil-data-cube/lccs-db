@@ -17,7 +17,7 @@ class LucClassificationSystem(BaseModel):
     """LucClassificationSystem."""
 
     __tablename__ = 'class_systems'
-    __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
+    __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Text, nullable=False)

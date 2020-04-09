@@ -22,11 +22,11 @@ class ClassMapping(BaseModel):
     __tablename__ = 'class_mappings'
     __table_args__ = (
         PrimaryKeyConstraint('source_class_id', 'target_class_id'),
-        {'schema':Config.ACTIVITIES_SCHEMA}
+        {'schema':Config.LCC_ACTIVE_SCHEMA}
     )
 
-    source_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'), nullable=False)
-    target_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA), ondelete='NO ACTION'), nullable=False)
+    source_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA), ondelete='NO ACTION'), nullable=False)
+    target_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA), ondelete='NO ACTION'), nullable=False)
     description = Column(Text, nullable=True)
     degree_of_similarity = Column(Numeric, nullable=True)
 

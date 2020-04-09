@@ -8,7 +8,7 @@ VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 'INPE', 'PRODES', 'Sistema de C
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 'INPE', 'DETER-B_AMZ', 'Sistema de Alertas Diarios de Desmatamento', '1.0');
 
 
--- CLASES PRODES
+-- CLASSES PRODES
 INSERT INTO lccs.classes (created_at, updated_at, code, name, description, class_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'DESFLORESTAMENTO', 'Desflorestamento', '', 1 ),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'FLORESTA', 'Floresta', '', 1 ),
@@ -17,7 +17,7 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'DESFLORESTAMENTO', 'Desflorestamen
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'NUVEM', 'Nuvem', '', 1),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'RESIDUO', 'Resíduo', '', 1);
 
--- SUBCLASES PRODES
+-- SUBCLASSES PRODES
 INSERT INTO lccs.classes (created_at, updated_at, code, name, description, class_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'd2007','Desflorestamento 2007','',2),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'd2008','Desflorestamento 2008','',2),

@@ -15,7 +15,7 @@ from flask import Flask
 from flask.cli import FlaskGroup, with_appcontext
 from sqlalchemy_utils import create_database, database_exists
 
-from lccs_db.data import load_data, load_dbdata
+from lccs_db.data import load_dbdata
 from lccs_db.models import db as _db
 
 from .config import Config as config_infos
@@ -76,8 +76,8 @@ def init_db():
         create_database(str(_db.engine.url))
 
     with _db.session.begin_nested():
-        click.secho('Creating schema if not exist {}...'.format(config_infos.ACTIVITIES_SCHEMA), fg='green')
-        _db.session.execute("CREATE SCHEMA IF NOT EXISTS {}".format(config_infos.ACTIVITIES_SCHEMA))
+        click.secho('Creating schema if not exist {}...'.format(config_infos.LCC_ACTIVE_SCHEMA), fg='green')
+        _db.session.execute("CREATE SCHEMA IF NOT EXISTS {}".format(config_infos.LCC_ACTIVE_SCHEMA))
 
     _db.session.commit()
 
