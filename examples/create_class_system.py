@@ -10,12 +10,11 @@
 
 import os
 import sys
-from flask import Flask
 
 sys.path.append(os.path.abspath('.'))
 sys.path.append(os.path.abspath('../'))
 
-from lccs_db.models import db, LucClassificationSystem
+from lccs_db.models import LucClassificationSystem
 from lccs_db.cli import create_app
 
 class_systems = [
@@ -45,23 +44,33 @@ class_systems = [
     }
 ]
 
+def verify_class_system_exist(class_system_name):
+
+    try:
+        class_system = LucClassificationSystem.get(name=class_system_name)
+        return class_system
+    except BaseException:
+       return None
+
 if __name__ == '__main__':
     # Initialize SQLAlchemy Models
 
+    app = create_app()
 
-    _app = create_app()
-
-    with _app.app_context():
+    with app.app_context():
 
         for class_system in class_systems:
-            try:
-                luc_system = LucClassificationSystem.get(name=class_system['name'])
-            except BaseException:
-                luc_system = LucClassificationSystem()
-                luc_system.authority_name = class_system['authority_name']
-                luc_system.description = class_system['description']
-                luc_system.name = class_system['name']
-                luc_system.version = class_system['version']
-                luc_system.save()
 
-    print("Finish!")
+            class_system = verify_class_system_exist(class_system['name'])
+
+            if class_system:
+                print("Classification System {} already exist".format(class_system.name))
+            else:
+                class_system = LucClassificationSystem()
+                class_system.authority_name = class_system['authority_name']
+                class_system.description = class_system['description']
+                class_system.name = class_system['name']
+                class_system.version = class_system['version']
+                class_system.save()
+
+                print("Classification System {} inserted!".format(class_system.name))
