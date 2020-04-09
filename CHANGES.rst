@@ -10,23 +10,20 @@
 Changes
 =======
 
-=======
-Changes
-=======
-
 
 Version 0.2.0
 -------------
 
-Released 2020-02-21
+Released 2020-04-09
 
 - First experimental version.
-- Support for: Class Systems, Classes and Class Mappings.
+- Support for: Class Systems, Classes, Styles and Class Mappings.
 - Command Line Interface support.
+- ER diagram based on Draw.io.
 - Documentation system based on Sphinx.
 - Documentation integrated to ``Read the Docs``.
 - Package support through Setuptools.
 - Installation and use instructions.
-- Database schema based on Alembic.
+- Database schema based on Flask-Alembic.
 - Source code versioning based on `Semantic Versioning 2.0.0 <https://semver.org/>`_.
-- License: `MIT <https://raw.githubusercontent.com/brazil-data-cube/lccs-db/b-0.2/LICENSE>`_.
+- License: `MIT <https://raw.githubusercontent.com/brazil-data-cube/lccs-db/master/LICENSE>`_.
