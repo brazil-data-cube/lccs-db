@@ -19,16 +19,16 @@ class LucClass(BaseModel):
     """LucClass."""
 
     __tablename__ = 'classes'
-    __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
+    __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)
 
     id = Column(Integer, primary_key=True, autoincrement= True)
     code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
     description = Column(Text, nullable=True)
-    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.ACTIVITIES_SCHEMA),
+    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.LCC_ACTIVE_SCHEMA),
                                                               ondelete='NO ACTION'), nullable=False)
 
-    class_parent_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.ACTIVITIES_SCHEMA),
+    class_parent_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA),
                                                  ondelete='NO ACTION'), nullable=True)
 
     classification_system = relationship('LucClassificationSystem')

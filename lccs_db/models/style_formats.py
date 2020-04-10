@@ -18,7 +18,7 @@ class StyleFormats(BaseModel):
     """ApplicationsStyle."""
 
     __tablename__ = 'style_formats'
-    __table_args__ = dict(schema=Config.ACTIVITIES_SCHEMA)
+    __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Text, nullable=False)
