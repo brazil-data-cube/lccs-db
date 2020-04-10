@@ -9,57 +9,45 @@
 Installation
 ============
 
-``lccs-db`` depends essentially on `Alembic <https://alembic.sqlalchemy.org/>`_. Please, read the instructions below in order to install ``lccs-db``.
+``lccs-db`` depends essentially on `Flask-Alembic <https://bitbucket.org/davidism/flask-alembic/src/default/>`_. Please, read the instructions below in order to install ``lccs-db``.
 
 
-Production installation
------------------------
-
-**Under Development!**
-
-.. Install from `PyPI <https://pypi.org/>`_:
-..
-.. .. code-block:: shell
-..
-..     $ pip3 install lccs-db
-
-
-Development installation
+Development Installation
 ------------------------
 
 Clone the software repository:
 
 .. code-block:: shell
 
-        $ git clone https://github.com/brazil-data-cube/lccs-db.git
+    $ git clone https://github.com/brazil-data-cube/lccs-db.git
 
 
 Go to the source code folder:
 
 .. code-block:: shell
 
-        $ cd lccs-db
+    $ cd lccs-db
 
 
-Install in development mode:
+Use pip to install in development mode:
 
 .. code-block:: shell
 
-        $ pip3 install -e .[all]
+    $ pip3 install -e .[all]
 
 
 Run the tests:
 
 .. code-block:: shell
 
-        $ ./run-test.sh
+    $ ./run-tests.sh
 
 
 Generate the documentation:
 
 .. code-block:: shell
 
-        $ python setup.py build_sphinx
+    $ python setup.py build_sphinx
 
 
 The above command will generate the documentation in HTML and it will place it under:
@@ -68,4 +56,7 @@ The above command will generate the documentation in HTML and it will place it u
 
     doc/sphinx/_build/html/
 
-**Note:** If you want to create the database model, please, see `RUNNING.rst <./RUNNING.rst>`_.
+
+.. note::
+
+    If you want to create the database model, please, see `RUNNING.rst <./RUNNING.rst>`_.
