@@ -92,7 +92,7 @@ See `RUNNING.rst <./RUNNING.rst>`_.
 Developer Documentation
 =======================
 
-See https://lccs-db.readthedocs.io/en/master/
+See https://lccs-db.readthedocs.io/en/latest/
 
 
 License
