@@ -11,19 +11,19 @@ Land Cover Classification System Database Model
 ===============================================
 
 .. image:: https://img.shields.io/badge/license-MIT-green
-        :target: https://github.com//brazil-data-cube/lccs-db/blob/master/LICENSE
+        :target: https://github.com//brazil-data-cube/lccs-db/blob/v0.2.0/LICENSE
         :alt: Software License
 
-.. image:: https://travis-ci.org/brazil-data-cube/lccs-db.svg?branch=master
+.. image:: https://travis-ci.org/brazil-data-cube/lccs-db.svg?branch=b-0.2
         :target: https://travis-ci.org/brazil-data-cube/lccs-db
         :alt: Build Status
 
-.. image:: https://coveralls.io/repos/github/brazil-data-cube/lccs-db/badge.svg?branch=master
-        :target: https://coveralls.io/github/brazil-data-cube/lccs-db?branch=master
+.. image:: https://coveralls.io/repos/github/brazil-data-cube/lccs-db/badge.svg?branch=b-0.2
+        :target: https://coveralls.io/github/brazil-data-cube/lccs-db?branch=b-0.2
         :alt: Code Coverage Test
 
-.. image:: https://readthedocs.org/projects/lccs-db/badge/?version=latest
-        :target: https://lccs-db.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/lccs-db/badge/?version=b-0.2
+        :target: https://lccs-db.readthedocs.io/en/b-0.2/
         :alt: Documentation Status
 
 .. image:: https://img.shields.io/badge/lifecycle-experimental-orange.svg
@@ -61,8 +61,8 @@ Além disso, o LCCS-DB permite realizar o mapeamento entre as classes dos sistem
 :raw-html:`<br />`
 O diagrama ER abaixo apresenta as tabelas utilizadas neste sistema:
 
-.. image:: https://github.com/brazil-data-cube/lccs-db/raw/master/doc/spec/lccs_database.png
-        :target: https://github.com/brazil-data-cube/lccs-db/tree/master/doc/spec
+.. image:: https://github.com/brazil-data-cube/lccs-db/raw/v0.2.0/doc/spec/lccs_database.png
+        :target: https://github.com/brazil-data-cube/lccs-db/tree/v0.2.0/doc/spec
         :width: 90%
         :alt: Database Schema
 
@@ -92,7 +92,7 @@ See `RUNNING.rst <./RUNNING.rst>`_.
 Developer Documentation
 =======================
 
-See https://lccs-db.readthedocs.io/en/latest/
+See https://lccs-db.readthedocs.io/en/b-0.2/
 
 
 License
