@@ -55,8 +55,9 @@ install_requires = [
 
 packages = find_packages()
 
+g = {}
+
 with open(os.path.join('lccs_db', 'version.py'), 'rt') as fp:
-    g = {}
     exec(fp.read(), g)
     version = g['__version__']
 
@@ -68,7 +69,7 @@ setup(
     keywords=['Land Use Land Cover', 'GIS', 'Database', 'Model', 'Classification System'],
     license='MIT',
     author='INPE',
-    author_email='fabi.zioti@gmail.com',
+    author_email='brazildatacube@dpi.inpe.br',
     url='https://github.com/brazil-data-cube/lccs-db',
     packages=packages,
     zip_safe=False,
