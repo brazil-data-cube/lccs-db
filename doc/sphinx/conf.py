@@ -6,8 +6,6 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 """Configuration file for the Sphinx documentation builder system."""
-import os
-
 import lccs_db
 
 # -- Project information -----------------------------------------------------
@@ -16,14 +14,8 @@ project = 'Land Cover Classification System Database Model'
 copyright = '2019, INPE'
 author = 'INPE'
 
-g = {}
-
-with open(os.path.join('..', '..', 'lccs_db', 'version.py'), 'rt') as fp:
-    exec(fp.read(), g)
-    version = g['__version__']
-
 # The full version, including alpha/beta/rc tags.
-release = version
+release = lccs_db.__version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -60,7 +52,7 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 def setup(app):
-    app.add_stylesheet('lccs_db.css')
+    app.add_css_file('lccs_db.css')
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True

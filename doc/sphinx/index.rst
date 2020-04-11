@@ -17,6 +17,7 @@ Documentation
    :maxdepth: 2
    :caption: Contents:
 
+   usage
    license
 
 
