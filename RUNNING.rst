@@ -65,13 +65,35 @@ You should get a similar output::
 Updating an Existing Data Model
 -------------------------------
 
-In order to make changes to the models of a module, we need to create a new alembic revision.
-To make sure that database is up to date, use the following:
+In order to make changes to the models of a module, we need to create a new alembic revision. To make sure that database is up to date, use the following:
 
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
     lccs_db alembic upgrade heads
+
+
+Loading Default Class Systems
+-----------------------------
+
+You can load well-known classification systems with the CLI:
+
+.. code-block:: shell
+
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db insert-db
+
+
+
+Loading Custom Class Systems
+----------------------------
+
+You can load your own classification systems with the CLI:
+
+.. code-block:: shell
+
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db insert-db --ifile "path-to-file.sql"
 
 
 Updating the Migration Scripts

@@ -108,3 +108,6 @@ VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 1, 'QGIS');
 
 INSERT INTO lccs.style_formats (created_at, updated_at, id, name)
 VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 2, 'TerraView');
+
+INSERT INTO lccs.style_formats (created_at, updated_at, id, name)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 3, 'GeoServer');
