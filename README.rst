@@ -11,7 +11,7 @@ Land Cover Classification System Database Model
 ===============================================
 
 .. image:: https://img.shields.io/badge/license-MIT-green
-        :target: https://github.com//brazil-data-cube/lccs-db/blob/v0.2.0/LICENSE
+        :target: https://github.com//brazil-data-cube/lccs-db/blob/b-0.2/LICENSE
         :alt: Software License
 
 .. image:: https://travis-ci.org/brazil-data-cube/lccs-db.svg?branch=b-0.2
@@ -61,8 +61,8 @@ Além disso, o LCCS-DB permite realizar o mapeamento entre as classes dos sistem
 :raw-html:`<br />`
 O diagrama ER abaixo apresenta as tabelas utilizadas neste sistema:
 
-.. image:: https://github.com/brazil-data-cube/lccs-db/raw/v0.2.0/doc/spec/lccs_database.png
-        :target: https://github.com/brazil-data-cube/lccs-db/tree/v0.2.0/doc/spec
+.. image:: https://github.com/brazil-data-cube/lccs-db/raw/b-0.2/doc/spec/lccs_database.png
+        :target: https://github.com/brazil-data-cube/lccs-db/tree/b-0.2/doc/spec
         :width: 90%
         :alt: Database Schema
 
