@@ -98,4 +98,4 @@ def insert_db(ifile):
 
     _db.session.commit()
 
-    click.echo("Data inserted with sucess!")
+    click.echo("Data inserted with success!")
