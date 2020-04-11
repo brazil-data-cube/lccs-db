@@ -87,7 +87,7 @@ def init_db():
               help='A SQL input file for insert.',
               required=False)
 def insert_db(ifile):
-    """Insert Data into Database. """
+    """Insert Data into Database."""
     if ifile is not None:
         sql = ifile.read()
 
