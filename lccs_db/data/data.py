@@ -10,6 +10,7 @@
 
 import os.path
 
+
 def load_data(file_path):
     """Load file."""
     with open(file_path) as f:

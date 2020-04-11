@@ -8,14 +8,8 @@
 
 """Land Cover Classification System Model Exemple."""
 
-import os
-import sys
-
-sys.path.append(os.path.abspath('.'))
-sys.path.append(os.path.abspath('../'))
-
-from lccs_db.models import LucClassificationSystem
 from lccs_db.cli import create_app
+from lccs_db.models import LucClassificationSystem
 
 class_systems = [
     {

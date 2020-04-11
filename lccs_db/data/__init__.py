@@ -8,6 +8,6 @@
 
 """Python Land Cover Classification System Database Model."""
 
-from .data import load_dbdata, load_data
+from .data import load_data, load_dbdata
 
 __all__ = ('load_dbdata', 'load_data',)

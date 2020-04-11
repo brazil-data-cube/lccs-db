@@ -14,7 +14,7 @@ Changes
 Version 0.2.0
 -------------
 
-Released 2020-04-09
+Released 2020-04-11
 
 - First experimental version.
 - Support for: Class Systems, Classes, Styles and Class Mappings.
