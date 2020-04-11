@@ -9,92 +9,83 @@
 Running LCCS-DB in the Command Line
 ===================================
 
-Create a PostgreSQL database and ``lccs`` schema if one doesn't exist.
+If you have not installed ``lccs-db`` yet, please, take a look at `INSTALL.rst <./INSTALL.rst>`_ document.
+
+
+Creating a PostgreSQL Database
+------------------------------
+
+If you do not have a database instance, you can create one with the command line utility ``lccs_db``:
 
 .. code-block:: shell
 
-        SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-        lccs_db db init-db
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db db init-db
 
 
-After that, run Flask-Alembic command command to prepare the LCCS-DB data model:
+Besides creating a database named "``dbname``", the above command will also create a schema (or namespace) named "``lccs``" in this database.
+
+.. note::
+
+    If you already have a database, the above command will just create the schema (or namespace) "``lccs``" if one does not exist.
+
+
+Creating the LCCS Data Model
+----------------------------
+
+
+The command line utility ``lccs_db`` can also be used to create all tables belonging to the LCCS data model. The following command can be used to create or upgrade the table schema for LCCS:
 
 .. code-block:: shell
 
-        SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-        lccs_db alembic upgrade head
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db alembic upgrade head
 
-If all the commands succeed, for PostgreSQL you can check the created table within the ``psql`` terminal as follow:
 
-.. code-block:: sql
+If the above command succeed, you can check the created tables within the ``lccs`` schema in PostgreSQL. Use the ``psql`` terminal as follow:
 
-        \dt lccs.*
+.. code-block:: shell
+
+    psql -U username -h host -p 5432 -d dbname -c "\dt lccs.*"
 
 
 You should get a similar output::
 
-                           List of relations
-         Schema  |           Name            | Type  |  Owner
-        ---------+---------------------------+-------+----------
-         lccs    | class_mapping             | table | postgres
-         lccs    | classes                   | table | postgres
-         lccs    | class_systems             | table | postgres
-         lccs    | style_formats             | table | postgres
-         lccs    | style                     | table | postgres
-        (3 rows)
+                      List of relations
+     Schema |      Name      | Type  |  Owner
+    --------+----------------+-------+----------
+     lccs   | class_mappings | table | postgres
+     lccs   | class_systems  | table | postgres
+     lccs   | classes        | table | postgres
+     lccs   | style_formats  | table | postgres
+     lccs   | styles         | table | postgres
+    (5 rows)
+
 
 Updating an Existing Data Model
-===============================
+-------------------------------
 
 In order to make changes to the models of a module, we need to create a new alembic revision.
 To make sure that database is up to date, use the following:
 
 .. code-block:: shell
 
-        SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-        lccs_db alembic upgrade heads
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db alembic upgrade heads
+
 
 Updating the Migration Scripts
-==============================
+------------------------------
 
 .. code-block:: shell
 
-        SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-        lccs_db alembic revision "Revision message"
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db alembic revision "Revision message"
 
-
-Adding lccs_db as dependency to existing modules
-================================================
-
-The following steps assume that sample_db is the name of the module for which you are adding alembic support.
-
-The module lccs_db uses dynamic model loading in order to track both lccs_db and others python modules. It was built on top of ``Python Setup entry_points``.
-
-In order to load models dynamically, you must edit ``setup.py`` in your package sample_db and append your module alembic and models to the following entry points:
-
-- **sample_db.alembic** defines where migrations will be stored.
-- **sample_db.models** defines where SQLAlchemy models will be mapped.
-
-The ``setup.py`` should be like as follows:
-
-.. code-block:: python
-
-        setup(
-           ...,
-            entry_points={
-            'lccs_db.alembic': [
-                'sample_db = sample_db:alembic'
-            ],
-            'lccs_db.models': [
-                'sample_db = sample_db.models'
-            ]
-          },
-        )
-
-This will register the ``sample_db/alembic`` directory in the alembic's version locations. It also will make the ``sample_db/models`` be discoverable and loaded in memory to track alembic revisions.
 
 Creating a new revision
 -----------------------
+
 
 To create a new revision for module ``sample_db``, you must create a branch and get latest revision id to make persistent migration. Use the following command to get latest revision id:
 
@@ -103,13 +94,16 @@ To create a new revision for module ``sample_db``, you must create a branch and 
         SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
         lccs_db alembic heads
 
+
 The result will be something like that:
 
 .. code-block:: shell
 
         <base> -> 7661f3f76beb (default) (head), create-initial-tables
 
+
 In this example, the latest ``revision id`` is ``7661f3f76beb``.
+
 
 In order to do generate migration for your module, use the following command:
 
@@ -121,6 +115,8 @@ In order to do generate migration for your module, use the following command:
             --branch your_module_name \
             --parent 7661f3f76beb
 
-**Note**:
 
-The ``--parent`` argument is required only in the first revision generation. When a parent is not given for other modules the revision will be placed into ``default branch ()`` and you may face issues during ``lccs_db alembic upgrade``.
+.. note::
+
+    The ``--parent`` argument is required only in the first revision generation. When a parent is not given for other modules the revision will be placed into ``default branch ()`` and you may face issues during ``lccs_db alembic upgrade``.
+
