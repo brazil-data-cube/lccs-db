@@ -81,7 +81,7 @@ You can load well-known classification systems with the CLI:
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db insert-db
+    lccs_db db insert-db
 
 
 
@@ -93,7 +93,7 @@ You can load your own classification systems with the CLI:
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db insert-db --ifile "path-to-file.sql"
+    lccs_db db insert-db --ifile "path-to-file.sql"
 
 
 Updating the Migration Scripts
