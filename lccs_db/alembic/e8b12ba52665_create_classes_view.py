@@ -24,7 +24,8 @@ def upgrade():
     session = Session(bind=op.get_bind())
     session.execute("CREATE OR REPLACE VIEW {} AS " \
     "SELECT classes.id, classes.name, classes.description, classes.code, " \
-    "class_systems.name  AS class_system_name " \
+    "class_systems.name  AS class_system_name, " \
+    "parent_class.name AS class_parent_name " \
     "FROM {} AS classes " \
     "JOIN {} AS class_systems ON class_systems.id = classes.class_system_id " \
     "LEFT OUTER JOIN {} AS parent_class ON classes.class_parent_id = parent_class.id;".format( ClassesView.__table__, LucClass.__table__,
