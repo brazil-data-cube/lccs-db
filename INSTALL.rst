@@ -11,6 +11,14 @@ Installation
 
 ``lccs-db`` depends essentially on `Flask-Alembic <https://bitbucket.org/davidism/flask-alembic/src/default/>`_. Please, read the instructions below in order to install ``lccs-db``.
 
+Production Installation
+-----------------------
+
+Install from GitHub:
+
+.. code-block:: shell
+
+    pip3 install git+https://github.com/brazil-data-cube/lccs-db@b-0.2
 
 Development Installation
 ------------------------
