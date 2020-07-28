@@ -8,7 +8,7 @@
 
 """Python Land Cover Classification System Database Model."""
 
-import os.path
+from pkg_resources import resource_string
 
 
 def load_data(file_path):
@@ -20,8 +20,10 @@ def load_data(file_path):
 
 def load_dbdata():
     """Load data."""
-    module_path = os.path.dirname(os.path.abspath(__file__))
+    resource_package = __name__
 
-    sql = load_data(os.path.join(module_path, 'default_class_systems.sql'))
+    resource_path = 'default_class_systems.sql'
 
-    return sql
+    sql = resource_string(resource_package, resource_path).decode('utf-8')
+
+    return  sql

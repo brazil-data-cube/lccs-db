@@ -10,10 +10,10 @@
 
 from .base import db
 from .class_mapping import ClassMapping
-from .luc_class import LucClass
+from .luc_class import ClassesView, LucClass
 from .luc_classification_system import LucClassificationSystem
 from .style_formats import StyleFormats
 from .styles import Styles
 
 __all__ = ('db', 'LucClass', 'LucClassificationSystem', 'ClassMapping',
-           'StyleFormats', 'Styles', )
+           'StyleFormats', 'Styles', 'ClassesView',)
