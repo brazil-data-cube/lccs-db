@@ -34,6 +34,7 @@ def insert_lccs_data(ifile):
     click.echo("LCCS Data inserted with success!")
 
 def main(as_module=False):
+    """Main Function."""
     # TODO omit sys.argv once https://github.com/pallets/click/issues/536 is fixed
     import sys
     cli.main(args=sys.argv[1:], prog_name="python -m lccs_db" if as_module else None)
