@@ -8,6 +8,7 @@
 #
 
 pydocstyle --match-dir="^lccs_db/alembic" lccs_db setup.py && \
+isort lccs_db setup.py --check-only --diff --skip-glob "lccs_db/alembic/*" && \
 check-manifest --ignore ".travis-*" --ignore ".readthedocs.*" && \
 pytest &&
 sphinx-build -qnW --color -b doctest doc/sphinx/ doc/sphinx/_build/doctest

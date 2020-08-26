@@ -7,15 +7,21 @@
 #
 
 """Defines flask extension module for the Land Cover Classification System Database Model."""
+from bdc_db.ext import BrazilDataCubeDB
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 from .cli import cli
+from .models.base import db as _db
 
 
 class LCCSDatabase:
     """LCCSDB extension."""
 
-    def __init__(self, app=None, **kwargs):
+    # Reference to BrazilDataCubeDB app instance
+    _db_ext = None
+
+    def __init__(self, app=None):
         """Initialize the lccs_db extension.
 
         Args:
@@ -23,14 +29,25 @@ class LCCSDatabase:
             kwargs: Optional arguments (not used).
         """
         if app:
-            self.init_app(app, **kwargs)
+            self.init_app(app)
 
-    def init_app(self, app: Flask, **kwargs):
+    def init_app(self, app: Flask):
         """Initialize Flask application instance.
 
         Args:
             app: Flask application
             kwargs: Optional arguments (not used).
         """
+        self._db_ext = BrazilDataCubeDB(app)
         app.extensions['lccs-db'] = self
+
         app.cli.add_command(cli)
+
+    @property
+    def db(self) -> SQLAlchemy:
+        """Retrieve instance Flask-SQLALchemy instance.
+
+        Notes:
+            Make sure to initialize the `BDCCatalog` before.
+        """
+        return _db
