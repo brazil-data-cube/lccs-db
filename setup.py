@@ -85,7 +85,11 @@ setup(
         ],
         'bdc_db.models': [
             'lccs_db = lccs_db.models'
+        ],
+        'bdc_db.scripts': [
+            'lccs_db = lccs_db.scripts'
         ]
+
     },
     extras_require=extras_require,
     install_requires=install_requires,

@@ -38,7 +38,7 @@ The command line utility ``lccs_db`` can also be used to create all tables belon
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db alembic upgrade head
+    lccs_db alembic upgrade head
 
 
 If the above command succeed, you can check the created tables within the ``lccs`` schema in PostgreSQL. Use the ``psql`` terminal as follow:
@@ -80,7 +80,7 @@ You can load well-known classification systems with the CLI:
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db insert-lccs-data
+    lccs_db db load-scripts
 
 
 
@@ -92,7 +92,7 @@ You can load your own classification systems with the CLI:
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db insert-lccs-data --ifile "path-to-file.sql"
+    lccs_db db load-file --file "sql_file.sql"
 
 
 Updating the Migration Scripts

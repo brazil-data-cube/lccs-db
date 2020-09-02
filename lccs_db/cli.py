@@ -7,31 +7,8 @@
 #
 
 """Command line interface for the Land Cover Classification System Database Model ."""
-import click
 from bdc_db.cli import cli
-from bdc_db.db import db as _db
-from flask.cli import with_appcontext
 
-from lccs_db.data import load_dbdata
-
-
-@cli.command()
-@with_appcontext
-@click.option('--ifile', type=click.File('r'),
-              help='A SQL input file for insert.',
-              required=False)
-def insert_lccs_data(ifile):
-    """Insert data in LCCS schema."""
-    if ifile is not None:
-        sql = ifile.read()
-    else:
-        sql = load_dbdata()
-
-    _db.session.execute(sql)
-
-    _db.session.commit()
-
-    click.echo("LCCS Data inserted with success!")
 
 def main(as_module=False):
     """Main Function."""
