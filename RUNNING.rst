@@ -20,15 +20,14 @@ If you do not have a database instance, you can create one with the command line
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db init-db
+    lccs_db db init
 
+Create a schema (or namespace) named "``lccs``" in this database:
 
-Besides creating a database named "``dbname``", the above command will also create a schema (or namespace) named "``lccs``" in this database.
+.. code-block:: shell
 
-.. note::
-
-    If you already have a database, the above command will just create the schema (or namespace) "``lccs``" if one does not exist.
-
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db db create-namespace
 
 Creating the LCCS Data Model
 ----------------------------
@@ -81,7 +80,7 @@ You can load well-known classification systems with the CLI:
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db insert-db
+    lccs_db db load-scripts
 
 
 
@@ -93,7 +92,7 @@ You can load your own classification systems with the CLI:
 .. code-block:: shell
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db insert-db --ifile "path-to-file.sql"
+    lccs_db db load-file --file "sql_file.sql"
 
 
 Updating the Migration Scripts

@@ -45,12 +45,13 @@ setup_requires = [
 ]
 
 install_requires = [
-    'SQLAlchemy[postgresql]>=1.3.4',
+    'SQLAlchemy[postgresql_psycopg2binary]>=1.3.10',
     'alembic>=1.0.10',
     'Flask-Alembic>=2.0,<3',
     'Flask-SQLAlchemy>=2.4.1',
     'sqlalchemy-utils>=0.36.0'
     'Click>=7.0',
+    'bdc-db @ git+git://github.com/brazil-data-cube/bdc-db.git#egg=bdc-db'
 ]
 
 packages = find_packages()
@@ -79,12 +80,16 @@ setup(
         'console_scripts': [
             'lccs_db = lccs_db.cli:cli',
         ],
-        'lccs_db.alembic': [
+        'bdc_db.alembic': [
             'lccs_db = lccs_db:alembic'
         ],
-        'lccs_db.models': [
+        'bdc_db.models': [
             'lccs_db = lccs_db.models'
+        ],
+        'bdc_db.scripts': [
+            'lccs_db = lccs_db.scripts'
         ]
+
     },
     extras_require=extras_require,
     install_requires=install_requires,

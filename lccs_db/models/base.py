@@ -8,10 +8,12 @@
 """Model Configuration."""
 from datetime import datetime
 
-from flask_sqlalchemy import SQLAlchemy
+from bdc_db.db import db
 from sqlalchemy import Column, DateTime
 
-db = SQLAlchemy()
+from ..config import Config
+
+db.metadata.schema = Config.LCC_ACTIVE_SCHEMA
 
 
 class BaseModel(db.Model):
