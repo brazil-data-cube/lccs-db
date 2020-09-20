@@ -45,12 +45,6 @@ setup_requires = [
 ]
 
 install_requires = [
-    'SQLAlchemy[postgresql_psycopg2binary]>=1.3.10',
-    'alembic>=1.0.10',
-    'Flask-Alembic>=2.0,<3',
-    'Flask-SQLAlchemy>=2.4.1',
-    'sqlalchemy-utils>=0.36.0'
-    'Click>=7.0',
     'bdc-db @ git+git://github.com/brazil-data-cube/bdc-db.git#egg=bdc-db'
 ]
 

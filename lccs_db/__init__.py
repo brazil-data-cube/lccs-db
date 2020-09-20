@@ -8,7 +8,7 @@
 
 """Python Land Cover Classification System Database Model."""
 
-from .version import __version__
 from .ext import LCCSDatabase
+from .version import __version__
 
 __all__ = ('__version__', 'LCCSDatabase',)
