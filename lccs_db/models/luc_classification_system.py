@@ -14,7 +14,7 @@ from .base import BaseModel
 
 
 class LucClassificationSystem(BaseModel):
-    """LucClassificationSystem."""
+    """A LucClassificationSystem class represent a Classification System."""
 
     __tablename__ = 'class_systems'
     __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)

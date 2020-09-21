@@ -6,21 +6,10 @@
     under the terms of the MIT License; see LICENSE file for more details.
 
 
-LCCS-DB API
-===========
+Class
+-----
 
-
-.. automodule:: lccs_db
-
-
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Models:
-
-    base
-    class_system
-    class
-    mappings
-    style
-    style_format
+.. autoclass:: lccs_db.models.luc_class::LucClass
+    :members:
+    :special-members: __init__
+    :member-order: bysource

@@ -16,7 +16,7 @@ from .base import BaseModel
 
 
 class Styles(BaseModel):
-    """Style."""
+    """A Style class."""
 
     __tablename__ = 'styles'
     __table_args__ = (
