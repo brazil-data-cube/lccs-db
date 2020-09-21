@@ -9,7 +9,6 @@
 Base
 ----
 
-
 .. autoclass:: lccs_db.models.base::BaseModel
     :members:
     :special-members: __init__
