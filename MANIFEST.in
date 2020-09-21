@@ -1,13 +1,13 @@
 #
 # This file is part of Land Cover Classification Database Model.
-# Copyright (C) 2019 INPE.
+# Copyright (C) 2019-2020 INPE.
 #
 # Land Cover Classification Database Model is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-exclude doc/spec
-exclude doc/sphinx/_build
+exclude docs/spec
+exclude docs/sphinx/_build
 include *.in
 include *.rst
 include *.sh
@@ -18,19 +18,21 @@ include LICENSE
 include pytest.ini
 include alembic.ini
 include migrations/README
-recursive-exclude doc/spec *
-recursive-exclude doc/sphinx/_build *
-recursive-include doc *.bat
-recursive-include doc *.css
-recursive-include doc *.py
-recursive-include doc *.rst
-recursive-include doc *.xml
-recursive-include doc Makefile
+recursive-exclude docs/spec *
+recursive-exclude docs/sphinx/_build *
+recursive-include docs/sphinx *.bat
+recursive-include docs/sphinx *.css
+recursive-include docs/sphinx *.ico
+recursive-include docs/sphinx *.png
+recursive-include docs/sphinx *.py
+recursive-include docs/sphinx *.rst
+recursive-include docs/sphinx *.xml
+recursive-include docs/sphinx Makefile
 recursive-include examples *.py
 recursive-include examples *.sql
-recursive-include migrations *.mako
-recursive-include migrations *.py
-recursive-include tests *.py
 recursive-include lccs_db *.sql
 recursive-include lccs_db *.mako
 recursive-include lccs_db *.py
+recursive-include migrations *.mako
+recursive-include migrations *.py
+recursive-include tests *.py
