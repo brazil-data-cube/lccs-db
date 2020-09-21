@@ -49,38 +49,35 @@ Land Cover Classification System Database Model
     :format: html
 
 
-O que é o LCCS-DB?
-==================
+About
+=====
 
 
-Atualmente existem diversos conjuntos de dados em escalas regionais, nacionais e globais com informação sobre uso e cobertura da terra que visam atender a um grande número de aplicações, entre elas a gestão de recursos naturais, mudanças do clima e seus impactos e conservação da biodiversidade. Esses produtos de dados são gerados utilizando diferentes abordagens e metodologias, que apresentam informações sobre diferentes classes da superfície da terra, como florestas, plantações agrícolas, entre outras. As iniciativas que geram mapas de uso e cobertura da terra, normalmente desenvolvem seu próprio sistema de classificação, com diferentes nomenclaturas e significados das classes utilizadas.
+Currently, there are several data sets on regional, national and global scales with information on land use and land cover that aim to support a large number of applications, including the management of natural resources, climate change and its impacts, and biodiversity conservation. These data products are generated using different approaches and methodologies, which present information about different classes of the earth's surface, such as forests, agricultural plantations, among others. Initiatives that generate land use and land cover maps normally develop their own classification system, with different nomenclatures and meanings of the classes used.
+
+**LCCS-DB** (**L**\ and **C**\ over **C**\ lassification **S**\ystem **D**\ ata\ **b**\ ase) provides a data model that represents the various classification systems in use and their respective classes. The LCCS-DB aims to provide a data repository to facilitate access and visualization of classes and their symbologies in each classification system employed in projects that provide land use and land cover maps in Brazil: `PRODES <http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes>`_, `DETER <http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/deter>`_, `TerraClass <http://www.inpe.br/cra/projetos_pesquisas/dados_terraclass.php>`_ e MapBiomas.
+
+In addition, the LCCS-DB allows mapping between classes of classification systems in order to simplify joint data analysis.
+
+The following diagram shows the tables used in this system:
 
 
-:raw-html:`<br />`
-Neste contexto, o **LCCS-DB** (**L**\ and **C**\ over **C**\ lassification **S**\ystem **D**\ ata\ **b**\ ase) fornece um modelo de dados que representa os diversos sistemas de classificação em uso e suas respectivas classes. O LCCS-DB tem por objetivo disponibilizar um repositório de dados para facilitar o acesso e visualização das classes e suas simbologias em cada sistema de classificação empregados nos projetos que disponibilizam mapas de uso e cobertura da terra no Brasil: `PRODES <http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes>`_, `DETER <http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/deter>`_, `TerraClass <http://www.inpe.br/cra/projetos_pesquisas/dados_terraclass.php>`_ e MapBiomas.
-
-
-:raw-html:`<br />`
-Além disso, o LCCS-DB permite realizar o mapeamento entre as classes dos sistemas de classificação de maneira a simplificar análise conjunta dos dados.
-
-
-:raw-html:`<br />`
-O diagrama ER abaixo apresenta as tabelas utilizadas neste sistema:
-
-.. image:: https://github.com/brazil-data-cube/lccs-db/raw/master/doc/spec/lccs_database.png
+.. image:: https://github.com/brazil-data-cube/lccs-db/raw/master/docs/spec/lccs_database.png
         :target: https://github.com/brazil-data-cube/lccs-db/tree/master/doc/spec
         :width: 90%
         :alt: Database Schema
 
 
 :raw-html:`<br />`
-Este pacote é a base para os seguintes projetos:
+This is the base package for other softwares in the Brazil Data Cube project:
 
-- `LCCS-WS <https://github.com/brazil-data-cube/lccs-ws>`_: Land Cover Classification System Web Service (see also `its specification <https://github.com/brazil-data-cube/lccs-ws-spec>`_).
+- `LCCS-WS-SPEC <https://github.com/brazil-data-cube/lccs-ws-spec>`_: Land Cover Classification System Web Service Specification.
 
 - `LCCS.py <https://github.com/brazil-data-cube/lccs.py>`_: Python Client Library for Land Cover Classification System Web Service.
 
-- `WLTS <https://github.com/brazil-data-cube/lccs.py>`_: Web Land Trajectory Service.
+- `WLTS-SPEC <https://github.com/brazil-data-cube/wlts-spec>`_: Web Land Trajectory Service Specification.
+
+- `WLTS.py <https://github.com/brazil-data-cube/wlts.py>`_: Python Client Library for Web Land Trajectory Service .
 
 
 Installation
