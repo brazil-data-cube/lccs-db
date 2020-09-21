@@ -131,3 +131,9 @@ In order to do generate migration for your module, use the following command::
 .. note::
 
     The ``--parent`` argument is required only in the first revision generation. When a parent is not given for other modules the revision will be placed into ``default branch ()`` and you may face issues during ``lccs_db alembic upgrade``.
+
+.. note::
+
+    For more information, type in the command line::
+
+        lccs_db  --help
