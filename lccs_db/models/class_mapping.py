@@ -17,12 +17,12 @@ from .base import BaseModel
 
 
 class ClassMapping(BaseModel):
-    """ClassMapping."""
+    """A class that represents Class Mapping"""
 
     __tablename__ = 'class_mappings'
     __table_args__ = (
         PrimaryKeyConstraint('source_class_id', 'target_class_id'),
-        {'schema':Config.LCC_ACTIVE_SCHEMA}
+        {'schema': Config.LCC_ACTIVE_SCHEMA}
     )
 
     source_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA), ondelete='NO ACTION'), nullable=False)

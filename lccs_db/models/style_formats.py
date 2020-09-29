@@ -15,7 +15,7 @@ from .base import BaseModel
 
 
 class StyleFormats(BaseModel):
-    """ApplicationsStyle."""
+    """A StyleFormats class."""
 
     __tablename__ = 'style_formats'
     __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)

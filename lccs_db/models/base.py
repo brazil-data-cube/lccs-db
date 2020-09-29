@@ -6,6 +6,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 """Model Configuration."""
+
 from datetime import datetime
 
 from bdc_db.db import db
@@ -18,7 +19,6 @@ db.metadata.schema = Config.LCC_ACTIVE_SCHEMA
 
 class BaseModel(db.Model):
     """Abstract class for ORM models."""
-
     __abstract__ = True
 
     created_at = Column(DateTime, default=datetime.utcnow())
@@ -70,6 +70,6 @@ class BaseModel(db.Model):
         Throws exception **NoResultFound** when the filter does not match any result.
 
         :param properties: List of properties to filter of.
-        :type propertiesdict
+        :type properties: dict.
         """
         return cls._filter(**restrictions).one()

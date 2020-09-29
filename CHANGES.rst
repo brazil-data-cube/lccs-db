@@ -21,6 +21,8 @@ Released 2020-09-25
 
 - Compatibility with `BDC-DB Version 0.4.x <https://github.com/brazil-data-cube/bdc-db>`_.
 
+- Improved Sphinx template.
+
 
 Version 0.2.0
 -------------

@@ -6,8 +6,8 @@
     under the terms of the MIT License; see LICENSE file for more details.
 
 
-.. include:: ../../README.rst
-   :end-before: O que é o LCCS-DB?
+.. include:: /../../README.rst
+   :end-before: About
 
 
 .. toctree::
