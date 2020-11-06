@@ -84,8 +84,10 @@ setup(
         ],
         'bdc_db.scripts': [
             'lccs_db = lccs_db.scripts'
-        ]
-
+        ],
+        'bdc_db.namespaces': [
+            'lccs_db = lccs_db.config:Config.LCC_ACTIVE_SCHEMA'
+        ],
     },
     extras_require=extras_require,
     install_requires=install_requires,
