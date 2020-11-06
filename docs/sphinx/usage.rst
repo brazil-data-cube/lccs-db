@@ -30,7 +30,13 @@ If you do not have a database instance, you can create one with the command line
 Create a schema (or namespace) named "``lccs``" in this database::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db create-namespace
+    lccs_db db create-namespaces
+
+
+You can see all namespaces::
+
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db db show-namespaces
 
 
 Creating the LCCS Data Model
@@ -40,7 +46,7 @@ Creating the LCCS Data Model
 The command line utility ``lccs_db`` can also be used to create all tables belonging to the LCCS data model. The following command can be used to create or upgrade the table schema for LCCS::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db alembic upgrade head
+    lccs_db alembic upgrade
 
 
 If the above command succeed, you can check the created tables within the ``lccs`` schema in PostgreSQL. Use the ``psql`` terminal as follow::
