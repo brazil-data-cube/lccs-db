@@ -22,7 +22,9 @@
 
     installation
     usage
+    configure
     api
+    repository
     history
 
 

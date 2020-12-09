@@ -22,7 +22,7 @@ Pre-Requirements
 
 - `Flask-SQLAlchemy <https://flask-sqlalchemy.palletsprojects.com/en/2.x/>`_: an extension for `Flask <http://flask.pocoo.org/>`_ that adds support for `SQLAlchemy <https://www.sqlalchemy.org/>`_ in applications.
 
-- `Flask-Migrate <https://flask-migrate.readthedocs.io/en/latest/>`_: used to handle `SQLAlchemy <https://www.sqlalchemy.org/>`_ database migrations with `Alembic <https://alembic.sqlalchemy.org/en/latest/index.html>`_.
+- `Flask-Alembic <https://flask-alembic.readthedocs.io/en/stable//>`_: used to handle `SQLAlchemy <https://www.sqlalchemy.org/>`_ database migrations with `Alembic <https://alembic.sqlalchemy.org/en/latest/index.html>`_.
 
 - `SQLAlchemy-Utils <https://sqlalchemy-utils.readthedocs.io/en/latest/index.html>`_: utility functions for SQLAlchemy such as database creation, database existence test, SQL script running.
 
