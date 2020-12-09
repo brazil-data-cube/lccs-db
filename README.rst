@@ -30,8 +30,8 @@ Land Cover Classification System Database Model
         :alt: Documentation Status
 
 
-.. image:: https://img.shields.io/badge/lifecycle-experimental-orange.svg
-        :target: https://www.tidyverse.org/lifecycle/#experimental
+.. image:: https://img.shields.io/badge/lifecycle-maturing-blue.svg
+        :target: https://www.tidyverse.org/lifecycle/#maturing
         :alt: Software Life Cycle
 
 
@@ -79,6 +79,7 @@ This is the base package for other softwares in the Brazil Data Cube project:
 
 - `WLTS.py <https://github.com/brazil-data-cube/wlts.py>`_: Python Client Library for Web Land Trajectory Service .
 
+- `BDC-Catalog <https://github.com/brazil-data-cube/bdc-catalog>`_: Brazil Data Cube Image Metadata Catalog
 
 Installation
 ============

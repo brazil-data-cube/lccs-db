@@ -10,12 +10,8 @@ Changes
 =======
 
 
-Version 0.4.0
--------------
-
-
-Released 2020-12-11
-
+Version 0.4.0 (2020-12-09)
+--------------------------
 
 - Improved documentation.
 
@@ -24,12 +20,8 @@ Released 2020-12-11
 - Improved Sphinx template.
 
 
-Version 0.2.0
--------------
-
-
-Released 2020-04-11
-
+Version 0.2.0 (2020-04-11)
+--------------------------
 
 - First experimental version.
 
