@@ -14,12 +14,12 @@ Version 0.4.0
 -------------
 
 
-Released 2020-09-25
+Released 2020-12-11
 
 
 - Improved documentation.
 
-- Compatibility with `BDC-DB Version 0.4.x <https://github.com/brazil-data-cube/bdc-db>`_.
+- Compatibility with `BDC-DB Version 0.4.2 <https://github.com/brazil-data-cube/bdc-db>`_.
 
 - Improved Sphinx template.
 

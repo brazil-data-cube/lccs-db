@@ -25,8 +25,8 @@ Land Cover Classification System Database Model
         :alt: Code Coverage Test
 
 
-.. image:: https://readthedocs.org/projects/lccs-db/badge/?version=master
-        :target: https://lccs-db.readthedocs.io/en/master/
+.. image:: https://readthedocs.org/projects/lccs-db/badge/?version=latest
+        :target: https://lccs-db.readthedocs.io/en/latest/
         :alt: Documentation Status
 
 
