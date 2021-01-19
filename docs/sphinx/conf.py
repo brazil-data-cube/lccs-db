@@ -63,7 +63,7 @@ exclude_patterns = [
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-    'canonical_url': 'https://brazil-data-cube.github.io/',
+    #'canonical_url': 'https://brazil-data-cube.github.io/',
     'analytics_id': 'XXXXXXXXXX',
     'logo_only': False,
     'display_version': True,
@@ -78,6 +78,8 @@ html_theme_options = {
     'includehidden': True,
     'titles_only': False
 }
+
+html_baseurl = 'https://brazil-data-cube.github.io/'
 
 #html_theme_path = ''
 
