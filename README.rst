@@ -15,13 +15,13 @@ Land Cover Classification System Database Model
         :alt: Software License
 
 
-.. image:: https://travis-ci.org/brazil-data-cube/lccs-db.svg?branch=master
-        :target: https://travis-ci.org/brazil-data-cube/lccs-db
+.. image:: https://drone.dpi.inpe.br/api/badges/brazil-data-cube/lccs-db/status.svg
+        :target: https://drone.dpi.inpe.br/brazil-data-cube/lccs-db
         :alt: Build Status
 
 
-.. image:: https://coveralls.io/repos/github/brazil-data-cube/lccs-db/badge.svg?branch=master
-        :target: https://coveralls.io/github/brazil-data-cube/lccs-db?branch=master
+.. image:: https://codecov.io/gh/brazil-data-cube/lccs-db/branch/master/graph/badge.svg?token=C10H8AAV2A
+        :target: https://codecov.io/gh/brazil-data-cube/lccs-db
         :alt: Code Coverage Test
 
 
