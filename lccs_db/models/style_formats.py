@@ -25,5 +25,6 @@ class StyleFormats(BaseModel):
 
     __table_args__ = (
         Index(None, name),
+        UniqueConstraint(name),
         dict(schema=Config.LCC_ACTIVE_SCHEMA),
     )

@@ -38,6 +38,7 @@ def upgrade():
     op.create_index(op.f('idx_lccs_styles_style_format_id'), 'styles', ['style_format_id'], unique=False, schema='lccs')
     op.drop_constraint('styles_style_format_id_style_formats_fkey', 'styles', schema='lccs', type_='foreignkey')
     op.drop_constraint('styles_class_system_id_class_systems_fkey', 'styles', schema='lccs', type_='foreignkey')
+    op.create_unique_constraint(op.f('style_formats_name_key'), 'style_formats', ['name'], schema='lccs')
     op.create_foreign_key(op.f('styles_style_format_id_style_formats_fkey'), 'styles', 'style_formats', ['style_format_id'], ['id'], source_schema='lccs', referent_schema='lccs', onupdate='CASCADE', ondelete='CASCADE')
     op.create_foreign_key(op.f('styles_class_system_id_class_systems_fkey'), 'styles', 'class_systems', ['class_system_id'], ['id'], source_schema='lccs', referent_schema='lccs', onupdate='CASCADE', ondelete='CASCADE')
     # ### end Alembic commands ###
@@ -52,6 +53,7 @@ def downgrade():
     op.drop_index(op.f('idx_lccs_styles_style_format_id'), table_name='styles', schema='lccs')
     op.drop_index(op.f('idx_lccs_styles_class_system_id'), table_name='styles', schema='lccs')
     op.drop_index(op.f('idx_lccs_style_formats_name'), table_name='style_formats', schema='lccs')
+    op.drop_constraint(op.f('style_formats_name_key'), 'style_formats', schema='lccs', type_='unique')
     op.drop_constraint(op.f('classes_class_parent_id_classes_fkey'), 'classes', schema='lccs', type_='foreignkey')
     op.drop_constraint(op.f('classes_class_system_id_class_systems_fkey'), 'classes', schema='lccs', type_='foreignkey')
     op.create_foreign_key('classes_class_system_id_class_systems_fkey', 'classes', 'class_systems', ['class_system_id'], ['id'], source_schema='lccs', referent_schema='lccs')
