@@ -1,5 +1,5 @@
 kind: pipeline
-name: lccsdb
+name: lccs-db
 
 steps:
 - name: build
@@ -30,3 +30,13 @@ services:
   environment:
     POSTGRES_PASSWORD: mysecretpassword
     POSTGRES_USER: postgres
+
+- name: discord-notify
+  image: brazildatacube/bdc-drone-discord
+  settings:
+    webhook:
+      from_secret: discord_webhook
+  when:
+    status:
+      - failure
+      - success
