@@ -81,6 +81,8 @@ Run the Tests
 
 .. code-block:: shell
 
+    export SQLALCHEMY_DATABASE_URI="postgresql://postgres:secret@localhost:5432/bdc_db"
+
     ./run-tests.sh
 
 

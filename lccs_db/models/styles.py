@@ -22,14 +22,14 @@ class Styles(BaseModel):
     __tablename__ = 'styles'
     __table_args__ = (
         PrimaryKeyConstraint('class_system_id', 'style_format_id'),
-        {'schema': Config.LCC_ACTIVE_SCHEMA}
+        {'schema': Config.LCCS_SCHEMA_NAME}
     )
 
-    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.LCC_ACTIVE_SCHEMA),
+    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.LCCS_SCHEMA_NAME),
                                                  onupdate='CASCADE', ondelete='CASCADE'), nullable=False,
                              primary_key=True)
     style_format_id = Column(Integer,
-                             ForeignKey('{}.style_formats.id'.format(Config.LCC_ACTIVE_SCHEMA), onupdate='CASCADE',
+                             ForeignKey('{}.style_formats.id'.format(Config.LCCS_SCHEMA_NAME), onupdate='CASCADE',
                                         ondelete='CASCADE'), nullable=False, primary_key=True)
 
     style = Column(JSON, nullable=True)
@@ -41,5 +41,5 @@ class Styles(BaseModel):
         Index(None, class_system_id),
         Index(None, style_format_id),
         PrimaryKeyConstraint('class_system_id', 'style_format_id'),
-        dict(schema=Config.LCC_ACTIVE_SCHEMA),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
     )
