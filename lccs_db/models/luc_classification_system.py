@@ -21,11 +21,11 @@ class LucClassificationSystem(BaseModel):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Text, nullable=False)
     authority_name = Column(Text, nullable=False)
-    description = Column(Text, nullable=True)
-    version = Column(Text, nullable=True)
+    description = Column(Text, nullable=False)
+    version = Column(Text, nullable=False)
 
     __table_args__ = (
-        UniqueConstraint('name', 'version'),
+        UniqueConstraint(name, version),
         Index(None, name),
         dict(schema=Config.LCC_ACTIVE_SCHEMA),
     )

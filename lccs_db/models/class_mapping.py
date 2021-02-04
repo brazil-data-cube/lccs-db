@@ -21,10 +21,10 @@ class ClassMapping(BaseModel):
 
     __tablename__ = 'class_mappings'
 
-    source_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA), onupdate='CASCADE',
-                                                 ondelete='CASCADE'), nullable=False)
-    target_class_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA), onupdate='CASCADE',
-                                                 ondelete='CASCADE'), nullable=False)
+    source_class_id = Column(Integer, ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.classes.id', onupdate='CASCADE',
+                                                 ondelete='CASCADE'))
+    target_class_id = Column(Integer, ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.classes.id', onupdate='CASCADE',
+                                                 ondelete='CASCADE'))
     description = Column(Text, nullable=True)
     degree_of_similarity = Column(Numeric, nullable=True)
 

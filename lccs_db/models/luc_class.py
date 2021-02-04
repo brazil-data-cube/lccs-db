@@ -26,12 +26,13 @@ class LucClass(BaseModel):
     id = Column(Integer, primary_key=True, autoincrement=True)
     code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
-    description = Column(Text, nullable=True)
-    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.LCC_ACTIVE_SCHEMA),
-                                                 onupdate='CASCADE', ondelete='CASCADE'), nullable=False)
+    description = Column(Text, nullable=False)
 
-    class_parent_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA),onupdate='CASCADE',
-                                                 ondelete='CASCADE'), nullable=True)
+    class_system_id = Column(Integer, ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.class_systems.id',
+                                                 onupdate='CASCADE', ondelete='CASCADE'))
+
+    class_parent_id = Column(Integer, ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.classes.id', onupdate='CASCADE',
+                                                 ondelete='CASCADE'))
 
     classification_system = relationship('LucClassificationSystem')
     class_parent = relationship('LucClass')

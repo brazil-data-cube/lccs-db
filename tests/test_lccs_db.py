@@ -9,21 +9,29 @@
 """Unit-test for lccs_db."""
 
 import subprocess
+import sys
 
 from click.testing import CliRunner
+from flask.cli import ScriptInfo
 
+import pytest
 from lccs_db.cli import cli
+from lccs_db import LCCSDatabase
+
+from bdc_db.config import SQLALCHEMY_DATABASE_URI
+
+from sqlalchemy_utils.functions import database_exists
 
 
-def test_cli_basic():
+def test_basic_cli():
     """Test basic cli usage."""
     res = CliRunner().invoke(cli)
 
     assert res.exit_code == 0
 
 
-def test_database_creation():
-    """Test cli database creation."""
-    exit_status = subprocess.call('lccs_db db init', shell=True)
+def test_cli_module():
+    """Test the BDCCatalog invoked as a module."""
+    res = subprocess.call(f'{sys.executable} -m lccs_db', shell=True)
 
-    assert exit_status == 0
+    assert res == 0
