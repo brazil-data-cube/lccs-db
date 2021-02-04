@@ -24,24 +24,24 @@ def lccs():
 @lccs.command()
 @with_appcontext
 @click.option('-v', '--verbose', is_flag=True, default=False)
-@click.option('--system_id', type=click.STRING, required=True, help='The classification system id (name).')
-@click.option('--version', type=click.STRING, required=True, help='The classification system id (name).')
-@click.option('--style_format_id', type=click.STRING, required=True, help='The style format.')
+@click.option('--system_name', type=click.STRING, required=True, help='The classification system name.')
+@click.option('--system_version', type=click.STRING, required=True, help='The classification system version.')
+@click.option('--style_format_name', type=click.STRING, required=True, help='The style format name.')
 @click.option('-f', '--file', type=click.File('rb'),
               help='A style file for insert.',
               required=True)
-def insert_style(verbose, file, system_id, version, style_format_id):
+def insert_style(verbose, file, system_name, system_version, style_format_name):
     """Insert style of classification system."""
     style_file = file.read()
 
     mime_type = validate_mimetypes(file.name)
 
     if verbose:
-        click.secho(f'Insert {style_format_id} style for {system_id}..', bold=True, fg='yellow')
+        click.secho(f'Insert {style_format_name} style for {system_name}..', bold=True, fg='yellow')
 
-    system = LucClassificationSystem.get(name=system_id, version=version)
+    system = LucClassificationSystem.get(name=system_name, version=system_version)
 
-    style_format = StyleFormats.get(name=style_format_id)
+    style_format = StyleFormats.get(name=style_format_name)
 
     style_infos = dict(
         class_system_id=system.id,
@@ -57,7 +57,7 @@ def insert_style(verbose, file, system_id, version, style_format_id):
 
     _db.session.commit()
 
-    click.secho(f'File {style_format_id} loaded!', bold=True, fg='green')
+    click.secho(f'File {style_format_name} loaded!', bold=True, fg='green')
 
 
 def main(as_module=False):
