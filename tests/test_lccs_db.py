@@ -31,7 +31,7 @@ def test_basic_cli():
 
 
 def test_cli_module():
-    """Test the BDCCatalog invoked as a module."""
+    """Test the LCCS-DB invoked as a module."""
     res = subprocess.call(f'{sys.executable} -m lccs_db', shell=True)
 
     assert res == 0
