@@ -10,10 +10,10 @@
 import mimetypes
 
 
-def validate_mimetypes(style_file):
-    """Return allowed files.
+def get_mimetype(style_file):
+    """Return mimetype of a file.
 
-    :param style_file: Full style file name.
+    :param style_file: The style file system path.
     :type style_file: string
     """
     extensions = mimetypes.guess_type(style_file)

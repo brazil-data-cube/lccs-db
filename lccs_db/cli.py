@@ -13,7 +13,7 @@ from bdc_db.db import db as _db
 from flask.cli import with_appcontext
 
 from .models import LucClassificationSystem, StyleFormats, Styles
-from .utils import validate_mimetypes
+from .utils import get_mimetype
 
 
 @cli.group()
@@ -34,7 +34,7 @@ def insert_style(verbose, file, system_name, system_version, style_format_name):
     """Insert style of classification system."""
     style_file = file.read()
 
-    mime_type = validate_mimetypes(file.name)
+    mime_type = get_mimetype(file.name)
 
     if verbose:
         click.secho(f'Insert {style_format_name} style for {system_name}..', bold=True, fg='yellow')

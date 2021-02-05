@@ -40,10 +40,10 @@ classification_systems = [
 ]
 
 
-def verify_class_system_exist(class_system_name):
+def verify_class_system_exist(class_system_name, version):
     try:
-        classificationn_system = LucClassificationSystem.get(name=class_system_name)
-        return classificationn_system
+        classification_system = LucClassificationSystem.get(name=class_system_name, version=version)
+        return classification_system
     except BaseException:
         return None
 
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
         for classification_system in classification_systems:
 
-            class_system = verify_class_system_exist(classification_system['name'])
+            class_system = verify_class_system_exist(classification_system['name'], classification_system['version'])
 
             if class_system:
                 print("Classification System {} already exist".format(class_system.name))
