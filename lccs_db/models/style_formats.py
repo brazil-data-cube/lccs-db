@@ -18,7 +18,7 @@ class StyleFormats(BaseModel):
     """A StyleFormats class."""
 
     __tablename__ = 'style_formats'
-    __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)
+    __table_args__ = dict(schema=Config.LCCS_SCHEMA_NAME)
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Text, nullable=False)
@@ -26,5 +26,5 @@ class StyleFormats(BaseModel):
     __table_args__ = (
         Index(None, name),
         UniqueConstraint(name),
-        dict(schema=Config.LCC_ACTIVE_SCHEMA),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
     )

@@ -21,7 +21,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'LCCS-DB'
-copyright = '2019-2020, INPE.'
+copyright = '2019-2020, INPE'
 author = 'Brazil Data Cube Team'
 release = lccs_db.__version__
 
@@ -66,7 +66,7 @@ html_theme_options = {
     #'canonical_url': 'https://brazil-data-cube.github.io/',
     'analytics_id': 'XXXXXXXXXX',
     'logo_only': False,
-    'display_version': True,
+    #'display_version': True,
     'prev_next_buttons_location': 'both',
     'style_external_links': True,
     #'vcs_pageview_mode': 'edit',

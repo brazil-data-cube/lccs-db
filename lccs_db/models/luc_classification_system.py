@@ -27,5 +27,5 @@ class LucClassificationSystem(BaseModel):
     __table_args__ = (
         UniqueConstraint('name', 'version'),
         Index(None, name),
-        dict(schema=Config.LCC_ACTIVE_SCHEMA),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
     )
