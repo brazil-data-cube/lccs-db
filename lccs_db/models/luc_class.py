@@ -26,13 +26,15 @@ class LucClass(BaseModel):
     id = Column(Integer, primary_key=True, autoincrement=True)
     code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
+
     description = Column(Text, nullable=False)
 
-    class_system_id = Column(Integer, ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.class_systems.id',
+    class_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.class_systems.id',
                                                  onupdate='CASCADE', ondelete='CASCADE'))
 
-    class_parent_id = Column(Integer, ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.classes.id', onupdate='CASCADE',
+    class_parent_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classes.id', onupdate='CASCADE',
                                                  ondelete='CASCADE'))
+    
 
     classification_system = relationship('LucClassificationSystem')
     class_parent = relationship('LucClass')
@@ -41,7 +43,7 @@ class LucClass(BaseModel):
         Index(None, name),
         Index(None, code),
         Index(None, class_system_id),
-        dict(schema=Config.LCC_ACTIVE_SCHEMA),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
     )
 
 
@@ -67,4 +69,4 @@ class ClassesView(BaseModel):
         ),
         metadata=BaseModel.metadata,
     )
-    __table__.schema = Config.LCC_ACTIVE_SCHEMA
+    __table__.schema = Config.LCCS_SCHEMA_NAME

@@ -21,13 +21,15 @@ class Styles(BaseModel):
 
     __tablename__ = 'styles'
 
-    class_system_id = Column(Integer, ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.class_systems.id',
+
+    class_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.class_systems.id',
                                                  onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
     style_format_id = Column(Integer,
-                             ForeignKey(f'{Config.LCC_ACTIVE_SCHEMA}.style_formats.id', onupdate='CASCADE',
+                             ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.style_formats.id', onupdate='CASCADE',
                                         ondelete='CASCADE'), primary_key=True)
 
     style = Column(LargeBinary, nullable=False)
+
 
     mime_type = Column(Text, nullable=False, unique=False)
 
@@ -39,5 +41,5 @@ class Styles(BaseModel):
         Index(None, style_format_id),
         Index(None, mime_type),
         PrimaryKeyConstraint('class_system_id', 'style_format_id'),
-        dict(schema=Config.LCC_ACTIVE_SCHEMA),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
     )
