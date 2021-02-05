@@ -28,5 +28,6 @@ class LucClassificationSystem(BaseModel):
         UniqueConstraint(name, version),
         Index(None, name),
 
-        dict(schema=Config.LCCS_SCHEMA_NAME),
+        dict(schema=Config.LCCS_SCHEMA_NAME)
 
+    )

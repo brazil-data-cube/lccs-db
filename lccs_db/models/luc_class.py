@@ -34,9 +34,9 @@ class LucClass(BaseModel):
 
     class_parent_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classes.id', onupdate='CASCADE',
                                                  ondelete='CASCADE'))
-    
 
     classification_system = relationship('LucClassificationSystem')
+
     class_parent = relationship('LucClass')
 
     __table_args__ = (
