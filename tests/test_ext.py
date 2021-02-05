@@ -6,7 +6,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Unit-test for extension BDC-Catalog."""
+"""Unit-test for extension LCCS-DB."""
 
 from lccs_db import LCCSDatabase
 
