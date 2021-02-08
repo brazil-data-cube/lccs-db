@@ -17,5 +17,15 @@ def get_mimetype(style_file):
     :type style_file: string
     """
     extensions = mimetypes.guess_type(style_file)
-
+    
     return extensions[0]
+
+
+def get_extension(mimetype):
+    """Return the last the extensions for a file based on its MIME type.
+    
+    :param mimetype: The MIME type.
+    :type mimetype: string
+    """
+    extensions = mimetypes.guess_all_extensions(mimetype)
+    return extensions[-1]
