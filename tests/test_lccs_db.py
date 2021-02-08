@@ -26,12 +26,20 @@ from sqlalchemy_utils.functions import database_exists
 def test_basic_cli():
     """Test basic cli usage."""
     res = CliRunner().invoke(cli)
-
+    
     assert res.exit_code == 0
 
 
 def test_cli_module():
     """Test the LCCS-DB invoked as a module."""
     res = subprocess.call(f'{sys.executable} -m lccs_db', shell=True)
+    
+    assert res == 0
+
+
+def test_load_system_file():
+    """Test the load classification system."""
+    res = subprocess.call(
+        f'{sys.executable} -m lccs_db db load-file --file tests/scripts/test-class-system.sql', shell=True)
 
     assert res == 0
