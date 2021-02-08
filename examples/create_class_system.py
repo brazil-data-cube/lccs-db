@@ -8,10 +8,11 @@
 
 """Land Cover Classification System Model Exemple."""
 
-from lccs_db.cli import create_app
 from lccs_db.models import LucClassificationSystem
+from flask import Flask
+from lccs_db.ext import LCCSDatabase
 
-class_systems = [
+classification_systems = [
     {
         "name": "PRODES",
         "authority_name": "INPE",
@@ -19,7 +20,7 @@ class_systems = [
         "version": "1.0"
     },
     {
-        "name": "Deter-A",
+        "name": "Deter",
         "authority_name": "INPE",
         "description": "Sistema de Alerta de Desmatamento",
         "version": "1.0"
@@ -31,40 +32,42 @@ class_systems = [
         "version": "1.0"
     },
     {
-        "name": "MapBiomas3.1",
+        "name": "MapBiomas",
         "authority_name": "Mapbiomas",
         "description": "Mapeamento de uso e cobertura do solo. Coleção 3",
         "version": "3.1"
     }
 ]
 
-def verify_class_system_exist(class_system_name):
 
+def verify_class_system_exist(class_system_name, version):
     try:
-        class_system = LucClassificationSystem.get(name=class_system_name)
-        return class_system
+        classification_system = LucClassificationSystem.get(name=class_system_name, version=version)
+        return classification_system
     except BaseException:
-       return None
+        return None
+
 
 if __name__ == '__main__':
     # Initialize SQLAlchemy Models
 
-    app = create_app()
+    app = Flask(__name__)
+    LCCSDatabase(app)
 
     with app.app_context():
 
-        for class_system in class_systems:
+        for classification_system in classification_systems:
 
-            class_system = verify_class_system_exist(class_system['name'])
+            class_system = verify_class_system_exist(classification_system['name'], classification_system['version'])
 
             if class_system:
                 print("Classification System {} already exist".format(class_system.name))
             else:
                 class_system = LucClassificationSystem()
-                class_system.authority_name = class_system['authority_name']
-                class_system.description = class_system['description']
-                class_system.name = class_system['name']
-                class_system.version = class_system['version']
+                class_system.authority_name = classification_system['authority_name']
+                class_system.description = classification_system['description']
+                class_system.name = classification_system['name']
+                class_system.version = classification_system['version']
                 class_system.save()
 
                 print("Classification System {} inserted!".format(class_system.name))

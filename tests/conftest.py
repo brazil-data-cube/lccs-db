@@ -6,7 +6,9 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Unit-test configuration."""
+"""Config test fixtures."""
+
+import subprocess
 
 import pytest
 from flask import Flask
@@ -26,3 +28,14 @@ def db():
     from lccs_db.models import db
 
     return db
+
+
+def pytest_sessionstart(session):
+    """Load LCCS-DB and prepare database environment."""
+    for command in ['init', 'create-namespaces', 'create-schema', 'load-scripts']:
+        subprocess.call(f'lccs_db db {command}', shell=True)
+
+
+def pytest_sessionfinish(session, exitstatus):
+    """Destroy database created."""
+    subprocess.call(f'lccs_db db destroy --force', shell=True)

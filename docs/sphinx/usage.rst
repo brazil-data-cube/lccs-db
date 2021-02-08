@@ -81,13 +81,22 @@ You can load well-known classification systems with the CLI::
 Loading Custom Class Systems
 ++++++++++++++++++++++++++++
 
-
 You can load your own classification systems with the CLI::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
     lccs_db db load-file --file "sql_file.sql"
 
 
+Loading Style for Classification System
++++++++++++++++++++++++++++++++++++++++
+
+You can load your style file with the CLI::
+
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs_db lccs insert-style --system_name PRODES \
+    --style_format_name QGIS \
+    --system_version 1.0 \
+    --file /path/to/style/style_name.qml
 
 .. note::
 

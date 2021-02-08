@@ -7,8 +7,14 @@
 #
 
 """Python Land Cover Classification System Database Model."""
+import mimetypes
 
 from .ext import LCCSDatabase
 from .version import __version__
+
+mimetypes.init()
+mimetypes.add_type("application/xml", ".qml", True)
+mimetypes.add_type("application/vnd.ogc.sld+xml", ".sdl", True)
+
 
 __all__ = ('__version__', 'LCCSDatabase',)

@@ -36,7 +36,7 @@ steps:
 
 services:
 - name: pg_database
-  image: postgres:12.2
+  image: postgis/postgis:13-3.1
   environment:
     POSTGRES_PASSWORD: mysecretpassword
     POSTGRES_USER: postgres

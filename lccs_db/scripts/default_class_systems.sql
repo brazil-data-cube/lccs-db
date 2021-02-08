@@ -2,7 +2,7 @@ SET client_encoding = 'UTF8';
 
 INSERT INTO lccs.class_systems (created_at, updated_at, id, authority_name, name, description, version)
 VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 'INPE', 'PRODES', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2, 'INPE', 'PRODES_SubClasses', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
+       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2, 'INPE', 'PRODES-SubClasses', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 3, 'INPE', 'TerraClass_AMZ', 'Projeto TerraClass Mapeamento do Uso e Cobertura da Terra', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4, 'INPE', 'TerraClass_SubClass_AMZ', 'Sub classes do Projeto TerraClass', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 'INPE', 'DETER-B_AMZ', 'Sistema de Alertas Diarios de Desmatamento', '1.0');
