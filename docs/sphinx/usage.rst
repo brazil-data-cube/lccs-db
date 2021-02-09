@@ -24,19 +24,19 @@ Creating a PostgreSQL Database
 If you do not have a database instance, you can create one with the command line utility ``lccs_db``::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db init
+    lccs-db db init
 
 
 Create a schema (or namespace) named "``lccs``" in this database::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db create-namespaces
+    lccs-db db create-namespaces
 
 
 You can see all namespaces::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db show-namespaces
+    lccs-db db show-namespaces
 
 
 Creating the LCCS Data Model
@@ -46,7 +46,7 @@ Creating the LCCS Data Model
 The command line utility ``lccs_db`` can also be used to create all tables belonging to the LCCS data model. The following command can be used to create or upgrade the table schema for LCCS::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db alembic upgrade
+    lccs-db alembic upgrade
 
 
 If the above command succeed, you can check the created tables within the ``lccs`` schema in PostgreSQL. Use the ``psql`` terminal as follow::
@@ -75,7 +75,7 @@ Loading Default Class Systems
 You can load well-known classification systems with the CLI::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db load-scripts
+    lccs-db db load-scripts
 
 
 Loading Custom Class Systems
@@ -84,7 +84,7 @@ Loading Custom Class Systems
 You can load your own classification systems with the CLI::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db load-file --file "sql_file.sql"
+    lccs-db db load-file --file "sql_file.sql"
 
 
 Loading Style for Classification System
@@ -102,4 +102,4 @@ You can load your style file with the CLI::
 
     For more information on ``lccs_db`` commands, please, type in the command line::
 
-        lccs_db  --help
+        lccs-db  --help

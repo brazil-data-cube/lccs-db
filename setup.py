@@ -73,7 +73,7 @@ setup(
     platforms='any',
     entry_points={
         'console_scripts': [
-            'lccs_db = lccs_db.cli:cli',
+            'lccs-db = lccs_db.cli:cli',
         ],
         'bdc_db.alembic': [
             'lccs_db = lccs_db:alembic'
