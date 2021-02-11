@@ -105,11 +105,6 @@ You can open the above documentation in your favorite browser, as::
     firefox docs/sphinx/_build/html/index.html
 
 
-.. note::
-
-    If you want to create the database model, please, see `RUNNING.rst <./RUNNING.rst>`_.
-
-
 Production Installation - GitHub
 --------------------------------
 

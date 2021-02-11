@@ -33,9 +33,9 @@ def db():
 def pytest_sessionstart(session):
     """Load LCCS-DB and prepare database environment."""
     for command in ['init', 'create-namespaces', 'create-schema', 'load-scripts']:
-        subprocess.call(f'lccs_db db {command}', shell=True)
+        subprocess.call(f'lccs-db db {command}', shell=True)
 
 
 def pytest_sessionfinish(session, exitstatus):
     """Destroy database created."""
-    subprocess.call(f'lccs_db db destroy --force', shell=True)
+    subprocess.call(f'lccs-db db destroy --force', shell=True)

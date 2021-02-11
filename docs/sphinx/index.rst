@@ -7,7 +7,7 @@
 
 
 .. include:: /../../README.rst
-   :end-before: About
+   :end-before: Installation
 
 
 .. toctree::
