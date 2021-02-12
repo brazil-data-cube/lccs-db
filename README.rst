@@ -67,7 +67,7 @@ The following diagram shows the tables used in this system:
 
 
 .. image:: https://github.com/brazil-data-cube/lccs-db/raw/master/docs/spec/lccs_database.png
-        :target: https://github.com/brazil-data-cube/lccs-db/tree/master/doc/spec
+        :target: https://github.com/brazil-data-cube/lccs-db/tree/master/docs/spec
         :width: 90%
         :alt: Database Schema
 
