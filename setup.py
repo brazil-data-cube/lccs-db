@@ -46,7 +46,7 @@ setup_requires = [
 ]
 
 install_requires = [
-    'bdc-db @ git+git://github.com/brazil-data-cube/bdc-db@v0.4.2'
+    'bdc-db @ git+https://github.com/brazil-data-cube/bdc-db@v0.4.2'
 ]
 
 packages = find_packages()
