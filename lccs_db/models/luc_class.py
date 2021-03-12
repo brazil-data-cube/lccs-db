@@ -43,6 +43,7 @@ class LucClass(BaseModel):
         Index(None, name),
         Index(None, code),
         Index(None, class_system_id),
+        UniqueConstraint(name, class_system_id),
         dict(schema=Config.LCCS_SCHEMA_NAME),
     )
 

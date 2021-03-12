@@ -21,7 +21,6 @@ class Styles(BaseModel):
 
     __tablename__ = 'styles'
 
-
     class_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.class_systems.id',
                                                  onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
     style_format_id = Column(Integer,
@@ -29,7 +28,6 @@ class Styles(BaseModel):
                                         ondelete='CASCADE'), primary_key=True)
 
     style = Column(LargeBinary, nullable=False)
-
 
     mime_type = Column(Text, nullable=False, unique=False)
 

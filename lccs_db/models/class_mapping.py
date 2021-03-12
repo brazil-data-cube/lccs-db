@@ -21,7 +21,6 @@ class ClassMapping(BaseModel):
 
     __tablename__ = 'class_mappings'
 
-
     source_class_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classes.id', onupdate='CASCADE',
                                                  ondelete='CASCADE'), nullable=False)
     target_class_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classes.id', onupdate='CASCADE',
