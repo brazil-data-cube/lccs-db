@@ -10,6 +10,12 @@ Changes
 =======
 
 
+Version 0.4.1 (2021-03-17)
+--------------------------
+
+- Upgrade BDC-DB dependency to 0.4.3 to keep SQLAlchemy in version 1.3 until SQLAlchemyUtils is updated for SQLAlchemy 1.4. (`#99 <https://github.com/brazil-data-cube/lccs-db/issues/99>`_).
+
+
 Version 0.4.0 (2020-12-09)
 --------------------------
 
