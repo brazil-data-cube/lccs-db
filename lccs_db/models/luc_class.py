@@ -8,7 +8,8 @@
 
 """Land Cover Classification System Model ."""
 
-from sqlalchemy import Column, ForeignKey, Integer, Text, select
+from sqlalchemy import (Column, ForeignKey, Index, Integer, Text,
+                        UniqueConstraint, select)
 from sqlalchemy.orm import aliased, relationship
 from sqlalchemy_utils import create_view
 
@@ -21,20 +22,30 @@ class LucClass(BaseModel):
     """A LucClass class represent a Class of an Classification System."""
 
     __tablename__ = 'classes'
-    __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     code = Column(Text, nullable=False)
     name = Column(Text, nullable=False)
-    description = Column(Text, nullable=True)
-    class_system_id = Column(Integer, ForeignKey('{}.class_systems.id'.format(Config.LCC_ACTIVE_SCHEMA),
-                                                 ondelete='NO ACTION'), nullable=False)
 
-    class_parent_id = Column(Integer, ForeignKey('{}.classes.id'.format(Config.LCC_ACTIVE_SCHEMA),
-                                                 ondelete='NO ACTION'), nullable=True)
+    description = Column(Text, nullable=False)
+
+    class_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.class_systems.id',
+                                                 onupdate='CASCADE', ondelete='CASCADE'))
+
+    class_parent_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classes.id', onupdate='CASCADE',
+                                                 ondelete='CASCADE'))
 
     classification_system = relationship('LucClassificationSystem')
+
     class_parent = relationship('LucClass')
+
+    __table_args__ = (
+        Index(None, name),
+        Index(None, code),
+        Index(None, class_system_id),
+        UniqueConstraint(name, class_system_id),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
+    )
 
 
 class ClassesView(BaseModel):
@@ -59,4 +70,4 @@ class ClassesView(BaseModel):
         ),
         metadata=BaseModel.metadata,
     )
-    __table__.schema = Config.LCC_ACTIVE_SCHEMA
+    __table__.schema = Config.LCCS_SCHEMA_NAME

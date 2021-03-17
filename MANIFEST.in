@@ -36,3 +36,4 @@ recursive-include lccs_db *.py
 recursive-include migrations *.mako
 recursive-include migrations *.py
 recursive-include tests *.py
+recursive-include tests *.sql

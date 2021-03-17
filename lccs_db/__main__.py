@@ -6,14 +6,9 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Land Cover Classification System Database Model ."""
+"""Define Land Cover Classification System Database Model as module."""
 
-import os
+from .cli import main
 
-CURRENT_DIR = os.path.dirname(__file__)
-
-
-class Config:
-    """Define common config along contexts."""
-
-    LCCS_SCHEMA_NAME = os.environ.get('LCCS_SCHEMA_NAME', 'lccs')
+if __name__ == '__main__':
+    main(as_module=True)

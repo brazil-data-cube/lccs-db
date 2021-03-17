@@ -81,6 +81,8 @@ Run the Tests
 
 .. code-block:: shell
 
+    export SQLALCHEMY_DATABASE_URI="postgresql://postgres:secret@localhost:5432/bdc_db"
+
     ./run-tests.sh
 
 
@@ -101,11 +103,6 @@ The above command will generate the documentation in HTML and it will place it u
 You can open the above documentation in your favorite browser, as::
 
     firefox docs/sphinx/_build/html/index.html
-
-
-.. note::
-
-    If you want to create the database model, please, see `RUNNING.rst <./RUNNING.rst>`_.
 
 
 Production Installation - GitHub

@@ -15,5 +15,5 @@ Configure
     +=============================+==============================================================================+
     + ``SQLALCHEMY_DATABASE_URI`` | The database URI that should be used for the database connection.            |
     +-----------------------------+------------------------------------------------------------------------------+
-    + ``LCC_ACTIVE_SCHEMA``       | Table namespace (schema) named ``lccs``.                                     |
+    + ``LCCS_SCHEMA_NAME``        | Table namespace (schema) named ``lccs``.                                     |
     +-----------------------------+------------------------------------------------------------------------------+

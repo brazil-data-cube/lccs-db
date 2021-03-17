@@ -14,8 +14,6 @@ from sqlalchemy import Column, DateTime
 
 from ..config import Config
 
-db.metadata.schema = Config.LCC_ACTIVE_SCHEMA
-
 
 class BaseModel(db.Model):
     """Abstract class for ORM models."""

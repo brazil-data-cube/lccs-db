@@ -24,19 +24,19 @@ Creating a PostgreSQL Database
 If you do not have a database instance, you can create one with the command line utility ``lccs_db``::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db init
+    lccs-db db init
 
 
 Create a schema (or namespace) named "``lccs``" in this database::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db create-namespaces
+    lccs-db db create-namespaces
 
 
 You can see all namespaces::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db show-namespaces
+    lccs-db db show-namespaces
 
 
 Creating the LCCS Data Model
@@ -46,7 +46,7 @@ Creating the LCCS Data Model
 The command line utility ``lccs_db`` can also be used to create all tables belonging to the LCCS data model. The following command can be used to create or upgrade the table schema for LCCS::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db alembic upgrade
+    lccs-db alembic upgrade
 
 
 If the above command succeed, you can check the created tables within the ``lccs`` schema in PostgreSQL. Use the ``psql`` terminal as follow::
@@ -67,15 +67,6 @@ You should get a similar output::
     (5 rows)
 
 
-Updating an Existing Data Model
-+++++++++++++++++++++++++++++++
-
-
-In order to make changes to the models of a module, we need to create a new alembic revision. To make sure that database is up to date, use the following::
-
-    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db alembic upgrade heads
-
 
 Loading Default Class Systems
 +++++++++++++++++++++++++++++
@@ -84,62 +75,31 @@ Loading Default Class Systems
 You can load well-known classification systems with the CLI::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db load-scripts
+    lccs-db db load-scripts
 
 
 Loading Custom Class Systems
 ++++++++++++++++++++++++++++
 
-
 You can load your own classification systems with the CLI::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db db load-file --file "sql_file.sql"
+    lccs-db db load-file --file "sql_file.sql"
 
 
-Updating the Migration Scripts
-++++++++++++++++++++++++++++++
+Loading Style for Classification System
++++++++++++++++++++++++++++++++++++++++
 
-
-.. code-block:: shell
-
-    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db alembic revision "Revision message"
-
-
-Creating a new revision
-+++++++++++++++++++++++
-
-
-To create a new revision for module ``sample_db``, you must create a branch and get latest revision id to make persistent migration. Use the following command to get latest revision id::
+You can load your style file with the CLI::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db alembic heads
-
-
-The result will be something like that::
-
-    <base> -> 7661f3f76beb (default) (head), create-initial-tables
-
-
-In this example, the latest ``revision id`` is ``7661f3f76beb``.
-
-
-In order to do generate migration for your module, use the following command::
-
-    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
-    lccs_db alembic revision "Revision message." \
-        --path your_module_name/alembic \
-        --branch your_module_name \
-        --parent 7661f3f76beb
-
+    lccs_db lccs insert-style --system_name PRODES \
+    --style_format_name QGIS \
+    --system_version 1.0 \
+    --file /path/to/style/style_name.qml
 
 .. note::
 
-    The ``--parent`` argument is required only in the first revision generation. When a parent is not given for other modules the revision will be placed into ``default branch ()`` and you may face issues during ``lccs_db alembic upgrade``.
+    For more information on ``lccs_db`` commands, please, type in the command line::
 
-.. note::
-
-    For more information, type in the command line::
-
-        lccs_db  --help
+        lccs-db  --help

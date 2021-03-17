@@ -7,7 +7,7 @@
 #
 """Land Cover Classification System Model ."""
 
-from sqlalchemy import Column, Integer, Text
+from sqlalchemy import Column, Index, Integer, Text, UniqueConstraint
 
 from ..config import Config
 from .base import BaseModel
@@ -17,10 +17,17 @@ class LucClassificationSystem(BaseModel):
     """A LucClassificationSystem class represent a Classification System."""
 
     __tablename__ = 'class_systems'
-    __table_args__ = dict(schema=Config.LCC_ACTIVE_SCHEMA)
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Text, nullable=False)
     authority_name = Column(Text, nullable=False)
-    description = Column(Text, nullable=True)
-    version = Column(Text, nullable=True)
+    description = Column(Text, nullable=False)
+    version = Column(Text, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint(name, version),
+        Index(None, name),
+
+        dict(schema=Config.LCCS_SCHEMA_NAME)
+
+    )

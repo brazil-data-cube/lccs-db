@@ -73,7 +73,7 @@ setup(
     platforms='any',
     entry_points={
         'console_scripts': [
-            'lccs_db = lccs_db.cli:cli',
+            'lccs-db = lccs_db.cli:cli',
         ],
         'bdc_db.alembic': [
             'lccs_db = lccs_db:alembic'
@@ -85,7 +85,7 @@ setup(
             'lccs_db = lccs_db.scripts'
         ],
         'bdc_db.namespaces': [
-            'lccs_db = lccs_db.config:Config.LCC_ACTIVE_SCHEMA'
+            'lccs_db = lccs_db.config:Config.LCCS_SCHEMA_NAME'
         ],
     },
     extras_require=extras_require,

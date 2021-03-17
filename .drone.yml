@@ -1,5 +1,13 @@
+#
+# This file is part of Land Cover Classification System Database Model.
+# Copyright (C) 2019-2020 INPE.
+#
+# Land Cover Classification System Database Model is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
+
 kind: pipeline
-name: lccsdb
+name: lccs-db
 
 steps:
 - name: build
@@ -24,9 +32,19 @@ steps:
     event:
     - push
 
+- name: discord-notify
+  image: brazildatacube/bdc-drone-discord
+  settings:
+    webhook:
+      from_secret: discord_webhook
+  when:
+    status:
+      - failure
+      - success
+
 services:
 - name: pg_database
-  image: postgres:12.2
+  image: postgis/postgis:13-3.1
   environment:
     POSTGRES_PASSWORD: mysecretpassword
     POSTGRES_USER: postgres

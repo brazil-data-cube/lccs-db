@@ -6,14 +6,12 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""Land Cover Classification System Database Model ."""
+"""Unit-test for extension LCCS-DB."""
 
-import os
-
-CURRENT_DIR = os.path.dirname(__file__)
+from lccs_db import LCCSDatabase
 
 
-class Config:
-    """Define common config along contexts."""
+def test_ext_creation(app):
+    ext = LCCSDatabase(app)
 
-    LCCS_SCHEMA_NAME = os.environ.get('LCCS_SCHEMA_NAME', 'lccs')
+    assert app.extensions['lccs-db'] == ext

@@ -1,11 +1,11 @@
 SET client_encoding = 'UTF8';
 
-INSERT INTO lccs.class_systems (created_at, updated_at, id, authority_name, name, description, version)
-VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, 'INPE', 'PRODES', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2, 'INPE', 'PRODES_SubClasses', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 3, 'INPE', 'TerraClass_AMZ', 'Projeto TerraClass Mapeamento do Uso e Cobertura da Terra', '1.0'),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4, 'INPE', 'TerraClass_SubClass_AMZ', 'Sub classes do Projeto TerraClass', '1.0'),
-       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 'INPE', 'DETER-B_AMZ', 'Sistema de Alertas Diarios de Desmatamento', '1.0');
+INSERT INTO lccs.class_systems (created_at, updated_at, authority_name, name, description, version)
+VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'PRODES', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
+       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'PRODES-SubClasses', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
+       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'TerraClass-AMZ', 'Projeto TerraClass Mapeamento do Uso e Cobertura da Terra', '1.0'),
+       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'TerraClass-SubClass_AMZ', 'Sub classes do Projeto TerraClass', '1.0'),
+       (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'DETER-B-AMZ', 'Sistema de Alertas Diarios de Desmatamento', '1.0');
 
 
 -- CLASSES PRODES
@@ -103,11 +103,11 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CICATRIZ_DE_QUEIMADA', 'Cicatriz d
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'MINERACAO', 'Mineração', '', 5),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CORTE_SELETIVO', 'Corte Seletivo', '', 5);
 
-INSERT INTO lccs.style_formats (created_at, updated_at, id, name)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 1, 'QGIS');
+INSERT INTO lccs.style_formats (created_at, updated_at, name)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'QGIS');
 
-INSERT INTO lccs.style_formats (created_at, updated_at, id, name)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 2, 'TerraView');
+INSERT INTO lccs.style_formats (created_at, updated_at, name)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'TerraView');
 
-INSERT INTO lccs.style_formats (created_at, updated_at, id, name)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 3, 'GeoServer');
+INSERT INTO lccs.style_formats (created_at, updated_at, name)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'GeoServer');
