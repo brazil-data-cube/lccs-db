@@ -30,6 +30,8 @@ recursive-include docs/sphinx *.xml
 recursive-include docs/sphinx Makefile
 recursive-include examples *.py
 recursive-include examples *.sql
+recursive-include examples *.qml
+recursive-include examples *.sld
 recursive-include lccs_db *.sql
 recursive-include lccs_db *.mako
 recursive-include lccs_db *.py
