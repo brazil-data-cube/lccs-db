@@ -9,6 +9,19 @@
 Changes
 =======
 
+Version 0.6.0 (2021-04-09)
+--------------------------
+
+- Add unique value in class (`#97 <https://github.com/brazil-data-cube/lccs-db/issues/97>`_).
+- Review mandatory fields in the data model (`#89 <https://github.com/brazil-data-cube/lccs-db/issues/89>`_).
+- Review table styles (`#87 <https://github.com/brazil-data-cube/lccs-db/issues/87>`_).
+- Add symbology encoding for well known classification systems (`#86 <https://github.com/brazil-data-cube/lccs-db/issues/86>`_).
+- Update Docker image used in tests  (`#91 <https://github.com/brazil-data-cube/lccs-db/issues/91>`_).
+- Improve Unittest (`#83 <https://github.com/brazil-data-cube/lccs-db/issues/83>`_).
+- Add UniqueConstraint in classification system (`#75 <https://github.com/brazil-data-cube/lccs-db/issues/75>`_).
+- Add index in table (`#74 <https://github.com/brazil-data-cube/lccs-db/issues/74>`_).
+- Add drone integration (`#71 <https://github.com/brazil-data-cube/lccs-db/issues/71>`_).
+
 
 Version 0.4.1 (2021-03-17)
 --------------------------
