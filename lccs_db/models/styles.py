@@ -8,7 +8,7 @@
 
 """Land Cover Classification System Model ."""
 
-from sqlalchemy import (JSON, Column, ForeignKey, Index, Integer, LargeBinary,
+from sqlalchemy import (Column, ForeignKey, Index, Integer, LargeBinary,
                         PrimaryKeyConstraint, Text)
 from sqlalchemy.orm import relationship
 
@@ -21,23 +21,20 @@ class Styles(BaseModel):
 
     __tablename__ = 'styles'
 
-    class_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.class_systems.id',
-                                                 onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
+    classification_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classification_systems.id',
+                                                          onupdate='CASCADE', ondelete='CASCADE'), primary_key=True)
     style_format_id = Column(Integer,
                              ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.style_formats.id', onupdate='CASCADE',
                                         ondelete='CASCADE'), primary_key=True)
-
     style = Column(LargeBinary, nullable=False)
-
     mime_type = Column(Text, nullable=False, unique=False)
-
-    classification_system = relationship('LucClassificationSystem', foreign_keys=[class_system_id])
+    classification_system = relationship('LucClassificationSystem', foreign_keys=[classification_system_id])
     style_format = relationship('StyleFormats', foreign_keys=[style_format_id])
 
     __table_args__ = (
-        Index(None, class_system_id),
+        Index(None, classification_system_id),
         Index(None, style_format_id),
         Index(None, mime_type),
-        PrimaryKeyConstraint('class_system_id', 'style_format_id'),
+        PrimaryKeyConstraint('classification_system_id', 'style_format_id'),
         dict(schema=Config.LCCS_SCHEMA_NAME),
     )
