@@ -8,8 +8,9 @@
 
 """Land Cover Classification System Model ."""
 
-from sqlalchemy import (Column, ForeignKey, Index, Integer, Text,
-                        UniqueConstraint, PrimaryKeyConstraint, select)
+from sqlalchemy import (Column, ForeignKey, Index, Integer,
+                        PrimaryKeyConstraint, String, Text, UniqueConstraint,
+                        select)
 from sqlalchemy.orm import aliased, relationship
 from sqlalchemy_utils import create_view
 
@@ -24,8 +25,8 @@ class LucClass(BaseModel):
     __tablename__ = 'classes'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    code = Column(Text, nullable=False)
-    name = Column(Text, nullable=False)
+    code = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
 
     description = Column(Text, nullable=False)
 
@@ -74,22 +75,22 @@ class ClassesView(BaseModel):
     __table__.schema = Config.LCCS_SCHEMA_NAME
 
 
-# class TransitionClasses(BaseModel):
-#     """Model for transition classes."""
-#
-#     __tablename__ = 'transition_classes'
-#
-#     source_class_id = Column(Integer,
-#                              ForeignKey(LucClass.id, onupdate='CASCADE', ondelete='CASCADE'),
-#                              nullable=False)
-#
-#     target_class_id = Column(Integer,
-#                            ForeignKey(LucClass.id, onupdate='CASCADE', ondelete='CASCADE'),
-#                            nullable=False)
-#
-#     __table_args__ = (
-#         Index(None, source_class_id),
-#         Index(None, target_class_id),
-#         PrimaryKeyConstraint('source_class_id', 'target_class_id'),
-#         dict(schema=Config.LCCS_SCHEMA_NAME),
-#     )
+class TransitionClasses(BaseModel):
+    """Model for transition classes."""
+
+    __tablename__ = 'transition_classes'
+
+    source_class_id = Column(Integer,
+                             ForeignKey(LucClass.id, onupdate='CASCADE', ondelete='CASCADE'),
+                             nullable=False)
+
+    target_class_id = Column(Integer,
+                           ForeignKey(LucClass.id, onupdate='CASCADE', ondelete='CASCADE'),
+                           nullable=False)
+
+    __table_args__ = (
+        Index(None, source_class_id),
+        Index(None, target_class_id),
+        PrimaryKeyConstraint('source_class_id', 'target_class_id'),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
+    )

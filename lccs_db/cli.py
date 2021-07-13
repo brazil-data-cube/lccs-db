@@ -44,7 +44,7 @@ def insert_style(verbose, file, system_name, system_version, style_format_name):
     style_format = StyleFormats.get(name=style_format_name)
 
     style_infos = dict(
-        class_system_id=system.id,
+        classification_system_id=system.id,
         style_format_id=style_format.id,
         mime_type=mime_type,
         style=style_file

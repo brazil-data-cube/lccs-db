@@ -1,6 +1,6 @@
 SET client_encoding = 'UTF8';
 
-INSERT INTO lccs.class_systems (created_at, updated_at, authority_name, name, description, version)
+INSERT INTO lccs.classification_systems (created_at, updated_at, authority_name, name, description, version)
 VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'PRODES', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'PRODES-SubClasses', 'Sistema de Classificação Anual de Desmatamento', '1.0'),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'TerraClass-AMZ', 'Projeto TerraClass Mapeamento do Uso e Cobertura da Terra', '1.0'),
@@ -9,7 +9,7 @@ VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'INPE', 'PRODES', 'Sistema de Clas
 
 
 -- CLASSES PRODES
-INSERT INTO lccs.classes (created_at, updated_at, code, name, description, class_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, code, name, description, classification_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'DESFLORESTAMENTO', 'Desflorestamento', '', 1 ),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'FLORESTA', 'Floresta', '', 1 ),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'HIDROGRAFIA', 'Hidrografia', '', 1 ),
@@ -18,7 +18,7 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'DESFLORESTAMENTO', 'Desflorestamen
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'RESIDUO', 'Resíduo', '', 1);
 
 -- SUBCLASSES PRODES
-INSERT INTO lccs.classes (created_at, updated_at, code, name, description, class_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, code, name, description, classification_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'd2007','Desflorestamento 2007','',2),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'd2008','Desflorestamento 2008','',2),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'd2009','Desflorestamento 2009','',2),
@@ -45,7 +45,7 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'd2007','Desflorestamento 2007',''
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'r2017','Resíduo 2017','',2);
 
 -- CLASSES TERRACLASS-AMZ
-INSERT INTO lccs.classes (created_at, updated_at, code, name, description, class_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, code, name, description, classification_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'AGRICULTURA_ANUAL','Agricultura Anual','Áreas extensas com predomínio de culturas de ciclo anual, sobretudo de grão, com emprego de padrões tecnológicos elevados, tais como uso de sementes certificadas, insumos, defensivos e mecanização, entre outros', 3),
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,'AREA_NAO_OBSERVADA','Área Não Observada', 'Areas that could not be interpreted by the presence of clouds at the moment of transit to acquire satellite images, in addition to the recently burned areas', 3),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'AREA_SEM_INFORMACAO','Área sem Informação', '', 3),
@@ -67,7 +67,7 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'AGRICULTURA_ANUAL','Agricultura An
         'Áreas que, após a supressão total da vegetação florestal, encontram-se em processo avançado de regeneração da vegetação arbustiva e/ou da arbórea ou que foram utilizadas para a prática da silvicultura ou agricultura permanente com uso de espécies nativas ou exóticas.', 3);
 
 -- SUBCLASSES TERRACLASS-AMZ
-INSERT INTO lccs.classes (created_at, updated_at, code, name, description, class_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, code, name, description, classification_system_id)
 VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'AGRICULTURA_ANUAL','Agricultura Anual',' Áreas extensas com predomínio de culturas de ciclo anual, sobretudo de grão, com emprego de padrões tecnológicos elevados, tais como uso de sementes certificadas, insumos, defensivos e mecanização, entre outros.', 4),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'AREA_NAO_OBSERVADA', 'Área Não Observada', 'Áreas que tiveram sua interpretação impossibilitada pela presença de nuvens, no momento de passage para aquisição das imagens de satélite, além das áreas recentemente queimadas.', 4),
        (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'AREA_URBANA', 'Área Urbana', 'Manchas urbanas decorrentes da concentração populacional formadora de lugarejos, vilas ou cidades que apresentam infra-estrutura diferenciada da área rural apresentando adensamento de arruamentos, casas, prédios e outros equipamentos públicos.', 4),
@@ -93,7 +93,7 @@ VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'AGRICULTURA_ANUAL','Agricultura An
         (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'AREA_SEM_INFORMACAO_EM_2008', 'Área sem Informação em 2008', '', 4);
 
 -- CLASSES DETER-B-AMZ
-INSERT INTO lccs.classes (created_at, updated_at, code, name, description, class_system_id)
+INSERT INTO lccs.classes (created_at, updated_at, code, name, description, classification_system_id)
 VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CICATRIZ_DE_QUEIMADA', 'Cicatriz de Queimada', '', 5),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CS_DESORDENADO', 'x', '', 5),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CS_GEOMETRICO', 'y', '', 5),
