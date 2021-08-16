@@ -103,11 +103,18 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CICATRIZ_DE_QUEIMADA', 'Cicatriz d
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'MINERACAO', 'Mineração', '', 5),
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CORTE_SELETIVO', 'Corte Seletivo', '', 5);
 
-INSERT INTO lccs.style_formats (created_at, updated_at, name)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'QGIS');
+INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'FeatureTypeStyle', 'line');
 
-INSERT INTO lccs.style_formats (created_at, updated_at, name)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'TerraView');
+INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'FeatureTypeStyle', 'polygon');
 
-INSERT INTO lccs.style_formats (created_at, updated_at, name)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'GeoServer');
+INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'FeatureTypeStyle', 'point');
+
+INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'CoverageStyle', 'raster');
+
+INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'QML Style File', 'FeatureTypeStyle', 'point');
+

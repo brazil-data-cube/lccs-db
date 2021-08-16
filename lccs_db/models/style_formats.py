@@ -8,7 +8,7 @@
 
 """Land Cover Classification System Model ."""
 
-from sqlalchemy import Column, Index, Integer, Text, UniqueConstraint
+from sqlalchemy import Column, Index, Integer, String, UniqueConstraint
 
 from ..config import Config
 from .base import BaseModel
@@ -18,13 +18,14 @@ class StyleFormats(BaseModel):
     """A StyleFormats class."""
 
     __tablename__ = 'style_formats'
-    __table_args__ = dict(schema=Config.LCCS_SCHEMA_NAME)
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(Text, nullable=False)
+    name = Column(String(255), nullable=False)
+    type = Column(String(255), nullable=True)
+    type_identifier = Column(String(255), nullable=True, comment='type for which to produce the style_format')
 
     __table_args__ = (
         Index(None, name),
-        UniqueConstraint(name),
+        UniqueConstraint(name, type, type_identifier),
         dict(schema=Config.LCCS_SCHEMA_NAME),
     )
