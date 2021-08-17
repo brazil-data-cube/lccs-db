@@ -9,17 +9,15 @@
 """Land Cover Classification System Model ."""
 
 from sqlalchemy import (Column, ForeignKey, Index, Integer,
-                        PrimaryKeyConstraint, String, Text, UniqueConstraint,
-                        select)
+                        PrimaryKeyConstraint, String, UniqueConstraint, select)
+from sqlalchemy.dialects.postgresql import HSTORE
+from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.orm import aliased, relationship
 from sqlalchemy_utils import create_view
-from sqlalchemy.ext.mutable import MutableDict
-from sqlalchemy.dialects.postgresql import HSTORE
 
 from ..config import Config
-from .base import BaseModel
+from .base import BaseModel, translation_hybrid
 from .luc_classification_system import LucClassificationSystem
-from .base import translation_hybrid
 
 
 class LucClass(BaseModel):
@@ -29,7 +27,7 @@ class LucClass(BaseModel):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     code = Column(String(255), nullable=False)
-    name = Column(String(32), nullable=False, unique=True, comment='Class name internally.')
+    name = Column(String(32), nullable=False, comment='Class name internally.')
     title_translations = Column(MutableDict.as_mutable(HSTORE),
                                 comment='A human-readable string naming for class.')
     title = translation_hybrid(title_translations)

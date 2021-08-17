@@ -8,8 +8,7 @@
 
 """Command-Line Interface for the Land Cover Classification System Database Model ."""
 import click
-from bdc_db.cli import cli
-from bdc_db.cli import db
+from bdc_db.cli import cli, db
 from bdc_db.db import db as _db
 from flask.cli import with_appcontext
 

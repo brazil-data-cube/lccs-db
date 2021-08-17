@@ -1,8 +1,8 @@
 """internationalization
 
-Revision ID: 28c5f3b62e07
+Revision ID: 561ebe6266ad
 Revises: 83db828c55ad
-Create Date: 2021-08-17 09:51:33.657947
+Create Date: 2021-08-17 15:56:57.186232
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = '28c5f3b62e07'
+revision = '561ebe6266ad'
 down_revision = '83db828c55ad'
 branch_labels = ()
 depends_on = None
@@ -37,8 +37,6 @@ def upgrade():
                comment='Classification System name internally.',
                existing_nullable=False,
                schema='lccs')
-    op.drop_constraint('classification_systems_name_key', 'classification_systems', schema='lccs', type_='unique')
-    op.create_unique_constraint(op.f('classification_systems_name_key'), 'classification_systems', ['name'], schema='lccs')
     op.create_index(op.f('idx_lccs_classification_systems_description_translations'), 'classification_systems', ['description_translations'], unique=False, schema='lccs')
     op.create_index(op.f('idx_lccs_classification_systems_title_translations'), 'classification_systems', ['title_translations'], unique=False, schema='lccs')
     op.drop_column('classification_systems', 'description', schema='lccs')
@@ -50,8 +48,6 @@ def downgrade():
     op.add_column('classification_systems', sa.Column('description', sa.TEXT(), autoincrement=False, nullable=False), schema='lccs')
     op.drop_index(op.f('idx_lccs_classification_systems_title_translations'), table_name='classification_systems', schema='lccs')
     op.drop_index(op.f('idx_lccs_classification_systems_description_translations'), table_name='classification_systems', schema='lccs')
-    op.drop_constraint(op.f('classification_systems_name_key'), 'classification_systems', schema='lccs', type_='unique')
-    op.create_unique_constraint('classification_systems_name_key', 'classification_systems', ['name', 'version'], schema='lccs')
     op.alter_column('classification_systems', 'name',
                existing_type=sa.String(length=32),
                type_=sa.VARCHAR(length=255),
