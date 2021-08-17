@@ -21,7 +21,7 @@ class StyleFormats(BaseModel):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=False)
-    type = Column(String(255), nullable=True)
+    type = Column(String(255), nullable=False)
     type_identifier = Column(String(255), nullable=True, comment='type for which to produce the style_format')
 
     __table_args__ = (

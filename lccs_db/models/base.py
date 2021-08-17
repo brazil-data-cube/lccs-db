@@ -12,7 +12,10 @@ from datetime import datetime
 from bdc_db.db import db
 from sqlalchemy import Column, DateTime
 
-from ..config import Config
+from sqlalchemy_utils import TranslationHybrid
+
+
+translation_hybrid = TranslationHybrid(current_locale='en', default_locale='pt-br')
 
 
 class BaseModel(db.Model):

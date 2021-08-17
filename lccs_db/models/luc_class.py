@@ -13,10 +13,13 @@ from sqlalchemy import (Column, ForeignKey, Index, Integer,
                         select)
 from sqlalchemy.orm import aliased, relationship
 from sqlalchemy_utils import create_view
+from sqlalchemy.ext.mutable import MutableDict
+from sqlalchemy.dialects.postgresql import HSTORE
 
 from ..config import Config
 from .base import BaseModel
 from .luc_classification_system import LucClassificationSystem
+from .base import translation_hybrid
 
 
 class LucClass(BaseModel):
@@ -26,9 +29,12 @@ class LucClass(BaseModel):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     code = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-
-    description = Column(Text, nullable=False)
+    name = Column(String(32), nullable=False, unique=True, comment='Class name internally.')
+    title_translations = Column(MutableDict.as_mutable(HSTORE),
+                                comment='A human-readable string naming for class.')
+    title = translation_hybrid(title_translations)
+    description_translations = Column(MutableDict.as_mutable(HSTORE))
+    description = translation_hybrid(description_translations)
 
     classification_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classification_systems.id',
                                                           onupdate='CASCADE', ondelete='CASCADE'))
@@ -44,6 +50,8 @@ class LucClass(BaseModel):
         Index(None, name),
         Index(None, code),
         Index(None, classification_system_id),
+        Index(None, title_translations),
+        Index(None, description_translations),
         UniqueConstraint(name, classification_system_id),
         dict(schema=Config.LCCS_SCHEMA_NAME),
     )
