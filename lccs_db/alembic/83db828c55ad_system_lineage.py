@@ -89,18 +89,11 @@ def upgrade():
                           'classification_systems', 'classification_systems', ['version_successor'], ['id'],
                           source_schema='lccs', referent_schema='lccs', onupdate='CASCADE', ondelete='CASCADE')
 
-    op.add_column('style_formats', sa.Column('type', sa.String(length=255), nullable=False), schema='lccs')
-    op.add_column('style_formats', sa.Column('type_identifier', sa.String(length=255), nullable=True,
-                                             comment='type for which to produce the style_format'),
-                  schema='lccs')
     op.alter_column('style_formats', 'name',
                     existing_type=sa.TEXT(),
                     type_=sa.String(length=255),
                     existing_nullable=True,
                     schema='lccs')
-    op.drop_constraint('style_formats_name_key', 'style_formats', schema='lccs', type_='unique')
-    op.create_unique_constraint(op.f('style_formats_name_key'), 'style_formats', ['name', 'type', 'type_identifier'],
-                                schema='lccs')
 
     # ### end Alembic commands ###
 
@@ -157,14 +150,9 @@ def downgrade():
     )
     session.commit()
 
-    op.drop_constraint(op.f('style_formats_name_key'), 'style_formats', schema='lccs', type_='unique')
-    op.create_unique_constraint('style_formats_name_key', 'style_formats', ['name'], schema='lccs')
     op.alter_column('style_formats', 'name',
                     existing_type=sa.String(length=255),
                     type_=sa.TEXT(),
                     existing_nullable=False,
                     schema='lccs')
-    op.drop_column('style_formats', 'type_identifier', schema='lccs')
-    op.drop_column('style_formats', 'type', schema='lccs')
-
     # ### end Alembic commands ###

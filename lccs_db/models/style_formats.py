@@ -21,11 +21,9 @@ class StyleFormats(BaseModel):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255), nullable=False)
-    type = Column(String(255), nullable=False)
-    type_identifier = Column(String(255), nullable=True, comment='type for which to produce the style_format')
 
     __table_args__ = (
         Index(None, name),
-        UniqueConstraint(name, type, type_identifier),
+        UniqueConstraint(name),
         dict(schema=Config.LCCS_SCHEMA_NAME),
     )

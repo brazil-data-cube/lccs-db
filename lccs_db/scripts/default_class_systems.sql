@@ -28,18 +28,9 @@ VALUES  (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CICATRIZ_DE_QUEIMADA', 'cicatriz-q
         (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,'CORTE_SELETIVO', 'corte-seletivo', 'pt-br => "Corte Seletivo", en => "Selective Cut"', '', 3);
 
 
-INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'FeatureTypeStyle', 'line');
-
-INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'FeatureTypeStyle', 'polygon');
-
-INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'FeatureTypeStyle', 'point');
-
-INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'Styled Layer Descriptor', 'CoverageStyle', 'raster');
-
-INSERT INTO lccs.style_formats (created_at, updated_at, name, type, type_identifier)
-VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'QML Style File', 'FeatureTypeStyle', 'point');
-
+INSERT INTO lccs.style_formats (created_at, updated_at, name)
+VALUES (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'QML-Feature-Point'),
+       (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'SLD-Coverage'),
+       (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'SLD-Feature-Point'),
+       (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'SLD-Feature-Polygon'),
+       (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP, 'SLD-Feature-Line');
