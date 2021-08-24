@@ -17,11 +17,15 @@ from lccs_db.models.base import translation_hybrid
 
 system_inter = {
     "name": "uct",
-    "title_translations": {'en': 'Land Use and Cover', 'pt-br': 'Uso e Cobertura da terra'},
+    "title_translations": {
+        "en": "Land Use and Cover",
+        "pt-br": "Uso e Cobertura da terra"
+    },
     "authority_name": "LULC",
-    "description_translations": {'en': 'Land use and land cover mapping.',
-                                 'pt-br': 'Mapeamento de uso e cobertura do solo.'
-                                 },
+    "description_translations": {
+        "en": "Land use and land cover mapping.",
+        "pt-br": "Mapeamento de uso e cobertura do solo."
+    },
     "version": "1"
 }
 
