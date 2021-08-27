@@ -36,7 +36,7 @@ def upgrade():
                                             name=op.f(
                                                 'classification_systemSRC_classification_system_src_id_classification_systems_fkey'),
                                             onupdate='CASCADE', ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('classification_system_id', 'classification_system_src_id', name=op.f('classification_systemSRC_pkey')),
+    sa.PrimaryKeyConstraint('classification_system_id', 'classification_system_src_id', name=op.f('classification_system_sr_pkey')),
     schema='lccs'
     )
     op.create_table('transition_classes',
@@ -136,7 +136,7 @@ def downgrade():
     op.drop_index(op.f('idx_lccs_transition_classes_target_class_id'), table_name='transition_classes', schema='lccs')
     op.drop_index(op.f('idx_lccs_transition_classes_source_class_id'), table_name='transition_classes', schema='lccs')
     op.drop_table('transition_classes', schema='lccs')
-    op.drop_table('classification_systemSRC', schema='lccs')
+    op.drop_table('classification_system_src', schema='lccs')
 
     session.execute("CREATE OR REPLACE VIEW {} AS " \
                     "SELECT classes.id, classes.name, classes.description, classes.code, " \
