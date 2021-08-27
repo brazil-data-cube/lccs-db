@@ -24,7 +24,7 @@ def upgrade():
     session.execute('DROP VIEW {};'.format(ClassesView.__table__))
     session.commit()
 
-    op.create_table('classification_systemSRC',
+    op.create_table('classification_system_src',
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('classification_system_id', sa.Integer(), nullable=False),
