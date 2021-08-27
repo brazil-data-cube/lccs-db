@@ -8,13 +8,15 @@
 
 """Land Cover Classification System Model ."""
 
-from sqlalchemy import (Column, ForeignKey, Index, Integer, Text,
-                        UniqueConstraint, select)
+from sqlalchemy import (Column, ForeignKey, Index, Integer,
+                        PrimaryKeyConstraint, String, UniqueConstraint, select)
+from sqlalchemy.dialects.postgresql import HSTORE
+from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.orm import aliased, relationship
 from sqlalchemy_utils import create_view
 
 from ..config import Config
-from .base import BaseModel
+from .base import BaseModel, translation_hybrid
 from .luc_classification_system import LucClassificationSystem
 
 
@@ -24,13 +26,16 @@ class LucClass(BaseModel):
     __tablename__ = 'classes'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    code = Column(Text, nullable=False)
-    name = Column(Text, nullable=False)
+    code = Column(String(255), nullable=False)
+    name = Column(String(32), nullable=False, comment='Class name internally.')
+    title_translations = Column(MutableDict.as_mutable(HSTORE),
+                                comment='A human-readable string naming for class.')
+    title = translation_hybrid(title_translations)
+    description_translations = Column(MutableDict.as_mutable(HSTORE))
+    description = translation_hybrid(description_translations)
 
-    description = Column(Text, nullable=False)
-
-    class_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.class_systems.id',
-                                                 onupdate='CASCADE', ondelete='CASCADE'))
+    classification_system_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classification_systems.id',
+                                                          onupdate='CASCADE', ondelete='CASCADE'))
 
     class_parent_id = Column(Integer, ForeignKey(f'{Config.LCCS_SCHEMA_NAME}.classes.id', onupdate='CASCADE',
                                                  ondelete='CASCADE'))
@@ -42,8 +47,10 @@ class LucClass(BaseModel):
     __table_args__ = (
         Index(None, name),
         Index(None, code),
-        Index(None, class_system_id),
-        UniqueConstraint(name, class_system_id),
+        Index(None, classification_system_id),
+        Index(None, title_translations),
+        Index(None, description_translations),
+        UniqueConstraint(name, classification_system_id),
         dict(schema=Config.LCCS_SCHEMA_NAME),
     )
 
@@ -63,11 +70,33 @@ class ClassesView(BaseModel):
              LucClass.description,
              LucClass.code,
              parent_classes.name.label('class_parent_name'),
-             LucClassificationSystem.name.label('class_system_name')],
+             LucClassificationSystem.name.label('classification_system_name')],
             from_obj=(
-                LucClass.__table__.join(LucClassificationSystem, LucClassificationSystem.id == LucClass.class_system_id)
-                    .join(parent_classes, LucClass.class_parent_id == parent_classes.id, isouter=True))
+                LucClass.__table__.join(LucClassificationSystem,
+                                     LucClassificationSystem.id == LucClass.classification_system_id).join(
+                    parent_classes, LucClass.class_parent_id == parent_classes.id, isouter=True))
         ),
         metadata=BaseModel.metadata,
     )
     __table__.schema = Config.LCCS_SCHEMA_NAME
+
+
+class TransitionClasses(BaseModel):
+    """Model for transition classes."""
+
+    __tablename__ = 'transition_classes'
+
+    source_class_id = Column(Integer,
+                             ForeignKey(LucClass.id, onupdate='CASCADE', ondelete='CASCADE'),
+                             nullable=False)
+
+    target_class_id = Column(Integer,
+                           ForeignKey(LucClass.id, onupdate='CASCADE', ondelete='CASCADE'),
+                           nullable=False)
+
+    __table_args__ = (
+        Index(None, source_class_id),
+        Index(None, target_class_id),
+        PrimaryKeyConstraint('source_class_id', 'target_class_id'),
+        dict(schema=Config.LCCS_SCHEMA_NAME),
+    )

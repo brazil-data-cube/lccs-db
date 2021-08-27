@@ -11,8 +11,9 @@ from datetime import datetime
 
 from bdc_db.db import db
 from sqlalchemy import Column, DateTime
+from sqlalchemy_utils import TranslationHybrid
 
-from ..config import Config
+translation_hybrid = TranslationHybrid(current_locale='en', default_locale='pt-br')
 
 
 class BaseModel(db.Model):

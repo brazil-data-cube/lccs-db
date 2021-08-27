@@ -29,7 +29,7 @@ def upgrade():
     "FROM {} AS classes " \
     "JOIN {} AS class_systems ON class_systems.id = classes.class_system_id " \
     "LEFT OUTER JOIN {} AS parent_class ON classes.class_parent_id = parent_class.id;".format( ClassesView.__table__, LucClass.__table__,
-                                                        LucClassificationSystem.__table__, LucClass.__table__)
+                                                        'lccs.class_systems', LucClass.__table__)
 
     )
     session.commit()

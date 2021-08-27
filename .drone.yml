@@ -9,6 +9,10 @@
 kind: pipeline
 name: lccs-db
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
 - name: build
   image: python:3.7
@@ -39,8 +43,8 @@ steps:
       from_secret: discord_webhook
   when:
     status:
-      - failure
-      - success
+    - failure
+    - success
 
 services:
 - name: pg_database

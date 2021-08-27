@@ -13,3 +13,8 @@ Classification System
     :members:
     :special-members: __init__
     :member-order: bysource
+
+.. autoclass:: lccs_db.models.luc_classification_system::ClassificationSystemSRC
+    :members:
+    :special-members: __init__
+    :member-order: bysource

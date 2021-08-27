@@ -39,6 +39,11 @@ You can see all namespaces::
     lccs-db db show-namespaces
 
 
+Create extension named "``hstore``" in this database::
+
+    SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
+    lccs-db db create-extension-hstore
+
 Creating the LCCS Data Model
 ++++++++++++++++++++++++++++
 
@@ -56,16 +61,17 @@ If the above command succeed, you can check the created tables within the ``lccs
 
 You should get a similar output::
 
-                  List of relations
-     Schema |      Name      | Type  |  Owner
-    --------+----------------+-------+----------
-     lccs   | class_mappings | table | postgres
-     lccs   | class_systems  | table | postgres
-     lccs   | classes        | table | postgres
-     lccs   | style_formats  | table | postgres
-     lccs   | styles         | table | postgres
-    (5 rows)
-
+                      List of relations
+     Schema |           Name           | Type  |  Owner
+    --------+--------------------------+-------+----------
+     lccs   | class_mappings           | table | postgres
+     lccs   | classes                  | table | postgres
+     lccs   | classification_systemSRC | table | postgres
+     lccs   | classification_systems   | table | postgres
+     lccs   | style_formats            | table | postgres
+     lccs   | styles                   | table | postgres
+     lccs   | transition_classes       | table | postgres
+    (7 rows)
 
 
 Loading Default Class Systems
@@ -94,7 +100,7 @@ You can load your style file with the CLI::
 
     SQLALCHEMY_DATABASE_URI="postgresql://username:password@host:5432/dbname" \
     lccs_db lccs insert-style --system_name PRODES \
-    --style_format_name QGIS \
+    --style_format_name QML-Feature-Polygon \
     --system_version 1.0 \
     --file /path/to/style/style_name.qml
 

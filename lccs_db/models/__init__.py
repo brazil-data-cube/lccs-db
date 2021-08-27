@@ -11,7 +11,8 @@
 from .base import db
 from .class_mapping import ClassMapping
 from .luc_class import ClassesView, LucClass
-from .luc_classification_system import LucClassificationSystem
+from .luc_classification_system import (ClassificationSystemSRC,
+                                        LucClassificationSystem)
 from .style_formats import StyleFormats
 from .styles import Styles
 

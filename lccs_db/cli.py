@@ -8,7 +8,7 @@
 
 """Command-Line Interface for the Land Cover Classification System Database Model ."""
 import click
-from bdc_db.cli import cli
+from bdc_db.cli import cli, db
 from bdc_db.db import db as _db
 from flask.cli import with_appcontext
 
@@ -19,6 +19,19 @@ from .utils import get_mimetype
 @cli.group()
 def lccs():
     """More lccs database commands."""
+
+
+@db.command()
+@with_appcontext
+def create_extension_hstore():
+    """Enable the HSTORE extension in the database."""
+    click.secho(f'Creating extension hstore...', bold=True, fg='yellow')
+
+    with _db.session.begin_nested():
+        _db.session.execute('CREATE EXTENSION IF NOT EXISTS hstore')
+    _db.session.commit()
+
+    click.secho('Extension created!', bold=True, fg='green')
 
 
 @lccs.command()
@@ -44,7 +57,7 @@ def insert_style(verbose, file, system_name, system_version, style_format_name):
     style_format = StyleFormats.get(name=style_format_name)
 
     style_infos = dict(
-        class_system_id=system.id,
+        classification_system_id=system.id,
         style_format_id=style_format.id,
         mime_type=mime_type,
         style=style_file

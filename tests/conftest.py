@@ -32,7 +32,7 @@ def db():
 
 def pytest_sessionstart(session):
     """Load LCCS-DB and prepare database environment."""
-    for command in ['init', 'create-namespaces', 'create-schema', 'load-scripts']:
+    for command in ['init', 'create-namespaces', 'create-extension-hstore', 'create-schema', 'load-scripts']:
         subprocess.call(f'lccs-db db {command}', shell=True)
 
 
