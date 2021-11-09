@@ -42,7 +42,7 @@ class LucClass(BaseModel):
 
     classification_system = relationship('LucClassificationSystem')
 
-    class_parent = relationship('LucClass')
+    class_parent = relationship('LucClass', remote_side=[id])
 
     __table_args__ = (
         Index(None, name),

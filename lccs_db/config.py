@@ -17,3 +17,4 @@ class Config:
     """Define common config along contexts."""
 
     LCCS_SCHEMA_NAME = os.environ.get('LCCS_SCHEMA_NAME', 'lccs')
+    I18N_LANGUAGES = {'current_locale': ('en', 'English'), 'default_locale': ('pt-br', 'Brazilian Portuguese')}
