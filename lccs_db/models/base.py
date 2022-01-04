@@ -13,7 +13,10 @@ from bdc_db.db import db
 from sqlalchemy import Column, DateTime
 from sqlalchemy_utils import TranslationHybrid
 
-translation_hybrid = TranslationHybrid(current_locale='en', default_locale='pt-br')
+from ..config import Config
+
+translation_hybrid = TranslationHybrid(current_locale=Config.I18N_LANGUAGES['current_locale'][0],
+                                       default_locale=Config.I18N_LANGUAGES['default_locale'][0])
 
 
 class BaseModel(db.Model):

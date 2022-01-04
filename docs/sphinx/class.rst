@@ -14,11 +14,6 @@ Class
     :special-members: __init__
     :member-order: bysource
 
-.. autoclass:: lccs_db.models.luc_class::ClassesView
-    :members:
-    :special-members: __init__
-    :member-order: bysource
-
 .. autoclass:: lccs_db.models.luc_class::TransitionClasses
     :members:
     :special-members: __init__
