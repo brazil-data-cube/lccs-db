@@ -1,6 +1,6 @@
 #
 # This file is part of Land Cover Classification System Database Model.
-# Copyright (C) 2019-2020 INPE.
+# Copyright (C) 2019-2022 INPE.
 #
 # Land Cover Classification System Database Model is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -46,7 +46,7 @@ setup_requires = [
 ]
 
 install_requires = [
-    'bdc-db @ git+https://github.com/brazil-data-cube/bdc-db@v0.4.3'
+    'bdc-db @ git+https://github.com/brazil-data-cube/bdc-db@v0.6.0'
 ]
 
 packages = find_packages()
