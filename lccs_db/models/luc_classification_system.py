@@ -50,7 +50,7 @@ class LucClassificationSystem(BaseModel):
 class ClassificationSystemSRC(BaseModel):
     """Model for Classification System provenance/lineage."""
 
-    tablename = 'classification_system_src'
+    __tablename__ = 'classification_system_src'
 
     classification_system_id = Column('classification_system_id', Integer,
                                       ForeignKey(LucClassificationSystem.id, onupdate='CASCADE', ondelete='CASCADE'),
