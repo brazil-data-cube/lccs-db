@@ -1,6 +1,6 @@
 ..
     This file is part of Land Cover Classification System Database Model.
-    Copyright (C) 2019-2020 INPE.
+    Copyright (C) 2019-2022 INPE.
 
     Land Cover Classification System Database Model is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
@@ -94,7 +94,7 @@ Installation
 
 Install from GitHub::
 
-    pip3 install git+https://github.com/brazil-data-cube/lccs-db@b-0.4
+    pip3 install git+https://github.com/brazil-data-cube/lccs-db@v0.8.0
 
 
 Documentation
@@ -109,7 +109,7 @@ License
 
 
 .. admonition::
-    Copyright (C) 2019-2020 INPE.
+    Copyright (C) 2019-2022 INPE.
 
     Land Cover Classification System Database Model is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
