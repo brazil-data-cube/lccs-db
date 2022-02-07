@@ -9,6 +9,17 @@
 Changes
 =======
 
+
+Version 0.8.0 (2022-02-07)
+--------------------------
+
+- Add table for transitions (`#81 <https://github.com/brazil-data-cube/lccs-db/issues/81>`_).
+- Rename table `class_systems` to `classification_systems` (`#80 <https://github.com/brazil-data-cube/lccs-db/issues/80>`_).
+- Add class system versioning (`#79 <https://github.com/brazil-data-cube/lccs-db/issues/79>`_).
+- Add support I18N (`#78 <https://github.com/brazil-data-cube/lccs-db/issues/78>`_).
+- Add custom decorator to assign language support (`#109 <https://github.com/brazil-data-cube/lccs-db/issues/109>`_).
+
+
 Version 0.6.0 (2021-04-09)
 --------------------------
 
