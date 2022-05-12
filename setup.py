@@ -46,7 +46,10 @@ setup_requires = [
 ]
 
 install_requires = [
-    'bdc-db @ git+https://github.com/brazil-data-cube/bdc-db@v0.6.0'
+    'Flask>=1.1.0',
+    'Flask-SQLAlchemy>=2.4.0',
+    'Flask-Alembic>=2.0.0',
+    'bdc-db @ git+https://github.com/brazil-data-cube/bdc-db@v0.6.2'
 ]
 
 packages = find_packages()
