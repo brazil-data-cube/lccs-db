@@ -9,7 +9,7 @@
 Changes
 =======
 
-Version 0.8.1 (2022-07-19)
+Version 0.8.1 (2022-07-20)
 --------------------------
 
 - Upgrade bdc-db to 0.6.2 (`#115 <https://github.com/brazil-data-cube/lccs-db/issues/115>`_).
