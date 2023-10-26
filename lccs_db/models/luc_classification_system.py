@@ -33,7 +33,7 @@ class LucClassificationSystem(BaseModel):
     __tablename__ = 'classification_systems'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(32), nullable=False, comment='Classification System name internally.')
+    name = Column(String(64), nullable=False, comment='Classification System name internally.')
     title_translations = Column(MutableDict.as_mutable(HSTORE),
                                 comment='A human-readable string naming for classification system.')
     title = translation_hybrid(title_translations)

@@ -37,7 +37,7 @@ class LucClass(BaseModel):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     code = Column(String(255), nullable=False)
-    name = Column(String(32), nullable=False, comment='Class name internally.')
+    name = Column(String(64), nullable=False, comment='Class name internally.')
     title_translations = Column(MutableDict.as_mutable(HSTORE),
                                 comment='A human-readable string naming for class.')
     title = translation_hybrid(title_translations)
