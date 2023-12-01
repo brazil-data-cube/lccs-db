@@ -1,6 +1,6 @@
 ..
     This file is part of LCCS-DB.
-    Copyright (C) 2022 INPE.
+    Copyright (C) 2023 INPE.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -24,11 +24,6 @@ Land Cover Classification System Database Model
 .. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
         :target: https://github.com/brazil-data-cube/bdc-catalog/blob/master/LICENSE
         :alt: Software License
-
-
-.. image:: https://drone.dpi.inpe.br/api/badges/brazil-data-cube/lccs-db/status.svg
-        :target: https://drone.dpi.inpe.br/brazil-data-cube/lccs-db
-        :alt: Build Status
 
 
 .. image:: https://codecov.io/gh/brazil-data-cube/lccs-db/branch/master/graph/badge.svg?token=C10H8AAV2A
@@ -119,7 +114,7 @@ License
 
 
 .. admonition::
-    Copyright (C) 2022 INPE.
+    Copyright (C) 2023 INPE.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
