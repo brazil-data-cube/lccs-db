@@ -1,13 +1,33 @@
 ..
-    This file is part of Land Cover Classification System.
-    Copyright (C) 2019-2020 INPE.
+    This file is part of LCCS-DB.
+    Copyright (C) 2022 INPE.
 
-    Land Cover Classification System is free software; you can redistribute it and/or modify it
-    under the terms of the MIT License; see LICENSE file for more details.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <https://www.gnu.org/licenses/gpl-3.0.html>.
 
 
 Changes
 =======
+
+Version 0.8.2 (2024-01-29)
+--------------------------
+
+- Change license to GPLv3 (`#120 <https://github.com/brazil-data-cube/lccs-db/issues/120>`_).
+- Change class name character limit to 64 (`#122 <https://github.com/brazil-data-cube/lccs-db/issues/122>`_).
+- Bug Fix: type "hstore" does not exist in migration (`#124 <https://github.com/brazil-data-cube/lccs-db/issues/124>`_).
+- Bug Fix: migration value too long for type character varying(32) (`#125 <https://github.com/brazil-data-cube/lccs-db/issues/125>`_).
+- Update Python version (`#126 <https://github.com/brazil-data-cube/lccs-db/issues/126>`_).
+
 
 Version 0.8.1 (2022-07-20)
 --------------------------
