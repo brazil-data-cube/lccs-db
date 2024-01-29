@@ -19,6 +19,16 @@
 Changes
 =======
 
+Version 0.8.2 (2024-01-29)
+--------------------------
+
+- Change license to GPLv3 (`#120 <https://github.com/brazil-data-cube/lccs-db/issues/120>`_).
+- Change class name character limit to 64 (`#122 <https://github.com/brazil-data-cube/lccs-db/issues/122>`_).
+- Bug Fix: type "hstore" does not exist in migration (`#124 <https://github.com/brazil-data-cube/lccs-db/issues/124>`_).
+- Bug Fix: migration value too long for type character varying(32) (`#125 <https://github.com/brazil-data-cube/lccs-db/issues/125>`_).
+- Update Python version (`#126 <https://github.com/brazil-data-cube/lccs-db/issues/126>`_).
+
+
 Version 0.8.1 (2022-07-20)
 --------------------------
 
